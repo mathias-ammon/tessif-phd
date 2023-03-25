@@ -1,0 +1,7 @@
+Memory [MB],cllp,fine,ppsa,omf
+reading,3.0,3.0,3.0,3.0
+parsing,1.0,1.0,1.0,1.0
+transformation,62.0,16.0,3.0,1.0
+optimization,3984.0,979.0,707.0,690.0
+post_processing,36.0,18.0,13.0,15.0
+result,4087.0,1017.0,727.0,710.0

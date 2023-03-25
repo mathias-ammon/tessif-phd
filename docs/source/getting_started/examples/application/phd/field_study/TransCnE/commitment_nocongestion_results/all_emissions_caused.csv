@@ -1,0 +1,39 @@
+,,cllp,fine,omf,ppsa
+BHKW,District Heating,8082.130979249999,3419.2283639999996,3419.2283639999996,3419.2283639999996
+BHKW,Low Voltage Grid,0.0,4662.902101,4662.902101,4662.902101
+Biogas,BHKW,0.0,0.0,0.0,0.0
+Biogas plant,Biogas,0.0,0.0,0.0,0.0
+Coal Supply,Coal Supply Line,0.0,0.0,0.0,0.0
+Coal Supply Line,HKW,0.0,0.0,0.0,0.0
+Coal Supply Line,HKW2,0.0,0.0,0.0,0.0
+Deficit Source HV,High Voltage Grid,0.0,0.0,0.0,0.0
+Deficit Source LV,Low Voltage Grid,13928.771999999999,13928.771999999999,13928.771999999999,13928.771999999999
+Deficit Source MV,Medium Voltage Grid,0.0,0.0,0.0,0.0
+District Heating,District Heating Demand,0.0,0.0,0.0,0.0
+Gas Station,Gaspipeline,0.0,0.0,0.0,
+Gaspipeline,GuD,0.0,0.0,0.0,
+GuD,High Voltage Grid,43120.09251,43120.09251,43120.09251,43120.09251
+HKW,District Heating,294890.337582,173346.57915,173346.57915,173346.57915
+HKW,High Voltage Grid,0.0,121543.75843199999,121543.75843199999,121543.75843199999
+HKW2,High Voltage Grid,122738.09414399999,122738.09414399999,122738.09414399999,122738.09414399999
+High Medium Transfer,Medium Voltage Grid,0.0,0.0,0.0,0.0
+High Voltage Grid,Excess Sink HV,0.0,0.0,0.0,0.0
+High Voltage Grid,High Medium Transfer,0.0,0.0,0.0,0.0
+Low Medium Transfer,Medium Voltage Grid,0.0,0.0,0.0,0.0
+Low Voltage Grid,Commercial Demand,0.0,0.0,0.0,0.0
+Low Voltage Grid,Excess Sink LV,0.0,0.0,0.0,0.0
+Low Voltage Grid,Household Demand,0.0,0.0,0.0,0.0
+Low Voltage Grid,Low Medium Transfer,0.0,0.0,0.0,0.0
+Medium High Transfer,High Voltage Grid,0.0,0.0,0.0,0.0
+Medium Low Transfer,Low Voltage Grid,0.0,0.0,0.0,0.0
+Medium Voltage Grid,Car charging Station,0.0,0.0,0.0,0.0
+Medium Voltage Grid,Excess Sink MV,0.0,0.0,0.0,0.0
+Medium Voltage Grid,Industrial Demand,0.0,0.0,0.0,0.0
+Medium Voltage Grid,Medium High Transfer,0.0,0.0,0.0,0.0
+Medium Voltage Grid,Medium Low Transfer,0.0,0.0,0.0,0.0
+Medium Voltage Grid,Power to Heat,0.0,0.0,0.0,0.0
+Offshore Wind Power,High Voltage Grid,0.0,0.0,0.0,0.0
+Onshore Wind Power,Medium Voltage Grid,0.0,0.0,0.0,0.0
+Power to Heat,District Heating,0.0,0.0,0.0,0.0
+Solar Panel,Low Voltage Grid,0.0,0.0,0.0,0.0
+Solar Thermal,District Heating,0.0,0.0,0.0,0.0

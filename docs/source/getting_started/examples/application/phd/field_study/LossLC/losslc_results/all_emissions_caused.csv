@@ -1,0 +1,33 @@
+,,cllp,fine,omf,ppsa
+BHKW,District Heating,0.0,1012.05222,1012.05222,1012.05222
+BHKW,Low Voltage Grid,3384.8142509999993,1380.1659300000001,1380.1659300000001,1380.1659300000001
+Biogas,BHKW,0.0,0.0,0.0,0.0
+Biogas plant,Biogas,0.0,0.0,0.0,0.0
+Coal Supply,Coal Supply Line,0.0,0.0,0.0,0.0
+Coal Supply Line,HKW,0.0,0.0,0.0,0.0
+Coal Supply Line,HKW2,0.0,0.0,0.0,0.0
+District Heating,District Heating Demand,0.0,0.0,0.0,0.0
+Gas Station,Gaspipeline,0.0,0.0,0.0,
+Gaspipeline,GuD,0.0,0.0,0.0,
+GuD,High Voltage Grid,39226.987008000004,41063.890626,41063.890626,41063.890626
+HKW,District Heating,0.0,174093.14315,174093.14315,174093.14315
+HKW,High Voltage Grid,293300.94949299993,122067.219552,122067.219552,122067.219552
+HKW2,High Voltage Grid,105654.25329599998,103542.68447999998,103542.68447999998,103542.68447999998
+High Voltage Grid,High Voltage Transfer Grid,0.0,0.0,0.0,0.0
+High Voltage Transfer Grid,High Voltage Grid,0.0,0.0,0.0,0.0
+High Voltage Transfer Grid,Medium Voltage Grid,0.0,0.0,0.0,0.0
+Low Voltage Grid,Commercial Demand,0.0,0.0,0.0,0.0
+Low Voltage Grid,Household Demand,0.0,0.0,0.0,0.0
+Low Voltage Grid,Low Voltage Transfer Grid,0.0,0.0,0.0,0.0
+Low Voltage Transfer Grid,Low Voltage Grid,0.0,0.0,0.0,0.0
+Low Voltage Transfer Grid,Medium Voltage Grid,0.0,0.0,0.0,0.0
+Medium Voltage Grid,Car charging Station,0.0,0.0,0.0,0.0
+Medium Voltage Grid,High Voltage Transfer Grid,0.0,0.0,0.0,0.0
+Medium Voltage Grid,Industrial Demand,0.0,0.0,0.0,0.0
+Medium Voltage Grid,Low Voltage Transfer Grid,0.0,0.0,0.0,0.0
+Medium Voltage Grid,Power to Heat,0.0,0.0,0.0,0.0
+Offshore Wind Power,High Voltage Grid,0.0,0.0,0.0,0.0
+Onshore Wind Power,Medium Voltage Grid,0.0,0.0,0.0,0.0
+Power to Heat,District Heating,0.0,0.0,0.0,0.0
+Solar Panel,Low Voltage Grid,0.0,0.0,0.0,0.0
+Solar Thermal,District Heating,0.0,0.0,0.0,0.0

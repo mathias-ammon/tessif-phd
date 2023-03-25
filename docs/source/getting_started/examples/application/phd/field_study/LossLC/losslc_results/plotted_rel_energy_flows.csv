@@ -1,0 +1,7 @@
+,,cllp,fine,omf,ppsa
+BHKW,District Heating,1.41,1.0,1.0,1.0
+BHKW,Low Voltage Grid,1.41,1.0,1.0,1.0
+Biogas,BHKW,1.41,1.0,1.0,1.0
+Biogas plant,Biogas,1.41,1.0,1.0,1.0
+Gas Station,Gaspipeline,0.96,1.0,1.0,0.0
+Gaspipeline,GuD,0.96,1.0,1.0,0.0

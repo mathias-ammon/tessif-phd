@@ -1,0 +1,15 @@
+Parameter,Tessif,PyPSA
+Component,Storage,StorageUnit
+Identifier,Uid,name
+Connecting Input(s),input,bus
+Connecting Output(s),output,
+Installed Storage Capacity,capacity,max_hours * p_nom
+Initial State of Charge,initial_soc,state_of_charge_initial
+Final State of Charge,final_soc,
+Cyclic State of Charge,initial_soc = final_soc,cyclic_state_of_charge
+Idle Positive Changes in State of Charge,idle_changes.positive,inflow
+Idle Negative Changes in State of Charge,idle_changes.negative,standing_loss
+Energy Flow Specific Charge Efficiencies,flow_efficiencies,efficiency_store
+Energy Flow Specific Discharge Efficiencies,flow_efficiencies,efficiency_dispatch
+Energy Flow Specific Flow Cost,flow_costs,marginal_cost
+Energy Flow Specific Emissions,flow emissions,

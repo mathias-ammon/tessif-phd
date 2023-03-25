@@ -1,0 +1,30 @@
+,,cllp,fine,omf,ppsa
+Battery,Powerline,0.0,0.0,0.0,0.0
+Biogas CHP,Heatline,0.0,0.0,0.0,0.0
+Biogas CHP,Powerline,0.0,0.0,0.0,0.0
+Biogas Line,Biogas CHP,0.0,0.0,0.0,0.0
+Biogas Supply,Biogas Line,0.0,0.0,0.0,0.0
+Combined Cycle PP,Powerline,11182.171,11182.171,11182.171,11182.171
+Gas Line,Combined Cycle PP,0.0,0.0,0.0,
+Gas Line,Heat Plant,0.0,0.0,0.0,
+Gas Station,Gas Line,0.0,0.0,0.0,
+Hard Coal CHP,Heatline,0.0,66426.8886,66425.66279999999,66425.66279999999
+Hard Coal CHP,Powerline,952104.0908000001,885691.8480000001,885675.504,885675.504
+Hard Coal PP,Powerline,1616762.12,1656145.816,1655837.304,1680596.9600000002
+Hard Coal Supply,Hard Coal Supply Line,0.0,0.0,0.0,0.0
+Hard Coal Supply Line,Hard Coal CHP,0.0,0.0,0.0,0.0
+Hard Coal Supply Line,Hard Coal PP,0.0,0.0,0.0,
+Heat Plant,Heatline,2322.8758,2322.7815,2322.7815,2322.7815
+Heat Storage,Heatline,0.0,0.0,0.0,0.0
+Heatline,Heat Demand,0.0,0.0,0.0,0.0
+Heatline,Heat Storage,0.0,0.0,0.0,0.0
+Lignite Power Plant,Powerline,4132599.85,4132574.08,4132599.85,4132599.85
+Lignite Supply,Lignite Supply Line,0.0,0.0,0.0,
+Lignite Supply Line,Lignite Power Plant,0.0,0.0,0.0,
+Offshore Wind Turbine,Powerline,0.0,0.0,0.0,0.0
+Onshore Wind Turbine,Powerline,41626.6544,41626.7612,41626.6544,41626.6544
+Power To Heat,Heatline,0.0,0.0,0.0,0.0
+Powerline,Battery,0.0,0.0,0.0,0.0
+Powerline,El Demand,0.0,0.0,0.0,0.0
+Powerline,Power To Heat,0.0,0.0,0.0,0.0
+Solar Panel,Powerline,21778.704,19317.393,19336.675,17789.196500000002

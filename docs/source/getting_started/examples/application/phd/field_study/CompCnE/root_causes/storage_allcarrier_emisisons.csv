@@ -1,0 +1,12 @@
+Carrier,co2_emissions,color,nice_name,max_growth
+Battery.carrier,0.06,,,inf
+Solar Panel.carrier,0.05,,,inf
+Onshore Wind Turbine.carrier,0.02,,,inf
+Offshore Wind Turbine.carrier,0.02,,,inf
+Hard Coal Supply.carrier,0.3440000000000001,,,inf
+Biogas Supply.carrier,0.109375,,,inf
+Combined Cycle PP.carrier,0.21,,,inf
+Hard Coal PP.carrier,0.34400000000000003,,,inf
+Lignite Power Plant.carrier,0.4,,,inf
+Heat Plant.carrier,0.20700000000000002,,,inf
+Power To Heat.carrier,0.000693,,,inf

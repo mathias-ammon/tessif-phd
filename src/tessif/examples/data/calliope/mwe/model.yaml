@@ -1,0 +1,33 @@
+import:  # Import files (path relative to model file)
+
+- model_config/locations.yaml  # models technologies
+
+- model_config/techs.yaml  # models locations
+
+# Model configuration: all settings that affect the built model
+model:
+
+  name: Minimum_Working_Example
+
+  calliope_version: 0.6.6-post1
+
+  timeseries_data_path: timeseries_data
+
+  subset_time:
+  - '1990-07-13 00:00:00'
+  - '1990-07-13 03:00:00'
+
+group_constraints:
+
+  systemwide_emission_cap:
+    cost_max:
+      emissions:
+
+run:
+
+  solver: cbc
+
+  cyclic_storage: false
+
+  objective_options.cost_class:
+    monetary: 1

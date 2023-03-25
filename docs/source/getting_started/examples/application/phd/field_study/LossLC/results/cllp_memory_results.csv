@@ -1,0 +1,7 @@
+Memory [MB],cllp
+reading,1.0
+parsing,0.0
+transformation,34.0
+optimization,16.0
+post_processing,21.0
+result,72.0

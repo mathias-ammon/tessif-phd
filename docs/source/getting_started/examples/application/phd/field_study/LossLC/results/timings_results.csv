@@ -1,0 +1,7 @@
+Time [s],cllp,fine,ppsa,omf
+reading,0.6,0.5,0.4,0.4
+parsing,0.5,0.5,0.4,0.4
+transformation,3.0,0.3,0.8,0.0
+optimization,2.4,1.0,0.7,0.6
+post_processing,6.5,1.1,0.7,0.8
+result,12.9,3.4,3.0,2.4

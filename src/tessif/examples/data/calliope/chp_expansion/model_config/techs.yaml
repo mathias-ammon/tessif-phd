@@ -1,0 +1,145 @@
+techs:
+
+  Power Demand:
+    essentials:
+      name: Power Demand.None.None.None.None
+      parent: demand
+      carrier: electricity
+    constraints:
+      energy_con: true
+      resource_unit: energy
+      resource: file=Power Demand.csv:Power Demand
+      force_resource: true
+    costs:
+      monetary:
+        om_con: 0.0
+      emissions:
+        om_con: 0.0
+
+  Heat Demand:
+    essentials:
+      name: Heat Demand.None.None.None.None
+      parent: demand
+      carrier: heat
+    constraints:
+      energy_con: true
+      resource_unit: energy
+      resource: file=Heat Demand.csv:Heat Demand
+      force_resource: true
+    costs:
+      monetary:
+        om_con: 0.0
+      emissions:
+        om_con: 0.0
+
+  Gas Source:
+    essentials:
+      name: Gas Source.None.None.None.None
+      parent: supply
+      carrier_out: gas
+    constraints:
+      energy_prod: true
+      resource: inf
+      resource_unit: energy
+      energy_cap_min: 0
+      energy_cap_max: .inf
+      energy_cap_min_use: 0
+      energy_eff: 1
+      energy_ramping: true
+    costs:
+      monetary:
+        om_prod: 0.0
+      emissions:
+        om_prod: 0.0
+
+  Backup Power:
+    essentials:
+      name: Backup Power.None.None.None.None
+      parent: supply
+      carrier_out: electricity
+    constraints:
+      energy_prod: true
+      resource: inf
+      resource_unit: energy
+      energy_cap_min: 0
+      energy_cap_max: .inf
+      energy_cap_min_use: 0
+      energy_eff: 1
+      energy_ramping: true
+    costs:
+      monetary:
+        om_prod: 1000
+      emissions:
+        om_prod: 0.0
+
+  Backup Heat:
+    essentials:
+      name: Backup Heat.None.None.None.None
+      parent: supply
+      carrier_out: heat
+    constraints:
+      energy_prod: true
+      resource: inf
+      resource_unit: energy
+      energy_cap_min: 0
+      energy_cap_max: .inf
+      energy_cap_min_use: 0
+      energy_eff: 1
+      energy_ramping: true
+    costs:
+      monetary:
+        om_prod: 1000
+      emissions:
+        om_prod: 0.0
+
+  CHP:
+    essentials:
+      name: CHP.None.None.None.None
+      parent: conversion_plus
+      carrier_in: gas
+      carrier_out: electricity
+      primary_carrier_out: electricity
+      carrier_out_2: heat
+    constraints:
+      energy_con: true
+      energy_prod: true
+      carrier_ratios.carrier_out_2.heat: 0.8
+      energy_eff: 0.5
+      energy_cap_max: 8
+      energy_cap_min: 0
+      energy_ramping: true
+      lifetime: 0.00045662100456621003
+    costs:
+      monetary:
+        om_prod: 1
+        energy_cap: 1
+        interest_rate: 0
+      emissions:
+        om_prod: 1
+
+  gas transmission:
+    essentials:
+      name: gas transmission
+      parent: transmission
+      carrier: gas
+    constraints:
+      energy_eff: 1
+      one_way: true
+
+  electricity transmission:
+    essentials:
+      name: electricity transmission
+      parent: transmission
+      carrier: electricity
+    constraints:
+      energy_eff: 1
+      one_way: true
+
+  heat transmission:
+    essentials:
+      name: heat transmission
+      parent: transmission
+      carrier: heat
+    constraints:
+      energy_eff: 1
+      one_way: true

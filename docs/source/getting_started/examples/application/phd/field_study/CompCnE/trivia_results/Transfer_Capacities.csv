@@ -1,0 +1,19 @@
+Nodes,omf
+Battery,100.0
+Biogas CHP,
+Biogas Supply,0.0
+Combined Cycle PP,600.0
+El Demand,859.0
+Gas Station,0.0
+Hard Coal CHP,
+Hard Coal PP,500.0
+Hard Coal Supply,271.0
+Heat Demand,108.0
+Heat Plant,450.0
+Heat Storage,50.0
+Lignite Power Plant,500.0
+Lignite Supply,858.0
+Offshore Wind Turbine,150.0
+Onshore Wind Turbine,1100.0
+Power To Heat,100.0
+Solar Panel,1100.0

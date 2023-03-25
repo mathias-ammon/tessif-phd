@@ -1,0 +1,108 @@
+locations:
+
+  Gas Grid:
+    coordinates:
+      lat: 0.0
+      lon: 0.0
+
+  Powerline:
+    coordinates:
+      lat: 0.0
+      lon: 0.0
+
+  Heat Grid:
+    coordinates:
+      lat: 0.0
+      lon: 0.0
+
+  Power Demand location:
+    coordinates:
+      lat: 0.0
+      lon: 0.0
+    techs:
+      Power Demand:
+
+  Heat Demand location:
+    coordinates:
+      lat: 0.0
+      lon: 0.0
+    techs:
+      Heat Demand:
+
+  Gas Source location:
+    coordinates:
+      lat: 0.0
+      lon: 0.0
+    techs:
+      Gas Source:
+
+  Backup Power location:
+    coordinates:
+      lat: 0.0
+      lon: 0.0
+    techs:
+      Backup Power:
+
+  Backup Heat location:
+    coordinates:
+      lat: 0.0
+      lon: 0.0
+    techs:
+      Backup Heat:
+
+  CHP location:
+    coordinates:
+      lat: 0.0
+      lon: 0.0
+    techs:
+      CHP:
+
+links:
+
+  Gas Source location,Gas Grid:
+    techs:
+      gas transmission:
+        constraints:
+          one_way: true
+
+  Gas Grid,CHP location:
+    techs:
+      gas transmission:
+        constraints:
+          one_way: true
+
+  CHP location,Powerline:
+    techs:
+      electricity transmission:
+        constraints:
+          one_way: true
+
+  Backup Power location,Powerline:
+    techs:
+      electricity transmission:
+        constraints:
+          one_way: true
+
+  Powerline,Power Demand location:
+    techs:
+      electricity transmission:
+        constraints:
+          one_way: true
+
+  Backup Heat location,Heat Grid:
+    techs:
+      heat transmission:
+        constraints:
+          one_way: true
+
+  CHP location,Heat Grid:
+    techs:
+      heat transmission:
+        constraints:
+          one_way: true
+
+  Heat Grid,Heat Demand location:
+    techs:
+      heat transmission:
+        constraints:
+          one_way: true

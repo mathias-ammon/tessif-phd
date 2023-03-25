@@ -1,0 +1,9 @@
+Load-High Voltage Grid [MW],cllp,fine,omf,ppsa
+Deficit Source HV,0,0,0,0
+Excess Sink HV,0,0,0,0
+GuD,-128104,-128104,-128104,-128104
+HKW,-236650,-236650,-236650,-236650
+HKW2,-238976,-238976,-238976,-238976
+High Medium Transfer,913553,913553,913553,913553
+Medium High Transfer,0,0,0,0
+Offshore Wind Power,-309821,-309821,-309821,-309821

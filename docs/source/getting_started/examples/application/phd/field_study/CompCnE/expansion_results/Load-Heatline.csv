@@ -1,0 +1,8 @@
+Load-Heatline [MW],cllp,fine,omf,ppsa
+Biogas CHP,-83465,-83088,-83088,-1126470
+Hard Coal CHP,0,0,0,-5252800
+Heat Demand,1116162,1116162,1116162,1116162
+Heat Plant,0,0,0,0
+Heat Storage,-110220,-109928,-109928,0
+Heat Storage,136673,136245,136245,5263108
+Power To Heat,-1059150,-1059390,-1059390,0

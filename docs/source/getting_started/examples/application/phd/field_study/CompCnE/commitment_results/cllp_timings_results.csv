@@ -1,0 +1,7 @@
+Timings [s],cllp
+reading,0.2
+parsing,0.3
+transformation,8.3
+optimization,329.9
+post_processing,5.9
+result,344.5

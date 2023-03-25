@@ -1,0 +1,70 @@
+# calliope defaults are $ and kW, but since there is no conversion
+# any unit can be chosen as long as it is used consistent.
+# So defaults here are, just like in tessif, usually € and MW
+techs:
+
+  electricity_Demand:
+    essentials:
+      name: Demand
+      parent: demand
+      carrier: electricity
+    constraints:
+      energy_con: true
+      resource_unit: energy
+      resource: file=electricity_Demand.csv:electricity_Demand
+      force_resource: true
+
+  Gas Station:
+    essentials:
+      name: Gas Station
+      parent: supply
+      carrier_out: fuel
+    constraints:
+      resource: .inf
+      energy_ramping: true
+
+  Generator:
+    essentials:
+      name: Generator
+      parent: conversion
+      carrier_in: fuel
+      carrier_out: electricity
+    constraints:
+      energy_eff: 0.42
+      energy_ramping: true
+    costs:
+      monetary:
+        om_con: 0
+        om_prod: 2
+
+  Battery:
+    essentials:
+      name: Battery
+      parent: storage
+      carrier: electricity
+    constraints:
+      storage_cap_max: 20
+      energy_cap_min: 20
+      energy_cap_max: 20
+      energy_ramping: true
+      storage_cap_min: 20
+      storage_initial: 0.5
+    costs:
+      monetary:
+        om_prod: 0.1
+
+  fuel transmission:
+    essentials:
+      name: fuel transmission
+      parent: transmission
+      carrier: fuel
+    constraints:
+      one_way: true
+
+  electricity transmission:
+    essentials:
+      name: electricity transmission
+      parent: transmission
+      carrier: electricity
+    constraints:
+      one_way: true

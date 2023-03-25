@@ -1,0 +1,1036 @@
+#+STARTUP: hideblocks
+
+#+Title: Tessifs Hive Mind
+#+Author: Matze
+#+Date: 2020-05-17
+
+* Org Mode Playground
+
+** Drawers
+
+ Note: Currently not working
+   :test_drawer: 
+   what
+   :END:      
+
+   :hi:       
+   I am a drawer
+   :END:      
+
+** Literal Blocks
+#+BEGIN_EXAMPLE
+*Hello this is a sample text
+#+END_EXAMPLE
+
+** Python Source Codes
+
+*** Basic Example
+- C-c C-c to execute
+#+BEGIN_SRC python :results output
+for i in range(3):
+    print(i)
+#+END_SRC
+
+#+RESULTS:
+: 0
+: 1
+: 2
+
+*** Matplotlib
+C-c C-c to execute code
+#+begin_src python :session :results file
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+fig=plt.figure(figsize=(3,2))
+plt.plot([1,3,2])
+fig.tight_layout()
+plt.savefig('images/myfig.pdf')
+'images/myfig.pdf' # return this to org-mode
+#+end_src
+
+#+RESULTS:
+[[file:images/myfig.pdf]]
+C-c C-o to open it
+
+** Lists
+
+
+ * trying a list
+   - list
+   - what
+   - is that
+ * with several items
+   - what
+   - M-RET crates a new level entry
+   - [ ] M-S RET creates a new checkbox
+   - [X] checked checkbox archived by C-c C-c
+   - [ ]  
+     
+* Issues
+
+** timeseries data parsing asymetrie between omf and tsf
+
+*** Observations
+- Currently tessif/transform/mapping2es/omf.py expects the
+  Energy System Mapping (esm) for 'timeframe' to be an exel like pandas.DataFrame:
+
+- Tessif on the other hand expects the esm to have only timeindices
+  ('primary', 'secondary', ...) to be behind the 'timeframe' key whereas
+  the actual timeseries data is stored insdie the actual components 'timeseries'
+  key as in:
+  - src_python{'timeseries'={'fuel': (0, [20, 44, 40])}}
+  - taken from file:tessif/examples/tsf/cfg/flat/sources.cfg
+    
+*** Problem
+1)  currently omf.xlsx can not be parsed with file:tessif/parse.py 's xl_like
+    function
+*** Solution
+1) Change parse.xl_like behaviour so it generates a similar mapping as the others:
+   1. Parse the excel spreadsheet into the energy system mapping ('esm'):
+      #+BEGIN_SRC python :session parsing :results output
+      import pandas as pd
+      from tessif.frused.paths import example_dir
+      import os
+      p = os.path.join(
+        example_dir, 'omf', 'xlsx', 'generic_storage.ods')
+      esm = pd.read_excel(io=p, sheet_name=None, skiprows=(0, 1, 2), engine='odf')
+      
+      print(esm['Demand'].loc[
+          esm['Demand']['name'] == 'Power Demand']['actual_value'])
+      #+END_SRC 
+
+      #+RESULTS:
+      : 
+      : >>> >>> ... >>> >>> ... 0    1
+      : Name: actual_value, dtype: int64
+
+   2. Extract the timeframe dataframe ('timeframe_df') allowing for spelling variatoins:
+      #+BEGIN_SRC python :session parsing :results output
+      from tessif.frused import spellings
+      tf_key = [variant for variant in spellings.timeframe
+          if variant in esm.keys()][0]
+
+      timeframe_df = esm.pop(tf_key)
+      print(timeframe_df)
+      #+END_SRC
+
+      #+RESULTS:
+      : 
+      : ... >>> >>> >>>                      primary                  secondary  Power Demand.actual_value
+      : 0 2016-01-01 00:00:00.000000 2017-01-01 00:00:00.000000                        1.0
+      : 1 2016-01-01 01:00:00.000003 2017-01-01 00:59:59.999999                        1.0
+      : 2 2016-01-01 01:59:59.999997 2017-01-01 01:59:59.999999                        0.7
+      : 3 2016-01-01 03:00:00.000000 2017-01-01 02:59:59.999998                        1.0
+      : 4 2016-01-01 03:59:59.999994 2017-01-01 03:59:59.999998                        1.0
+
+   3. Iterate through each timeseries requestment and compare it to each
+      component of each component type to fill in the apropriate series
+      - Transform 'timeframe'-sheet[{name}{timeseries_seperator}{parameter} to
+      - esm[component_type][component_name]['timeseries'] = {parameter: series}
+      - esm[component_type][component_name]['timeseries'] to 'None'
+
+      #+BEGIN_SRC python :session parsing :results output
+      from tessif.frused import configurations
+      from tessif.frused.defaults import energy_system_nodes as esn
+
+      for column_header in timeframe_df.columns:
+      for component_type, components_df in esm.copy().items():
+      # default timeseries 
+      if component_type not in spellings.timeframe:
+      components_df['timeseries'] = esn['timeseries']
+      for row, component in components_df.iterrows():
+      component_name = spellings.get_from(
+      component, smth_like='name', dflt=esn['name'])
+      if column_header.split(configurations.timeseries_seperator)[
+      0] == component_name:
+      # yes there is so create a timeseries mapping:
+      # value to replace (min/max/actual)
+      represented_value = column_header.split(
+      configurations.timeseries_seperator)[1]
+      series = list(timeframe_df[column_header])
+      esm[component_type].loc[
+      esm[component_type]['name']==component_name,
+      'timeseries'] = {str(represented_value): series}
+
+      print('\n', esm['Demand']['timeseries'])
+      #+END_SRC
+      
+      #+RESULTS:
+      : 
+      : >>> >>> ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... >>> 
+      :  0    {'actual_value': [1.0, 1.0, 0.7, 1.0, 1.0]}
+      : Name: timeseries, dtype: object
+
+   4. Check the results
+      #+BEGIN_SRC python :session parsing :results output
+      print(esm['Demand'].loc[
+          esm['Demand']['name'] == 'Power Demand', 'timeseries'])
+      #+END_SRC
+
+      #+RESULTS:
+      : 
+      : 0    {'actual_value': [1.0, 1.0, 0.7, 1.0, 1.0]}
+      : Name: timeseries, dtype: object
+
+2) Change file:tessif/transform/mapping2es/omf.py 's parse_timeseries function:
+
+   1. Silence the debugger for a second
+      #+begin_src python :session transforming1
+      from tessif.frused import configurations
+      configurationttpuus.spellings_logging_level = 'debug'
+      #+end_src
+
+      #+RESULTS:
+
+   2. Parse the excel spreadsheet into the energy system mapping (esm)
+      #+BEGIN_SRC python :session transforming1 :results output
+      import pandas as pd
+      from tessif.frused.paths import example_dir
+      import tessif.parse as parse
+      import os
+      p = os.path.join(
+          example_dir, 'omf', 'xlsx', 'generic_storage.ods')
+      esm = parse.xl_like(
+          io=os.path.join(
+              example_dir, 'omf', 'xlsx', 'generic_storage.ods'),
+          engine='odf')
+      es_object=esm['Demand'].loc[
+          esm['Demand']['name'] == 'Power Demand'].squeeze()
+      print()
+      print(es_object)
+      #+END_SRC 
+
+      #+RESULTS:
+      #+begin_example
+
+      >>> >>> >>> ... >>> ... ... ... >>> ... >>>
+      name                                                Power Demand
+      sector                                                      Heat
+      latitude                                                 53.4602
+      longitude                                                9.96842
+      region                                                   Germany
+      active                                                         1
+      connection_in                                         Power Grid
+      carrier                                              Electricity
+      ideal                                                          0
+      nominal_value                                                200
+      variable_costs                                                 0
+      min                                                            1
+      max                                                            1
+      positive_gradient                                              1
+      negative_gradient                                              1
+      timeseries           {'actual_value': [1.0, 1.0, 0.7, 1.0, 1.0]}
+      fixed                                                          1
+      actual_value                                                   1
+      investment                                                     0
+      maximum                                                        0
+      minimum                                                        0
+      ep_costs                                                       0
+      existing                                                       0
+      nonconvex                                                      0
+      startup_costs                                                  0
+      shutdown_costs                                                 0
+      minimum_uptime                                                 1
+      minimum_downtime                                               1
+      initial_status                                                 1
+      Name: 0, dtype: object
+#+end_example
+
+   3. Parse the timeseries correctly
+      #+begin_src python :session transforming1 :results output
+      import tessif.transform.mapping2es.omf
+      
+      def pt(component):         
+         return component['timeseries']
+
+      omf.parse_timeseries = pt
+      parsed_timeseries = omf.parse_timeseries(
+          component=es_object)
+      print()
+      print(parsed_timeseries)
+      #+end_src
+
+      #+RESULTS:
+      : 
+      : >>> ... ... >>> >>> ... >>>
+      : {'actual_value': [1.0, 1.0, 0.7, 1.0, 1.0]}
+
+*** Verification
+1) Parsing the excel spreadsheet correctly:
+
+   #+BEGIN_SRC python :results output
+   from tessif import parse
+   from tessif.frused.paths import example_dir
+   import os
+
+   esm = parse.xl_like(
+       io=os.path.join(
+           example_dir, 'omf', 'xlsx', 'generic_storage.ods'),
+       engine='odf')
+
+   print('actual_value:' , esm['Demand']['actual_value'].iloc[0], '\n')
+   print('timeseries:\n', esm['Demand']['timeseries'])
+   #+END_SRC
+
+   #+RESULTS:
+   #+begin_example
+                      timeindex
+   0 2016-01-01 00:00:00.000000
+   1 2016-01-01 01:00:00.000003
+   2 2016-01-01 01:59:59.999997
+   3 2016-01-01 03:00:00.000000
+   4 2016-01-01 03:59:59.999994
+   actual_value: 1 
+
+   timeseries:
+    0    {'actual_value': [1.0, 1.0, 0.7, 1.0, 1.0]}
+   Name: timeseries, dtype: object
+   #+end_example
+
+   Result must be:
+   : actual_value: 1 
+   : 
+   : timeseries:
+   :  0    {'actual_value': [1.0, 1.0, 0.7, 1.0, 1.0]}
+   : Name: timeseries, dtype: object
+
+2) Transform the mapping correctly:
+   #+BEGIN_SRC python :results output
+   from tessif import simulate
+   from tessif.transform.es2mapping import omf
+   from tessif.frused.paths import example_dir
+   from tessif import parse
+   import os
+   import functools
+   es = simulate.omf(
+        path=os.path.join(
+            example_dir, 'omf', 'xlsx', 'generic_storage.ods'),
+        parser=functools.partial(parse.xl_like, sheet_name=None,
+                                 engine='odf'),
+        solver='glpk'
+   )
+
+   print(omf.StorageResultier(es).node_soc['Storage'])
+   #+END_SRC
+
+   #+RESULTS:
+   : 2016-01-01 00:00:00     49.000000
+   : 2016-01-01 01:00:00     97.951000
+   : 2016-01-01 02:00:00    205.653049
+   : 2016-01-01 03:00:00    254.447396
+   : 2016-01-01 04:00:00    303.192949
+   : Freq: H, Name: Storage, dtype: float64
+
+   Result must be:
+   #+begin_example
+   2016-01-01 00:00:00     49.000000
+   2016-01-01 01:00:00     97.951000
+   2016-01-01 02:00:00    205.653049
+   2016-01-01 03:00:00    254.447396
+   2016-01-01 04:00:00    303.192949
+   Freq: H, Name: Storage, dtype: float64
+   #+end_example
+* Thesis
+** PHD
+*** Structure
+1) Introduction
+2) Theory
+   1. Energy Supply System Simulation (E3S)
+      - General Explanation
+      - Currently used free open source software (FOSS) tools
+
+   2. Case studies using FOSS E2S tools
+   3. Developed Component Verificaiton
+   4. Developed  Benchmark Scenarios
+      - Perfect Grid - Component Dispatch Optimization
+      - Perfect Grid - Energy Supply System Expansion Problem
+      - Loss-Affected Grid - Dispatch Optimization
+      - Loss-Affected Grid - Expansion Problem
+   5. Developed Comparative Methodology
+      - Computational Comparison
+        * Computational Time
+        * Used Memory
+        * Scaleability
+      - Technical Comparision
+        * Global Costs
+        * Global Emissions
+        * Difference in load distribution (chart)
+        * Difference Exagerating Graph View
+
+** Developing an Energy System Component Verification Methodology BA1
+*** Title
+     Developing a method for verifying energy supply system simulation model components implemented in python.
+*** Overall Workflow
+1) Research
+   1. What is an energy supply system simulation
+   2. Foss tools like oemof and pypsa
+   3. Existing component verifications (probably none)
+2) Verification Scenario Development (see [[Verification Scenarios]] below)
+3) Programing
+   - Learning
+     1. Very basics of python
+        - YouTube
+        - Blogs
+        - Library books
+     2. Tessif
+        - Installation
+        - Documentation
+        - Examples     
+   - Coding
+     1. Use or copy and modify visualize.component.response for comparing
+        input(=demand) and component response (=load)
+     2. Code the Verificier
+        (See [[Programatic Tasks BAver]])
+     3. Write a documentation file in docs/source/examples/scenarios.rst
+        (See [[Programatic Tasks BAver]])
+4) Write the thesis (see [[Thesis Structure BAver]])
+*** Programatic Tasks BAver
+1) Create 5x3 energy system data sets according to the verification methodology
+   - Sets:
+     * Sinks, Sources, Connectors, Transformers, Storages
+     * Linear, Milp, Expansion
+   - Location:
+     examples/application/verification/
+2) Finish Coding Verificier
+   - Location:
+     * tessif/examples/application/verification.py
+     * tessif.analyze.Verificier
+   - Parameters:
+     * top_level_folder
+       + string representing the location of the tessif energy system data sets
+
+         
+         For example:
+             example_dir = tessif.frused.paths.example_dir
+             components = ('sink', 'source', 'connector', 'transformer', 'storage')
+             constraints = ('linear', 'milp', 'expansion')
+
+             paths = []
+             for component in components:
+                 for constraint_type in constraints:
+                   paths.append(
+                       os.path.join(example_dir, 'application', 'omf', component, constraint_type)
+     * parser
+       + callable performing the data read in and parsing
+
+         Usually one of the functions found in tessif.parse
+
+         Use functools.partial for parameterization:
+
+         parser=functools.partial(
+             tessif.parse.xl_like, 
+             engine='odf'),
+           
+     * transformer
+       + callable performing the transformation. i.e:
+
+          transfromer=tessif.transformation.es2es.omf.transform
+
+     * simulatier
+       + callabe performing the simulation. Usually one of the simulation
+         wrappers found in tessif.simulate
+
+         Use functools.partial for parameterization:
+
+         simulatier=functools.partial(
+             tessif.simulate.oemof_from_es,
+             solver='glpk')
+
+         (This is part of the documentation and an example how to be used)
+
+     * resultier
+       + callable performing the result extraction. Usually one of the LoadResultiers found
+         in tessif.transform.es2mapping. For example:
+
+         resultier=tessif.transform.es2mapping.omf.LoadResultier
+
+     * components, dflt=['sink', 'source', 'transformer', 'connector', 'storage']
+       + collection of strings representing the components as well as the folder structure of the es sets
+
+     * constraints, dflt=['linear', 'milp', 'expansion']
+       + collection of strings representing the constraint types as well as the es sets
+     
+     * Attributes:
+       * result dict for components
+         inlcuding result dataframe and verification plot figures as in:
+
+         results = {'sinks': {'data': {'linear': pandas.DataFrame, 'milp': pandas.DataFrame, 'expansion': pandas.DataFrame}, 
+                              'figs': {'linear': matplotlib.figure.Figure, ...}},
+                    'sources': ...
+     * Concept: (this is all done in the __init__ function)
+       1. Perform simulation according to simulatier
+       2. Create results dict
+          for component_number, component in enumerate(components):
+              for constraint in constriants:
+                  if not constraint == 'expansion':
+                      result_data[component][constraint] = load_resultier(es)[col if component in col, 'demand']
+                  else:
+                     result_data[component][constraint] = capacity_resultier(es)[col if component in col]
+
+       3. Create using the results dict
+       4. Create the figures using tessif.visualize.component.response or your own plotting engine
+        
+3) Write Documentation (docs/source/api/examples/application/verification.rst)
+   1. Brief first words (similar to every other tessif module)
+   2. Table of contents
+      - ..contents:: Contents
+   3. Introduction (specific introduction part of thesis)
+   4. Components (Condensed reults section of the thesis)
+      - Sinks
+      - Sources
+      - Connectors
+      - Transfomers
+      - Storages
+       
+      each including a diagram showing:
+      - the energy system
+      - linear dispatch
+      - mixed integer linear dispatch
+      - expansion
+
+   5. Verificier (auto generated)
+*** Thesis Structure BAver
+  1) Introduction
+  2) Theory
+     1. Identified Components for Verification
+        - Sinks/Sources
+        - Transformers
+        - Connectors
+        - Storages
+     2. <<Verification Scenarios>>
+        - 2 to 3 components of same type and switching back and forth depending on parameters
+        - Linear Dispatch
+          + On/Off/Flow Rates/Accumulated Amount
+          + Gradient and Gradient cost Switching
+        - Mixed Integer Linear Dispatch
+          + Initial Status/Status Inertia/Activity Costs/
+          + Number of status changes/status changing costs
+        - Expansion
+          + Expanding cheaper component
+          + Expand lower emission component to reach emission objective
+  3) Examplary Verification (of oemofs energy system components)
+     - Oemof components via tessif transformation for possible upscaling
+  4) Conclusion
+     - Successful developement of a verification process for energy supply
+       system simulation components
+     - No obvious/some obvious contradictions found
+  5) Outlook
+     - Once developed verifying components from additional models possible without any additonal coding
+       - upscaling
+     - Developing additional verification scenarios
+       - Coupling expandaple parameters for storage expansion
+
+** Developing Benchmark Scenarios MTbs
+
+*** Overall Workflow
+1) Research
+   1. What is an energy supply system simulation
+   2. Foss tools like oemof and pypsa
+   3. Case studies using oemof, pypsa and other (foss) tools
+   4. Read computational/technical comparison method
+2) Scenario Development (see [[Benchmark Scenarios]])
+3) Programing
+   - Learning
+     1. Very basics of python
+        - YouTube
+        - Blogs
+        - Library books
+     2. Tessif
+        - Installation
+        - Documentation
+        - Examples     
+   - Coding
+     1. Use or copy and modify visualize.compare.loads for comparing
+        load distribution data
+     2. Use or copy and modify visualize.compare.bar for comparing
+        computational/technical parameters
+   - 3. Finish script in examples.application.scenarios
+        using examples.application.comparison.Comparatier
+        (See [[Programatic Tasks MTbs]])
+   - 4. Finish writing a documentation file in docs/source/examples/scenarios.rst
+        (See [[Programatic Tasks MTbs]])
+4) Write the thesis (see [[Thesis Structure MTbs]])
+
+*** Programatic Tasks MTbs
+1) Create scenarios using Excel
+2) Finish coding the Comparatier class and the scenarios.py script
+   - Location:
+     * examples.application.comparison.Comparatier
+     * examples.application.scenarios
+   - Parameters:
+     * path
+       + location the tsf parsable energy system data resides
+     * <<models>>
+       + collection of strings naming the models to compare, i.e.
+         ['tessif', 'oemof', 'pypsa']
+   - <<Attributes>>:
+     * nxgraph
+       + networkx.Graph representing the scenario
+     * graph_chart
+       + plotted nxgraph
+     * dif_chart(component_name)
+       + load difference charts of timesteps (transformers/connectors) exceeding the threshold
+       + see visualize.compare.loads and [[Developing Visual Comparison Methods BAvc]]
+     * bar_chart
+       + see visualize.compare.bar
+       + compare technical and computational parameters
+         (costs, emisisons, cpu-time, memory, time scaling O(n^x), memory scaling O(n^y), ...)
+     * load_differences (optional?)
+       + dict of dicts of collection:
+         - {'model_name': {'component_name': load_data}}
+         - {'tessif': {'solar': [1, 2, 4, 2, 1]}}
+     * results
+       + pandasDataFrame:
+         - columns = methodology parameters (costs, emissions, ...)
+         - index/rows = models (tesisf, oemof, ...)
+     * energy_systems:
+       + dict of model name and simulated systems:
+         - {'model_name': simulated_es}
+         - {'tessif': tessif_es}
+   - Concept:
+     1. Read in Data using parse.xl_like
+     2. Create a single energy system instance using transform.es2es and [[models]]
+     3. Simulate each instance using simulate
+     4. Fill [[Attributes]] with the result data
+3) Write Documentation (docs/api/examples/application/scenarios.rst)
+   1. Brief first words (similar to every other tessif module)
+   2. Table of contents
+      - ..contents:: Contents
+   3. Introduction (specific introduction part of thesis)
+   4. Scenarios (Condensed result section of the thesis)
+      1. Component Dispatch
+      2. Component Expansion
+      3. Grid Dispatch
+      4. Grid Expansion
+     
+      each including:
+      - the nxgraph chart
+      - the bar chart
+      - the diff chart
+      - and the code to produce them
+      - a descriptive evaluation like ie:
+        - using tessif->pypsa results in loss of data
+        - pypsa much more powerful in grid and large scale
+        - oemofs non linear speciality compents not respected for fine tuning dispatch optimization etc.
+
+   5. Scaling
+      1. Table listing models and their Big O Notation value
+         | model | N    | T     |
+         |-------+------+-------|
+         | oemof | O(n) | O(n²) |
+         | pypsa | ..   | ..    |
+
+
+*** Thesis Structure MTbs
+1) Introduction
+2) Theory
+   1. Energy Supply System Simulation (E3S)
+      - General Explanation
+      - Currently used free open source software (FOSS) tools
+
+   2. Case studies using FOSS E2S tools
+   3. Identifying/Developing common types of scenarios for energy supply system simulations
+      * Component centered:
+        - Dispatch optimization
+        - energy supply system expansion/reduction problem
+      * Distribution centered:
+        - Grid dispatch
+        - Grid expansion
+3) <<Benchmark Scenarios>>
+   1. Dispatch Problem
+      - External Wind/Solar Power/Heat/Mobility Curves
+   2. Energy supply expansion/reduction problem
+      - Expansion corridors and costs for Wind/Solar Power2Power kurz/mittel Power2Gas, Power2Heat Kurzzeit/Mittel/Lang
+   3. Grid dispatch problem
+      - Developing a grid topology on a macroscopic level:
+        * Multilayerd 
+        * consumers and producers on every level
+        * For example 3 levels: 
+          - transmission(220kV/80bar)
+          - medium voltage(1-50kV, 10bar)
+          - distribution (400V/20mbar)
+        * So-B-T-B-C-B
+                     |
+                     C
+                     |
+                     B
+                     |
+                     PTr
+                     |
+          So-B-T-B-C-B-C-B-Si
+                    /|
+                 RSo C
+                     |
+                     B
+                     |
+                    PTr
+                     |
+              So-B-C-B-C-B-Si
+
+   4. Grid expansion problem
+      - Expansion corridors on the connector of each level.
+      - Maybe emulating gas grid/electrical grid
+4) Examplary Results using Oemof and PyPSA
+5) Evaluation
+   1. Capabilities
+      - simple
+      - low computational profile (memory and cpu usage)
+      - comparable
+      - representative of the fundamental use case scenarios
+      - expandable
+   2. Limits
+      - possibly non linear scalability 
+      - not a definite answer on the usefullness when it comes to large and detailed analysis
+6) Summary
+7) Outlook
+
+** Solver Interface MT1
+** Developing Computational Comparison Methods BAcc
+*** Title
+    Developing methods for comparing free open source energy supply system simulation software in the regard of computational efficiency
+*** Overall Workflow
+1) Research
+   1. What is an energy supply system simulation
+   2. Foss tools like oemof and pypsa
+   3. Existing computational evaluation parameters
+      - real time
+      - memory usage
+      - scalability
+      - parallelization capabilities (optional)
+
+2) Developing/Using methods for determining evaluation parameters
+   1. Real time
+      - timeit
+        + python functionality evoking subprocesses
+        + implemented in tessif.analyse
+   2. Memory usage
+      - potentially complicated 
+      - https://medium.com/survata-engineering-blog/monitoring-memory-usage-of-a-running-python-program-49f027e3d1ba
+      - implemented in tessif.analyse
+   3. Scalability
+      - duplicating the exact same energy system N*T times within the same simulation to generate 
+        + memomry usage 
+        + simulation time
+        over N
+   4. Parallelization capabilities (optional)
+       
+3) Programing
+
+4) Write the thesis (see [[Thesis Structure BAcc]])
+
+*** Programing Tasks
+1) Time measurement functionality
+   - Code Location:
+     + =tesisf.analyse.stop_time()=
+   - Concept:
+     * Simulation is broken down into 6 steps that each are measured by timeit
+     * To stop time a timeit subprocess for each of the simulation steps is started
+     * timeit is executed for each of the breakdowns as a subprocess shell command
+     * the user can specify the timeit arugments using *kwargs
+     * the kwargs are parsed using [[https://docs.python.org/3/library/shlex.html][shlex]]
+     * Simulation
+       1. Read and parse tessif energy system data
+          - =tessif.parse.hdf5()=
+       2. Creates a tessif energy system
+          - =tessif.transform.mapping2es.tsf.transform()=
+       3. Transfroms energy system into requested model
+          - transform.es2es.MODEL.transform
+       4. Executes Simulation
+          - tessif.simulate.MODEL_from_es
+       5. Creates an AllResultier
+          - transform.es2mapping.MODEL.AllResultier
+     * Result
+       - Dictionairy like:
+         + 'string key': float (micro seconds) i.e:
+
+           #+BEGIN_SRC python
+           {
+           'reading': 17
+           'parsing': 12
+           'creation': 13
+           'transformation': 10
+           'simulation': 1239710923
+           'results': 123
+           }
+          #+END_SRC
+
+2) Code simulation time results plot
+   - Location:
+     + tessif.visualize.compare.stacked_bar()
+   - Concept:
+     + takes N results from tessif.analyse.stop_time() and create  a bar plot 
+       with N stacked bars. One for each model
+     + Archieved by supplying 1 Set of a 2-length collection of a collection
+       representing the measurement points. As in:
+       [((1, 2, 3, 4, 5,))]
+
+3) Implement 1) in tessif.analyze.Comparatier._generate_time_measurement_results()
+   and check if 2) works well with tessif.analyze.Comparatier.bar_chart
+
+4) Code memory assessment functionality
+   - Location:
+     + tesisf.analyse._sacked_bar()
+   - Concept:
+     * Simulation is broken down into the 6 steps mentioned above
+     * tracemalloc is used to estimate memory usage 
+       NOTE: This might not be benificial, since the results are used further
+       on, meaning memory usage might just increase with each of the breakdowns
+
+5) Code memory usage results plot
+   - Location:
+     + tessif.visualize.compare.stacked_bar()
+   - Concept:
+     + if singular memory assessment is successful
+       * take the results from tessif.analyse.trace_memory() and create a
+         stacked bar plot for each model
+     + else create a plain bar plot for each model
+
+6) Implement 4) in tessif.analyze.Comparatier._generate_memory_usage_results()
+   and check if 5) works well with tessif.analyze.Comparatier.bar_chart
+ 
+7) Code the Scalability assessment functionality
+   - Location:     
+     + tessif.analyse.assess_scalability()
+   - Goals
+     + Create a self-similar energy system that is solveable
+     + scaling is done in 2 dimensions:
+       - time T (increase in number of simulated timesteps) 
+       - number of components N
+   - Concept:
+     1. Create a self-similar energy system that is solveable
+     2. Create an algorithm that creates N*T tessif energy systems with randomized
+        transformer installed capacity and renewable source timeseries
+     3. Perform tessif.analyse.stop_time() on each of the N*T energy systems
+     4. Collect results for each of the N*T inspected energy systems
+
+8) Code 2D scalability results plot
+   - Location:
+     + tessif.visualize.compare.scalability2D
+   - Concept:
+     + array of T curves plotting simulation time/memory over N
+
+9) Code 3D scalability results plot   
+   - Location:
+     + tessif.visualize.compare.scalability3D
+   - Concept:
+     + 3D field of (stacked) bar plots
+
+10) Implement 
+    - 7) in tessif.analyze.Comparatier._generate_scalability_results(),
+    - 8) in tessif.analyze.Comparatier.scalability_charts_2D
+    - 9) in tessif.analyze.Comparatier.scalability_charts_3D
+
+11) Use your code to generate results (tessif.examples.application.computational_resources.py)
+    - Utilizing the tessif.analyze.Comparatier class comparing Oemof und PyPSA
+
+12) Write Documentation (docs/api/examples/application/computational_resources.rst)
+    1. Brief first words (similar to every other tessif module)
+    2. Table of contents
+       - ..contents:: Contents
+    3. Introduction (specific introduction part of thesis)
+    4. Resource Comparison
+       1. Time
+       2. Memory
+       3. Scalibity
+
+*** Thesis Structure BAcc
+1) Introduction
+   - Several FOSS E3S tools no simple comparison
+   - Demand for computational comparison methods
+2) Theory
+   - Identifying possible evaluation parameters and their uses
+     1. Simulation time
+     2. Memory usage
+     3. Scalability
+
+   - Developing algorithms for determining these using tessif
+   - Identifying possible differences and suited visualization aids for comparing
+     1. timeit
+     2. tracemalloc / resource ...
+     3. Duplication algorithm
+
+3) Developing an energy supply system for testing the developed methods
+4) Examplary Comparison using Oemof and PyPSA
+5) Evaluation
+   - Limits of the implement assessment functionalities
+6) Summary
+7) Outlook
+
+** Developing Visual Comparison Methods BAvc 
+*** Title
+    Developing methods for analyzing one dimensional timeseries data sets of free
+    open source energy supply system simulation software in the context of model
+    comparison implemented in python.
+*** Overall Workflow
+1) Research
+   1. What is an energy supply system simulation
+   2. Foss tools like oemof and pypsa
+   3. Existing visual component comparisions for more than 2 systems
+      - comparing more than 2 timeseries
+      - visualizing graph differences
+   4. Existing timeseries comparisons of multiple timeseries measurements
+      - suited statistical 
+2) Developing/Reusing/Modifying visual comparisions methods for more than 2 series
+   - Developing an algorithm for detecting load differences
+3) Develop a suitable test case (energy supply system simulation scenario)
+4) Programing
+   - Learning
+     1. Very basics of python
+        - YouTube
+        - Blogs
+        - Library books
+     2. Tessif
+        - Installation
+        - Documentation
+        - Examples     
+   - Coding
+     1. Code the developed algorithm
+     2. Code the developed comparison charts in visualize.compare
+     3. Use the comparison charts in examples.application.comparision.Comparatier
+        to create 
+        - load differences
+        - results
+        - graph
+     4. Creating the developed test case using excel
+     5. Write your own script using the Comparatier class to compare oemof and pypsa
+        for the example section in your thesis
+
+5) Write the thesis (see [[Thesis Structure BAvc]])
+
+*** Programing Tasks
+1) Code load difference detecting algorithm
+   - location:
+     + =tessif.analyze.compare_N_timeseries=
+   - goal:
+     + detecting all (value/timestamp) pairings of N different timeseries
+       where the difference between a timeseries and the mean of all timeseries
+       is greater then a certain threshold
+   - parameters
+     + timeseries
+     + threshold
+2) Code the developed charts using matplotlib
+   - location
+     + =visualize.compare.component_loads=
+3) Implement the difference calculation and chart plotting functions
+   - location 
+     + =tessif.analyze.Comparatier.load_differences()= calling \\
+       =tessif.analyze.Comparatier._generate_load_data_results()=
+     + =tessif.analyze.Comparatier.load_diferences_chart()=
+4) Code statistical error calculations
+   - location:
+     + =tessif.analyze.statistically_compare_N_timeseries=
+   - Errors
+     + RMSE  =tessif.analyze._calculate_root_mean_square_error=
+     + MAE   =tessif.analyze._calculate_mean_absolute_error=
+     + MBE   =tessif.analyze._calculate_mean_biased_error=
+     + subject to research
+5) Implement the statistical error calculations and chart plotting functions
+   - location:
+     + =tessif.analyze.Comparatier.statistical_load_difference_results()= calling \\
+       =tessif.analyze.Comparatier._generate_statistical_load_data_results()=
+     + =tessif.analyze.Comparatier.statistical_load_difference_chart= 
+6) Create an energy supply system simulation scenario for testing the algorithm and visiualization
+   - location:
+     + =tessif/examples/application/timeseries_comparison.py=
+   - data format
+     + hdf5 or xlsx
+7) Use implementations to generate thesis results
+   - location
+     + =tessif.examples.application.timeseries_comparison.py=
+8) Write Documentation (=docs/api/examples/application/timeseries_comparison.rst=)
+   1. Introduction (probably even shorter than in thesis)
+   2. Analyzed Energy System (your developed es, it's characteristics and an nxgraph image)
+   3. Structured Comparison
+      - time integrated results of all components
+        + Graph chart
+      - entire load data of key components 
+        + Step bar plot of all timesteps
+      - singular differences of key components
+        + Step bar plot of certain timesteps
+      - statistical evaluation of key components 
+        + Bar plot of error values and potentially more
+
+*** Thesis Structure BAvc
+1) Introduction
+   - Several FOSS E3S tools no simple comparison
+   - Different potentially large networks with potentially very different flow characteristics
+     = no simple comparisons and evaluations
+   - Demand for visually comprehensive comparison methods
+2) Theory
+   (Identifying possible differences and suited visualization aids for comparing)
+   1. Data analysis of time integrated component results
+      + Graph chart visualizing:
+        - installed capacity as node size
+        - capacity factor as node fill size
+        - flow costs as edge length
+        - net energy flow as edge width
+        - flow emissions as edge grayscaling
+
+      + Values to calculate/define:
+        - installed capacity
+          + capacity specifying the solver constraints i.e::
+            * power plant net/gross
+            * storage net/gross
+            * ...
+        - capacity factor
+          + total energy flow/installed capacity
+        - flow costs 
+          + specific costs given by the user specifying solver constraints
+            * electricity generation costs
+            * ....
+        - net energy flow
+          + solver results
+        - flow emissions
+          + specific emissions given by the user specifying solver constraints
+            * electrcity generation emissions
+            * pipeline transport emissions (leackage as well as power generation related emsisions)
+
+   2. Analysis of key component data temporally resolved in the order of singular time steps
+      - key component identification 
+        + either manually by the engineer or (the current code template reflects this option)
+        + automatically by picking components with highest differences
+      - Statistical Analysis
+        + Identifying means for comparing N timeseries:
+          * Key question here is if it makes sense to calculate an average and
+            compare each of the N series to their mean or if there is a better
+            approach for comparing 2 to N series
+            
+          * Statistical comparision to the average:
+            - Root Mean Square Error (RMSE)
+            - Mean Average Error (MAE)
+            - Mean Bias Error (MBE)
+            - further parameters for comparison (topic to research)
+
+      - Step plot visualization
+        + 2D line (stepped line) visualizing load data for certain timesteps of
+          one component of all models where the difference between any model's
+          load data and the current mean deviate more than a certain threshold
+
+      
+3) Developing an energy supply system for testing the developed methods
+   1. Characteristics it needs to fullfill:
+      -
+   2. Graph Chart
+4) Examplary Comparison using Oemof and PyPSA
+   - time integrated results of all components
+     + Graph chart
+
+   - entire load data of key components 
+     + Step/bar plot of all timesteps
+
+   - singular differences of key components
+     + Step plot of certain timesteps
+
+   - statistical evaluation of key components 
+     + Bar plot of error values and potentially more
+ 
+5) Evaluation
+   1) Advantages over simply plotting all timeseries
+   2) Limits of the developed algorithm and proper threshold choosing
+6) Summary
+7) Outlook
+   - Other statistical values of interest:
+   - Other more complicated/sophisticated visualization techniques of visiualizing timeserieses
+     - modified spider web diagram ?
+     - ...

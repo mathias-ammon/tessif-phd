@@ -1,0 +1,71 @@
+locations:
+
+  Pipeline:
+    coordinates:
+      lat: 0.0
+      lon: 0.0
+
+  Powerline:
+    coordinates:
+      lat: 0.0
+      lon: 0.0
+
+  electricity_Demand location:
+    coordinates:
+      lat: 0.0
+      lon: 0.0
+    techs:
+      electricity_Demand:
+
+  Gas Station location:
+    coordinates:
+      lat: 0.0
+      lon: 0.0
+    techs:
+      Gas Station:
+
+  Generator location:
+    coordinates:
+      lat: 0.0
+      lon: 0.0
+    techs:
+      Generator:
+
+  Battery location:
+    coordinates:
+      lat: 0.0
+      lon: 0.0
+    techs:
+      Battery:
+
+links:
+
+  Gas Station location,Pipeline:
+    techs:
+      fuel transmission:
+        constraints:
+          one_way: true
+
+  Pipeline,Generator location:
+    techs:
+      fuel transmission:
+        constraints:
+          one_way: true
+
+  Battery location,Powerline:
+    techs:
+      electricity transmission:
+        constraints:
+          one_way: false
+
+  Generator location,Powerline:
+    techs:
+      electricity transmission:
+        constraints:
+          one_way: true
+
+  Powerline,electricity_Demand location:
+    techs:
+      electricity transmission:
+        constraints:
+          one_way: true

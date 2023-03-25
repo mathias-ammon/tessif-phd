@@ -1,0 +1,28 @@
+Parameter,Tessif,Calliope,FINE,Oemof,PyPSA
+Component,Sink,Demand,Sink,Sink,Load
+Identifier,Uid,name,name,label,name
+Connecting Input(s),inputs,carrier,commodity,inputs,bus
+Energy Flow Specific Flow Cost,flow_costs,monetary.om con,opexPerOperation,Flow.variable_costs,
+Energy Flow Specific Emissions,flow emissions,emissions.om con,,Flow.emissions,
+Minimum Capacity,flow_rates.min,,,Flow.min,
+Maximum Capacity,flow_rates.max,resource,capacityMax,Flow.max,p_set
+Load Profile,timeseries,resource,operationRateFix,Flow.fix,
+Minimum Amount of Total Energy Output,accumulated_amounts.min,group constraints carrier con,,Flow.summed_max,
+Maximum Amount of Total Energy Output,accumulated_amounts.max,group constraints carrier con,yearlyLimit,Flow.summed_min,
+Maximum Positive Gradient,flow_gradients.positive,,,Flow.positive_gradient[„ub“],
+Maximum Negative Gradient,flow_gradients.negative,,,Flow.negative_gradient[„ub“],
+Energy Flow Specific Positive Gradient Costs,gradient_costs.positive,,rampUpMax,Flow.positive_gradient[„costs“],
+Energy Flow Specific Negative Gradient Costs,gradient_costs.negative,,rampDownMax,Flownegative_gradient[„costs“],
+Installed Capacity is Expandable,expandable,,hasVariableCapacity,investment,
+Capacity Specific Expansion Cost,expansion_cost,,investPerCapacity,Investment.ep_costs,
+Minimum installed Capacity (if expandable),expansion_limit.min,,capacityMin,Investment.minimum,
+Maximum installed Capacity (if expandable),expansion_limit.max,,capacityMax,Investment.maximum,
+Use Milp Parameters,milp,,,NonConvex,
+Initial Comonent Status (On or Off),initial_status,,,NonConvex.initial_status,
+Minimum Number of Timesteps Between Status Changes,status_inertia.on,,,NonConvex.minimum_uptime,
+,status_inertia.off,,,NonConvex.minimum_downtime,
+,status_changing_costs.on,,,NonConvex.startup_costs,
+,status_changing_costs.off,,,NonConvex.shutdown_costs,
+,number_of_status_changes.on,,,NonConvex.maximum_startups,
+,number_of_status_changes.off,,,NonConvex.maximum_shutdowns,
+,costs_for_beeing_active,,,NonConvex.activity_costs,

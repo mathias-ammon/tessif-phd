@@ -1,0 +1,36 @@
+# CHP expansion example to further inspect the treatment of
+# parameters like energy_cap as it is not trivial whether it 
+# refers to in or output
+
+import:
+
+- model_config/techs.yaml
+
+- model_config/locations.yaml
+
+model:
+
+  name: CHP_Example
+
+  calliope_version: 0.6.6-post1
+
+  timeseries_data_path: timeseries_data
+
+  subset_time:
+  - '1990-07-13 00:00:00'
+  - '1990-07-13 03:00:00'
+
+group_constraints:
+
+  systemwide_emission_cap:
+    cost_max:
+      emissions:
+
+run:
+
+  solver: cbc
+
+  cyclic_storage: false
+
+  objective_options.cost_class:
+    monetary: 1

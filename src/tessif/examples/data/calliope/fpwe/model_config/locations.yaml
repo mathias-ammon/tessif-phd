@@ -1,0 +1,92 @@
+locations:
+
+  Pipeline:
+    coordinates:
+      lat: 42.0  # different locations can have same coordinates
+      lon: 42.0  # different locations can have same coordinates
+
+  Powerline:
+    coordinates:
+      lat: 42.0
+      lon: 42.0
+
+  electricity_Demand location:
+    coordinates:
+      lat: 42.0
+      lon: 42.0
+    techs:  # calling all technologies that are acting in this location.
+      electricity_Demand:
+
+  Gas Station location:
+    coordinates:
+      lat: 42.0
+      lon: 42.0
+    techs:
+      Gas Station:
+
+  Solar Panel location:
+    coordinates:
+      lat: 42.0
+      lon: 42.0
+    techs:
+      Solar Panel:
+
+  Generator location:
+    coordinates:
+      lat: 42.0
+      lon: 42.0
+    techs:
+      Generator:
+
+  Battery location:
+    coordinates:
+      lat: 42.0
+      lon: 42.0
+    techs:
+      Battery:
+
+links:
+
+  Gas Station location,Pipeline:
+    techs:
+      fuel transmission:
+        constraints:
+          one_way: true
+
+  Pipeline,Generator location:
+    techs:
+      fuel transmission:
+        constraints:
+          one_way: true
+
+  Battery location,Powerline:
+    techs:
+      electricity transmission:
+        constraints:
+          one_way: false
+
+  Generator location,Powerline:
+    techs:
+      electricity transmission:
+        constraints:
+          one_way: true
+
+  Solar Panel location,Powerline:
+    techs:
+      electricity transmission:
+        constraints:
+          one_way: true
+
+  Powerline,electricity_Demand location:
+    techs:
+      electricity transmission:
+        constraints:
+          one_way: true
+
+
+# a small example like this doesnt need multiple locations
+# connected via transmission lines. 
+# And all techs could be stored in one location instead
+
+# But keep in mind for tessif post processing different nodes are needed,
+# and each location is acting like a node.

@@ -1,0 +1,25 @@
+Capacity [MW or MWh],cllp,fine,omf,ppsa
+Battery,100,100,100,100
+Biogas CHP,"[250.0, 200.0]","[200.0, 250.0]","[200, 250]","[250.0, 200.0]"
+Biogas Line,variable,variable,variable,variable
+Biogas Supply,0,0,0,0
+Combined Cycle PP,600,600,600,600
+El Demand,1526,1526,1526,1526
+Gas Line,variable,variable,variable,variable
+Gas Station,357,340,357,variable
+Hard Coal CHP,"[300.0, 300.0]","[300.0, 300.0]","[300, 300]","[300.0, 300.0]"
+Hard Coal PP,500,500,500,500
+Hard Coal Supply,1912,1912,1912,750
+Hard Coal Supply Line,variable,variable,variable,variable
+Heat Demand,399,399,399,399
+Heat Plant,450,450,450,450
+Heat Storage,50,50,50,50
+Heatline,variable,variable,variable,variable
+Lignite Power Plant,500,500,500,500
+Lignite Supply,1250,1250,1250,variable
+Lignite Supply Line,variable,variable,variable,variable
+Offshore Wind Turbine,150,150,150,150
+Onshore Wind Turbine,1100,1100,1100,1100
+Power To Heat,100,100,100,100
+Powerline,variable,variable,variable,variable
+Solar Panel,1100,1100,1100,1100

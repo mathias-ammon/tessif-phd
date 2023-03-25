@@ -1,0 +1,10 @@
+,,cllp,fine,omf,ppsa
+Battery,Powerline,3551,3549,3549,14537
+Biogas CHP,Heatline,0,1558,1558,0
+Biogas CHP,Powerline,18258,16618,16618,0
+Biogas Supply,Biogas Line,0,0,0,20184
+Combined Cycle PP,Powerline,3945,4029,4029,6367
+Offshore Wind Turbine,Powerline,9607,9593,9593,14661
+Onshore Wind Turbine,Powerline,201785,201808,201808,197600
+Power To Heat,Heatline,741,742,742,746
+Solar Panel,Powerline,12113,12103,12103,11414

@@ -1,0 +1,9 @@
+Load-Low Voltage Grid [MW],cllp,fine,omf,ppsa
+BHKW,-29643,-29643,-29643,-29643
+Commercial Demand,582459,582459,582459,582459
+Deficit Source LV,-23214,-23214,-23214,-23214
+Excess Sink LV,0,0,0,0
+Household Demand,552564,552564,552564,552564
+Low Medium Transfer,111125,111125,111125,111125
+Medium Low Transfer,-599944,-599944,-599944,-599944
+Solar Panel,-593346,-593346,-593346,-593346

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<energy_system>
+    <timeframe>
+        <primary start = "'01/01/2015'"
+                 periods = "3"
+                 freq = "'H'"/>
+        <secondary start =  "'10/03/2019'"
+                   periods = "3"
+                   freq = "'H'"/>
+    </timeframe>
+    <global_constraints>
+        <primary name = "'default'"
+                 emissions = "'+inf'"
+                 material = "'+inf'"/>
+        <secondary name = "'80% Reduction'"
+                   emissions = "30"
+                   material = "'+inf'"/>
+        <tertiary name = "'100% Reduction'"
+                  emissions = "0"
+                  material = "'+inf'"/>
+        <quartiary name = "'100% Reduction - 50% Material'"
+                   emissions = "0"
+                   material = "20"/>
+    </global_constraints>
+    <busses>
+        <fuel_supply_line name="'Pipeline'"
+                          inputs="('Gas Station.fuel',)"
+                          outputs="('Generator.fuel',)"
+                          latitude="42"
+                          longitude="42"
+                          region="'Here'"
+                          sector="'Power'"
+                          carrier="'fuel'"
+                          component="'bus'"
+                          node_type="'fuel_line'"/>
+        <power_line name="'Power Line'"
+                    inputs="('Generator.electricity', 'Battery.electricity', 'Solar Panel.electricity')"
+                    outputs="('Demand.electricity', 'Battery.electricity')"
+                    latitude="42"
+                    longitude="42"
+                    region="'Here'"
+                    sector="'Power'"
+                    carrier="'Force'"
+                    component="'bus'"
+                    node_type="'hub'"/>
+        <air_bus name = "'Air Chanel'"
+                 inputs = "('Air.air', )"
+                 outputs = "('Generator.air',)"
+                 latitude="42"
+                 longitude="42"
+                 region="'Here'"
+                 sector="'Power'"
+                 carrier="'Air'"
+                 component="'bus'"
+                 node_type="'hub'"/>
+    </busses>
+    <sinks>
+        <my_sink name="'Demand'"
+                 inputs="('electricity',)"
+                 latitude="42"
+                 longitude="42"
+                 region="'Here'"
+                 sector="'Power'"
+                 carrier="'Electricity'"
+                 component="'Bus'"
+                 node_type="'sink'"
+                 accumulated_amounts="{'electricity': (0, '+inf')}"
+                 flow_rates="{'electricity': (11, 11)}"
+                 flow_costs="{'electricity': 0}"
+                 flow_emissions="{'electricity': 0}"
+                 flow_gradients="{'electricity': (12, 12)}"
+                 gradient_costs="{'electricity': (0, 0)}"
+                 timeseries="None"
+                 expandable="{'electricity': False}"
+                 expansion_costs="{'electricity': 0}"
+                 expansion_limits="{'electricity': (0, '+inf')}"
+                 milp = "{'electricity': False}"
+                 initial_status="True"
+                 status_inertia="(2, 1)"
+                 status_changing_costs="(0, 0)"
+                 number_of_status_changes="('+inf', 8)"
+                 costs_for_being_active="0"/>
+    </sinks>
+    <sources>
+        <gas_station name="'Gas Station'"
+                     outputs="('fuel',)"
+                     latitude="42"
+                     longitude="42"
+                     region="'Here'"
+                     sector="'Power'"
+                     carrier="'Gas'"
+                     component="'Source'"
+                     node_type="'source'"
+                     accumulated_amounts="{'fuel': (0, '+inf')}"
+                     flow_rates="{'fuel': (0, 20)}"
+                     flow_costs="{'fuel': 10}"
+                     flow_emissions="{'fuel': 3}"
+                     flow_gradients="{'fuel': (100, 100)}"
+                     gradient_costs="{'fuel': (0, 0)}"
+                     timeseries="None"
+                     expandable="{'fuel': False}"
+                     expansion_costs="{'fuel': 5}"
+                     expansion_limits="{'fuel': (0, '+inf')}"
+                     milp="{'fuel': False}"
+                     initial_status="True"
+                     status_inertia="(1, 1)"
+                     status_changing_costs="(0, 0)"
+                     number_of_status_changes="('+inf', 10)"
+                     costs_for_being_active="0.5"/>
+        <solar_panel name="'Solar Panel'"
+                     outputs="('electricity',)"
+                     latitude="42"
+                     longitude="42"
+                     region="'Here'"
+                     sector="'Power'"
+                     carrier="'Electricity'"
+                     component="'Source'"
+                     node_type="'Renewable'"
+                     accumulated_amounts="{'electricity': (0, '+inf')}"
+                     flow_rates="{'electricity': (20, 20)}"
+                     flow_costs="{'electricity': 0}"
+                     flow_emissions="{'electricity': 0}"
+                     flow_gradients="{'electricity': (42, 42)}"
+                     gradient_costs="{'electricity': (0, 0)}"
+                     timeseries="{'electricity': ([12, 3, 7], [12, 3,7])}"
+                     expandable="{'electricity': False}"
+                     expansion_costs="{'electricity': 5}"
+                     expansion_limits="{'electricity': (0, '+inf')}"
+                     milp="{'electricity': False}"
+                     initial_status="True"
+                     status_inertia="(1, 1)"
+                     status_changing_costs="(0, 0)"
+                     number_of_status_changes="('+inf', 10)"
+                     costs_for_being_active="0"/>
+        <air name = "'Air'"
+             outputs = "('air',)"
+             latitude="42"
+             longitude="42"
+             region="'Here'"
+             sector="'Power'"
+             carrier="'Electricity'"
+             component="'Source'"
+             node_type="'Commodity'"/>
+    </sources>
+    <transformers>
+        <my_transformer name = "'Generator'"
+                        inputs = "('fuel', 'air')"
+                        outputs = "('electricity',)"
+                        conversions = "{
+                            ('fuel', 'electricity'): 0.42,
+                            ('air', 'electricity'): 0.8,}"
+                        latitude = "42"
+                        longitude = "42"
+                        region = "'Here'"
+                        sector = "'Power'"
+                        carrier = "'electricity'"
+                        component = "'transformer'"
+                        node_type = "'renewable'"
+                        flow_rates = "{
+                            'air': (0, '+inf'),
+                            'fuel': (0, 50),
+                            'electricity': (0, 15)}"
+                        flow_costs = "{'fuel': 0, 'electricity': 10, 'air': 0}"
+                        flow_emissions = "{'fuel': 0,
+                            'electricity': 10, 'air': 0}"
+                        flow_gradients = "{
+                            'fuel': (50, 50),
+                            'electricity': (15, 15),
+                            'air': ('+inf', '+inf'),}"
+                        gradient_costs = "{
+                            'air': (0, 0),
+                            'fuel': (0, 0),
+                            'electricity': (0, 0),}"
+                        timeseries = "None"
+                        expandable = "{'fuel': False, 'electricity': False,
+                            'air': False}"
+                        expansion_costs = "{'fuel': 0, 'electricity': 0,
+                            'air': 0}"
+                        expansion_limits = "{
+                            'fuel': (0, '+inf'),
+                            'electricity': (0, '+inf'),
+                            'air': (0, '+inf')}"
+                        milp = "{'electricity': False, 'fuel': False, 'air': False}"
+                        initial_status = "True"
+                        status_inertia = "(0, 2)"
+                        status_changing_costs = "(0, 0)"
+                        number_of_status_changes = "('+inf', 9)"
+                        costs_for_being_active = "0"/>
+    </transformers>
+    <storages>
+        <my_storage name = "'Battery'"
+                    input = "'electricity'"
+                    output = "'electricity'"
+                    capacity = "10"
+                    initial_soc = "10"
+                    latitude = "42"
+                    longitude = "42"
+                    region = "'Here'"
+                    sector = "'Power'"
+                    carrier = "'electricity'"
+                    component= "'storage'"
+                    node_type = "'storage'"
+                    idle_changes = "(0, 1)"
+                    flow_rates = "{'electricity': (0, 30)}"
+                    flow_efficiencies = "{'electricity': (1, 1)}"
+                    flow_costs = "{'electricity': 0}"
+                    flow_emissions = "{'electricity': 0}"
+                    flow_gradients = "{'electricity': ('+inf', '+inf')}"
+                    gradient_costs = "{'electricity': (0, 0)}"
+                    timeseries = "None"
+                    expandable = "{'capacity': False, 'electricity': False}"
+                    expansion_costs = "{'capacity': 2, 'electricity': 0}"
+                    expansion_limits = "{
+                        'capacity': (0, '+inf'),
+                        'electricity': (0, '+inf')}"
+                    milp = "{'electricity': False}"
+                    initial_status = "True"
+                    status_inertia = "(0, 2)"
+                    status_changing_costs = "(0, 0)"
+                    number_of_status_changes = "('+inf', 42)"
+                    costs_for_being_active = "0"/>
+    </storages>
+</energy_system>

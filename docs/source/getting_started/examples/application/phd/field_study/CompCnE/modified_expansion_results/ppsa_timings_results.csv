@@ -1,0 +1,7 @@
+Timings [s],ppsa
+reading,0.2
+parsing,0.2
+transformation,1.9
+optimization,456.5
+post_processing,2.5
+result,461.4

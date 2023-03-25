@@ -1,0 +1,13 @@
+Load-Powerline [MW],cllp,fine,omf,ppsa
+Battery,0,0,0,0
+Battery,0,0,0,0
+Biogas CHP,0,0,0,0
+Combined Cycle PP,-31949,-9779,-31949,-31949
+El Demand,9809506,9809506,9809506,9809506
+Hard Coal CHP,-1107097,-1106703,-1107094,-1107094
+Hard Coal PP,-2020952,-1715712,-2069796,-2100746
+Lignite Power Plant,-4132599,-4132212,-4132599,-4132599
+Offshore Wind Turbine,0,0,0,0
+Onshore Wind Turbine,-2081332,-2081336,-2081332,-2081332
+Power To Heat,0,0,0,0
+Solar Panel,-435574,-763762,-386733,-355783

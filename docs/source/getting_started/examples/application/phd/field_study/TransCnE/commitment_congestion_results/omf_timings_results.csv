@@ -1,0 +1,7 @@
+Timings [s],omf
+reading,0.5
+parsing,0.4
+transformation,0.0
+optimization,0.5
+post_processing,1.2
+result,2.6

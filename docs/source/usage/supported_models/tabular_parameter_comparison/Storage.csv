@@ -1,0 +1,39 @@
+Parameter,Tessif,Calliope,FINE,Oemof,PyPSA
+Component,Storage,Storage,Storage,GenericStorage,StorageUnit
+Identifier,Uid,name,name,label,name
+Connecting Input(s),input,carrier,commodity,inputs,bus
+Connecting Output(s),output,,,outputs,
+Installed Storage Capacity,capacity,storage_cap_min,capacityMin,nominal_storage_capacity,max_hours * p_nom
+Initial State of Charge,initial_soc,storage_initial,Always 0,initial_storage_level,state_of_charge_initial
+Final State of Charge,final_soc,.,,,
+Cyclic State of Charge,initial_soc = final_soc,cyclic_store,isPerdiodicalStorage,balanced,cyclic_state_of_charge
+Idle Positive Changes in State of Charge,idle_changes.positive,,,loss_rate(-),inflow
+Idle Negative Changes in State of Charge,idle_changes.negative,storage_loss,selfDischarge,loss_rate,standing_loss
+Energy Flow Specific Charge Efficiencies,flow_efficiencies,energy_eff,chargeEfficiency,inflow_conversion_factor,efficiency_store
+Energy Flow Specific Discharge Efficiencies,flow_efficiencies,energy_eff,dischargeEfficiency,outflow_conversion_factor,efficiency_dispatch
+Energy Flow Specific Flow Cost,flow_costs,monetary.om prod,opexPerDischargeOperation,Flow.variable_costs,marginal_cost
+Energy Flow Specific Emissions,flow emissions,emissions.om prod,commodityConversionFactors,Flow.emissions,
+Minimum Inflow,flow_rates.min,equals Outflow,,Flow.min,equals Outflow
+Maximum Inflow,flow_rates.max,equals Outflow,chargeRate,Flow.max,equals Outflow
+Minimum Outflow,flow_rates.min,energy cap min use,.,Flow.min,p_min_pu * p_nom
+Maximum Outflow,flow_rates.max,energy cap per storage cap max,dischargeRate,Flow.max,p_max_pu * p_nom
+Load Profile,timeseries,,charge/dischargeOpRateFix,Flow.fix,
+Maximum Positive Gradient,flow_gradients.positive,,chargeOpRateMax,Flow.positive_gradient[„ub“],
+Maximum Negative Gradient,flow_gradients.negative,energy_ramping,dischargeOpRateMax,Flow.negative_gradient[„ub“],
+Energy Flow Specific Positive Gradient Costs,gradient_costs.positive,,,Flow.positive_gradient[„costs“],
+Energy Flow Specific Negative Gradient Costs,gradient_costs.negative,,,Flownegative_gradient[„costs“],
+Installed Capacity is Expandable,expandable,,hasCapacityVariable,investment,p_nom_extendable
+Energy Flow Specific Expansion Cost,expansion_cost,monetary.storage_cap,investPerCapacity,Investment.ep_costs,capital_cost
+Coupling Power Input and Capacity Expansion,fixed_expansion_ratios,,,invest_relation_input_capacity,always fixed
+Coupling Power Output and Capacity Expansion,fixed_expansion_ratios,,,invest_relation_output_capacity,always fixed
+Minimum installed Capacity (if expandable),expansion_limit.min,,capacityMin,Investment.minimum,p_nom_min
+Maximum installed Capacity (if expandable),expansion_limit.max,storage_cap_max,capacityMax,Investment.maximum,p_nom_max
+Use Milp Parameters,milp,,,NonConvex,
+Initial Comonent Status (On or Off),initial_status,,,NonConvex.initial_status,
+Minimum Number of Timesteps Between Status Changes,status_inertia.on,,,NonConvex.minimum_uptime,
+,status_inertia.off,,,NonConvex.minimum_downtime,
+,status_changing_costs.on,,,NonConvex.startup_costs,
+,status_changing_costs.off,,,NonConvex.shutdown_costs,
+,number_of_status_changes.on,,,NonConvex.maximum_startups,
+,number_of_status_changes.off,,,NonConvex.maximum_shutdowns,
+,costs_for_beeing_active,,,NonConvex.activity_costs,

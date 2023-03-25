@@ -1,0 +1,27 @@
+Capacity [MW or MWh],cllp,fine,omf,ppsa
+BHKW,"[13513.696969697, 8576.0]","[13513.697, 8576.0]","[8576.0, 13513.69697]","[13513.69697, 8576.0000001923]"
+Biogas,variable,variable,variable,variable
+Biogas plant,25987,25987,25987,25987
+Car charging Station,3473,3473,3473,3473
+Coal Supply,102123,102123,102123,102123
+Coal Supply Line,variable,variable,variable,variable
+Commercial Demand,41969,41969,41969,41969
+District Heating,variable,variable,variable,variable
+District Heating Demand,50000,50000,50000,50000
+Gas Station,45325,45325,45325,variable
+Gaspipeline,variable,variable,variable,variable
+GuD,26742,26742,26742,26742
+HKW,"[61273.96, 24509.584]","[61273.998, 24509.599]","[61273.96, 24509.6]","[61273.96, 24509.584]"
+HKW2,43913,43913,43913,43913
+High Voltage Grid,variable,variable,variable,variable
+High Voltage Transfer Grid,variable,0,variable,72141
+Household Demand,36177,36177,36177,36177
+Industrial Demand,63093,63093,63093,63093
+Low Voltage Grid,variable,variable,variable,variable
+Low Voltage Transfer Grid,variable,54703,variable,54703
+Medium Voltage Grid,variable,variable,variable,variable
+Offshore Wind Power,18760,18760,18760,18760
+Onshore Wind Power,66599,66599,66599,66599
+Power to Heat,50000,50000,50000,50000
+Solar Panel,99605,99605,99605,99605
+Solar Thermal,14343,14343,14343,14343

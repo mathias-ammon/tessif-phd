@@ -1,0 +1,39 @@
+,,cllp,fine,omf,ppsa
+BHKW,District Heating,24078628.884000003,6804829.902000001,6804829.902000001,6804829.902000001
+BHKW,Low Voltage Grid,0.0,17273799.604000002,17273798.36,17273799.604000002
+Biogas,BHKW,0.0,0.0,0.0,0.0
+Biogas plant,Biogas,0.0,0.0,0.0,0.0
+Coal Supply,Coal Supply Line,0.0,0.0,0.0,0.0
+Coal Supply Line,HKW,0.0,0.0,0.0,0.0
+Coal Supply Line,HKW2,0.0,0.0,0.0,0.0
+Deficit Source HV,High Voltage Grid,0.0,0.0,0.0,0.0
+Deficit Source LV,Low Voltage Grid,90511059.00000001,90511059.00000001,90511059.00000001,90511059.00000001
+Deficit Source MV,Medium Voltage Grid,9438099.0,9438099.0,9438099.0,9438099.0
+District Heating,District Heating Demand,0.0,0.0,0.0,0.0
+Gas Station,Gaspipeline,0.0,0.0,0.0,
+Gaspipeline,GuD,0.0,0.0,0.0,
+GuD,High Voltage Grid,0.0,0.0,0.0,0.0
+HKW,District Heating,20511124.061350003,7888893.86975,7888893.86975,7888893.86975
+HKW,High Voltage Grid,0.0,12622229.869,12622229.869,12622229.869
+HKW2,High Voltage Grid,1974253.1255,1974253.1255,1974253.1255,1974253.1255
+High Medium Transfer,Medium Voltage Grid,4503631.1,4503631.1,4503631.1,4503631.1
+High Voltage Grid,Excess Sink HV,1963695.0,1963695.0,1963695.0,1963695.0
+High Voltage Grid,High Medium Transfer,0.0,0.0,0.0,0.0
+Low Medium Transfer,Medium Voltage Grid,937160.1,937160.1,937160.1,937160.1
+Low Voltage Grid,Commercial Demand,0.0,0.0,0.0,0.0
+Low Voltage Grid,Excess Sink LV,6233115.0,6233115.0,6233115.0,6233115.0
+Low Voltage Grid,Household Demand,0.0,0.0,0.0,0.0
+Low Voltage Grid,Low Medium Transfer,0.0,0.0,0.0,0.0
+Medium High Transfer,High Voltage Grid,0.0,0.0,0.0,0.0
+Medium Low Transfer,Low Voltage Grid,2226640.9,2226640.8,2226640.9,2226640.8
+Medium Voltage Grid,Car charging Station,0.0,0.0,0.0,0.0
+Medium Voltage Grid,Excess Sink MV,0.0,0.0,0.0,0.0
+Medium Voltage Grid,Industrial Demand,0.0,0.0,0.0,0.0
+Medium Voltage Grid,Medium High Transfer,0.0,0.0,0.0,0.0
+Medium Voltage Grid,Medium Low Transfer,0.0,0.0,0.0,0.0
+Medium Voltage Grid,Power to Heat,0.0,0.0,0.0,0.0
+Offshore Wind Power,High Voltage Grid,32965010.792000003,32965010.792000003,32965010.792000003,32965010.792000003
+Onshore Wind Power,Medium Voltage Grid,67201838.262,67201838.262,67201838.262,67201838.262
+Power to Heat,District Heating,0.0,0.0,0.0,0.0
+Solar Panel,Low Voltage Grid,36105154.6055,36105154.6055,36105154.6055,36105154.6055
+Solar Thermal,District Heating,6237261.62,6237261.62,6237261.62,6237261.62

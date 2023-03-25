@@ -1,0 +1,20 @@
+,cllp,fine,omf,ppsa
+Battery,100,100,100,100
+Biogas CHP Heatline,250,250,250,250
+Biogas CHP Powerline,200,200,200,200
+Combined Cycle PP,600,600,600,600
+El Demand,1526,1526,1526,1526
+Gas Station,357,357,357,0
+Hard Coal CHP Heatline,300,300,300,300
+Hard Coal CHP Powerline,300,300,300,300
+Hard Coal PP,500,500,500,500
+Hard Coal Supply,1913,1913,1913,750
+Heat Demand,400,400,400,400
+Heat Plant,450,450,450,450
+Heat Storage,50,50,50,50
+Lignite Power Plant,500,500,500,500
+Lignite Supply,1250,1250,1250,0
+Offshore Wind Turbine,150,150,150,150
+Onshore Wind Turbine,1100,1100,1100,1100
+Power To Heat,100,100,100,100
+Solar Panel,1100,1100,1100,1100

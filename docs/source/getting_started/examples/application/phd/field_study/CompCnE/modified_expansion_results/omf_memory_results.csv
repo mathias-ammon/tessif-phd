@@ -1,0 +1,7 @@
+Memory [MB],omf
+reading,3.0
+parsing,1.0
+transformation,1.0
+optimization,688.0
+post_processing,15.0
+result,708.0

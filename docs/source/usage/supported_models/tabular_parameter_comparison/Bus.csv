@@ -1,0 +1,5 @@
+Parameter,Tessif,Calliope,FINE,Oemof,PyPSA
+Component,Source,Supply,Source,Source,Generator
+Identifier,Uid,name,name,label,name
+Inputs,inputs,location & techs,commodity,- (handled in connected Flow objects),- (handled in connected components)
+Outputs,outputs,location & techs,commodity,- (handled in connected Flow objects),- (handled in connected components)

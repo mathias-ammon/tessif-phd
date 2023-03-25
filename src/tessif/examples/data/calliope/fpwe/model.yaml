@@ -1,0 +1,34 @@
+#  this file is called for building the model with calliope
+
+import:  # calling the needed yaml files with path relative to this file
+
+- model_config/locations.yaml
+
+- model_config/techs.yaml
+
+model:
+
+  name: Fully_Parameterized_Working_Example
+
+  calliope_version: 0.6.6-post1  # optional but useful if this is going to be used in future for other calliope versions and problems occure
+
+  timeseries_data_path: timeseries_data  # folder name, where the .csv files are; relative to this yaml file
+
+  subset_time:  # optional, but useful e.g. for testing to set timeframe to 3 steps, when csv actually are 8760
+  - '1990-07-13 00:00:00'
+  - '1990-07-13 02:00:00'
+
+group_constraints:  # optional
+
+  systemwide_emission_cap:
+    cost_max:
+      emissions:
+
+run:
+
+  solver: cbc  # default solver in calliope
+
+  cyclic_storage: false  # all storages are either cyclic or none is
+
+  objective_options.cost_class:  # only monetary are objective to minimize, no emission cost
+    monetary: 1

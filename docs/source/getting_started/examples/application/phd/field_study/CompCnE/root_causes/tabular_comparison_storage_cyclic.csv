@@ -1,0 +1,11 @@
+Parameter,Tessif,Calliope,FINE,Oemof,PyPSA
+Component,Storage,Storage,Storage,GenericStorage,StorageUnit
+Identifier,Uid,name,name,label,name
+Connecting Input(s),input,carrier,commodity,inputs,bus
+Connecting Output(s),output,,,outputs,
+Installed Storage Capacity,capacity,storage_cap_min,capacityMin,nominal_storage_capacity,max_hours * p_nom
+Initial State of Charge,initial_soc,storage_initial,Always 0,initial_storage_level,state_of_charge_initial
+Final State of Charge,final_soc,.,,,
+Cyclic State of Charge,initial_soc = final_soc,cyclic_store,isPerdiodicalStorage,balanced,cyclic_state_of_charge
+Idle Positive Changes in State of Charge,idle_changes.positive,,,,inflow
+Idle Negative Changes in State of Charge,idle_changes.negative,storage_loss,selfDischarge,loss_rate,standing_loss

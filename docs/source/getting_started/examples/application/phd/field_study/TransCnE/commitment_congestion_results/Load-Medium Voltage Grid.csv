@@ -1,0 +1,11 @@
+Load-Medium Voltage Grid [MW],cllp,fine,omf,ppsa
+Car charging Station,37026,37026,37026,37026
+Deficit Source MV,-38460,-38460,-38460,-38460
+Excess Sink MV,0,0,0,0
+High Medium Transfer,-428888,-428888,-428888,-428888
+Industrial Demand,1229008,1229008,1229008,1229008
+Low Medium Transfer,-91480,-91480,-91480,-91480
+Medium High Transfer,0,0,0,0
+Medium Low Transfer,219628,219628,219628,219628
+Onshore Wind Power,-1099866,-1099866,-1099866,-1099866
+Power to Heat,173033,173033,173033,173033

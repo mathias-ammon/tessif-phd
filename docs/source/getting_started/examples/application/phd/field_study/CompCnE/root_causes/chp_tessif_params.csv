@@ -1,0 +1,21 @@
+Parameter,Parameter Values
+conversions,"{('Hard_Coal', 'electricity'): 0.4, ('Hard_Coal', 'hot_water'): 0.4}"
+costs_for_being_active,0.0
+expandable,"{'Hard_Coal': False, 'electricity': True, 'hot_water': True}"
+expansion_costs,"{'Hard_Coal': 0, 'electricity': 1750000, 'hot_water': 131250}"
+expansion_limits,"{'Hard_Coal': MinMax(min=0, max=inf), 'electricity': MinMax(min=300, max=inf), 'hot_water': MinMax(min=300, max=inf)}"
+flow_costs,"{'Hard_Coal': 0, 'electricity': 80, 'hot_water': 6}"
+flow_emissions,"{'Hard_Coal': 0, 'electricity': 0.8, 'hot_water': 0.06}"
+flow_gradients,"{'Hard_Coal': PositiveNegative(positive=inf, negative=inf), 'electricity': PositiveNegative(positive=inf, negative=inf), 'hot_water': PositiveNegative(positive=inf, negative=inf)}"
+flow_rates,"{'Hard_Coal': MinMax(min=0, max=inf), 'electricity': MinMax(min=0, max=300), 'hot_water': MinMax(min=0, max=300)}"
+gradient_costs,"{'Hard_Coal': PositiveNegative(positive=0, negative=0), 'electricity': PositiveNegative(positive=0, negative=0), 'hot_water': PositiveNegative(positive=0, negative=0)}"
+initial_status,1
+inputs,frozenset({'Hard_Coal'})
+interfaces,"frozenset({'hot_water', 'Hard_Coal', 'electricity'})"
+milp,"{'Hard_Coal': False, 'electricity': False, 'hot_water': False}"
+number_of_status_changes,"OnOff(on=inf, off=inf)"
+outputs,"frozenset({'hot_water', 'electricity'})"
+status_changing_costs,"OnOff(on=0.0, off=0.0)"
+status_inertia,"OnOff(on=0, off=0)"
+timeseries,
+uid,Hard Coal CHP

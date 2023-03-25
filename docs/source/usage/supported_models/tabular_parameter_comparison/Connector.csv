@@ -1,0 +1,5 @@
+Parameter,Tessif,Calliope,FINE,Oemof,PyPSA
+Component,Connector,Transmission,Conversion,Link,Link
+Identifier,Uid,name,name,label,name
+Conncected Buses,interfaces,carrier,commodityConversionFactors,"inputs, outputs","bus0, bus1"
+Conversion Factors,conversions,energy_eff,commodityConversionFactors,conversion_factors,efficiency

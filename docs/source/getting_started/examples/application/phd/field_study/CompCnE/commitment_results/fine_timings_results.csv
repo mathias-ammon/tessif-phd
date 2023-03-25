@@ -1,0 +1,7 @@
+Timings [s],fine
+reading,0.3
+parsing,0.6
+transformation,0.2
+optimization,99.3
+post_processing,7.7
+result,108.2

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<energy_system>
+    <timeframe>
+        <primary start = "'01/01/2015'"
+                 periods = "3"
+                 freq = "'H'"/>
+        <secondary start =  "'10/03/2019'"
+                   periods = "3"
+                   freq = "'H'"/>
+    </timeframe>
+    <global_constraints>
+      <e100 name = "'100'"
+            emissions = "'+inf'"/>
+      <e95 name = "'95'"
+           emissions = "39.9"/>
+      <e90 name = "'90'"
+           emissions = "37.8"/>
+      <e85 name = "'85'"
+           emissions = "35.7"/>
+      <e80 name = "'80'"
+           emissions = "33.6"/>
+      <e75 name = "'75'"
+           emissions = "31.5"/>
+      <e70 name = "'70'"
+           emissions = "29.4"/>
+      <e65 name = "'65'"
+           emissions = "27.3"/>
+      <e60 name = "'60'"
+           emissions = "25.2"/>
+      <e55 name = "'55'"
+           emissions = "23.1"/>
+      <e50 name = "'50'"
+           emissions = "21.0"/>
+      <e45 name = "'45'"
+           emissions = "18.9"/>
+      <e40 name = "'40'"
+           emissions = "16.8"/>
+      <e35 name = "'35'"
+           emissions = "14.7"/>
+      <e30 name = "'30'"
+           emissions = "12.6"/>
+      <e25 name = "'25'"
+           emissions = "10.5"/>
+      <e20 name = "'20'"
+           emissions = "8.4"/>
+      <e15 name = "'15'"
+           emissions = "6.3"/>
+      <e10 name = "'10'"
+           emissions = "4.2"/>
+      <e5 name = "'5'"
+           emissions = "2.1"/>
+      <e0 name = "'0'"
+           emissions = "0"/>
+      
+    </global_constraints>
+    <busses>
+        <fuel_supply_line name="'Pipeline'"
+                          inputs="('Gas Station.fuel',)"
+                          outputs="('Generator.fuel',)"
+                          latitude="42"
+                          longitude="42"
+                          region="'Here'"
+                          sector="'Power'"
+                          carrier="'fuel'"
+                          component="'bus'"
+                          node_type="'fuel_line'"/>
+        <gas_grid name="'Gas Grid'"
+                  inputs="('Gas Source.gas',)"
+                  outputs="('Gas Plant.gas',)"
+                  latitude="42"
+                  longitude="42"
+                  region="'Here'"
+                  sector="'Power'"
+                  carrier="'fuel'"
+                  component="'bus'"
+                  node_type="'gas-grid'"/>        
+        <power_line name="'Powerline'"
+                    inputs="('Generator.electricity', 'Gas Plant.electricity', 'Wind Power.electricity')"
+                    outputs="('Demand.electricity',)"
+                    latitude="42"
+                    longitude="42"
+                    region="'Here'"
+                    sector="'Power'"
+                    carrier="'Electricity'"
+                    component="'Bus'"
+                    node_type="'hub'"/>
+    </busses>
+    <sinks>
+      <demand name="'Demand'"
+              inputs="('electricity',)"
+              latitude="42"
+              longitude="42"
+              region="'Here'"
+              sector="'Power'"
+              carrier="'Electricity'"
+              component="'Bus'"
+              node_type="'Sink'"
+              flow_rates="{'electricity': (10, 10)}"/>
+    </sinks>
+    <sources>
+      <gas_station name="'Gas Station'"
+                   outputs="('fuel',)"
+                   latitude="42"
+                   longitude="42"
+                   region="'Here'"
+                   sector="'Power'"
+                   carrier="'Gas'"
+                   component="'Source'"
+                   node_type="'source'"
+                   flow_costs="{'fuel': 2}"
+                   flow_emissions="{'fuel': 1.5}"/>
+      <gas_source name="'Gas Source'"
+                   outputs="('gas',)"
+                   latitude="42"
+                   longitude="42"
+                   region="'Here'"
+                   sector="'Power'"
+                   carrier="'Gas'"
+                   component="'Source'"
+                   node_type="'Gas Suppy'"
+                   flow_costs="{'gas': 1}"
+                   flow_emissions="{'gas': 0.5}"/>        
+      <wind_power name="'Wind Power'"
+                  outputs="('electricity',)"
+                  latitude="42"
+                  longitude="42"
+                  region="'Here'"
+                  sector="'Power'"
+                  carrier="'Electricity'"
+                  component="'Source'"
+                  node_type="'Renewable'"
+                  flow_costs="{'electricity': 10}"
+                  flow_emissions="{'electricity': 0}"/>
+    </sources>
+    <transformers>
+        <generator name = "'Generator'"
+                   inputs = "('fuel',)"
+                   outputs = "('electricity',)"
+                   conversions = "{('fuel', 'electricity'): 0.42}"
+                   latitude = "42"
+                   longitude = "42"
+                   region = "'Here'"
+                   sector = "'Power'"
+                   carrier = "'electricity'"
+                   component = "'Transformer'"
+                   node_type = "'Fuel Generator'"
+                   flow_costs = "{'fuel': 0, 'electricity': 10,}"
+                   flow_emissions = "{'fuel': 0, 'electricity': 10}"/>
+        <gas_plant name = "'Gas Plant'"
+                   inputs = "('gas',)"
+                   outputs = "('electricity',)"
+                   conversions = "{('gas', 'electricity'): 0.6}"
+                   latitude = "42"
+                   longitude = "42"
+                   region = "'Here'"
+                   sector = "'Power'"
+                   carrier = "'electricity'"
+                   component = "'Transformer'"
+                   node_type = "'Gas Plant'"
+                   flow_rates = "{
+                        'gas': (0, '+inf'), 
+                        'electricity': (0, 5)}"
+                   flow_costs = "{'gas': 0, 'electricity': 1,}"
+                   flow_emissions = "{'gas': 0, 'electricity': 2}"/>
+    </transformers>
+</energy_system>

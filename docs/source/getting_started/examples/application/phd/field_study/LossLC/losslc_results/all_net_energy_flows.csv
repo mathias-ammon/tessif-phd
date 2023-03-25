@@ -1,0 +1,33 @@
+,,cllp,fine,omf,ppsa
+BHKW,District Heating,19562.57,13825.85,13825.85,13825.85
+BHKW,Low Voltage Grid,12414.71,8774.1,8774.1,8774.1
+Biogas,BHKW,37620.32,26588.17,26588.17,26588.17
+Biogas plant,Biogas,37620.32,26588.17,26588.17,26588.17
+Coal Supply,Coal Supply Line,1459132.3,1459132.3,1459132.3,1459132.3
+Coal Supply Line,HKW,980729.72,990290.92,990290.92,990290.92
+Coal Supply Line,HKW2,478402.59,468841.39,468841.39,468841.39
+District Heating,District Heating Demand,865459.85,865459.85,865459.85,865459.85
+Gas Station,Gaspipeline,197523.52,206773.07,206773.07,
+Gaspipeline,GuD,197523.52,206773.07,206773.07,
+GuD,High Voltage Grid,116538.88,121996.11,121996.11,121996.11
+HKW,District Heating,588437.83,594174.55,594174.55,594174.55
+HKW,High Voltage Grid,235375.13,237669.82,237669.82,237669.82
+HKW2,High Voltage Grid,205713.11,201601.8,201601.8,201601.8
+High Voltage Grid,High Voltage Transfer Grid,867448.65,871089.26,871089.26,871089.26
+High Voltage Transfer Grid,High Voltage Grid,0.0,0.0,0.0,0.0
+High Voltage Transfer Grid,Medium Voltage Grid,867448.65,871089.26,871089.26,871089.26
+Low Voltage Grid,Commercial Demand,582459.56,582459.56,582459.56,582459.56
+Low Voltage Grid,Household Demand,552564.84,552564.84,552564.84,552564.84
+Low Voltage Grid,Low Voltage Transfer Grid,111125.15,111125.15,111125.15,111125.15
+Low Voltage Transfer Grid,Low Voltage Grid,640388.02,644028.63,644028.63,644028.63
+Low Voltage Transfer Grid,Medium Voltage Grid,111125.15,111125.15,111125.15,111125.15
+Medium Voltage Grid,Car charging Station,37026.34,37026.34,37026.34,37026.34
+Medium Voltage Grid,High Voltage Transfer Grid,0.0,0.0,0.0,0.0
+Medium Voltage Grid,Industrial Demand,1229008.36,1229008.36,1229008.36,1229008.36
+Medium Voltage Grid,Low Voltage Transfer Grid,640388.02,644028.63,644028.63,644028.63
+Medium Voltage Grid,Power to Heat,172017.51,172017.51,172017.51,172017.51
+Offshore Wind Power,High Voltage Grid,309821.53,309821.53,309821.53,309821.53
+Onshore Wind Power,Medium Voltage Grid,1099866.42,1099866.42,1099866.42,1099866.42
+Power to Heat,District Heating,172017.51,172017.51,172017.51,172017.51
+Solar Panel,Low Voltage Grid,593346.83,593346.83,593346.83,593346.83
+Solar Thermal,District Heating,85441.94,85441.94,85441.94,85441.94

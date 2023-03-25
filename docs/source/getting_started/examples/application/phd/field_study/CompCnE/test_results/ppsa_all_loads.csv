@@ -1,0 +1,5 @@
+,Battery,Biogas CHP,Biogas CHP,Biogas Line,Biogas Supply,Combined Cycle PP,Hard Coal CHP,Hard Coal CHP,Hard Coal PP,Hard Coal Supply,Hard Coal Supply Line,Heat Plant,Heat Storage,Heatline,Heatline,Lignite Power Plant,Offshore Wind Turbine,Onshore Wind Turbine,Power To Heat,Powerline,Powerline,Powerline,Solar Panel
+,Powerline,Heatline,Powerline,Biogas CHP,Biogas Line,Powerline,Heatline,Powerline,Powerline,Hard Coal Supply Line,Hard Coal CHP,Heatline,Heatline,Heat Demand,Heat Storage,Powerline,Powerline,Powerline,Heatline,Battery,El Demand,Power To Heat,Powerline
+2019-01-01 00:00:00,0.0,0.0,0.0,0.0,0.0,0.0,95.62379600000001,95.62379600000001,0.0,239.05949,239.05949,0.0,0.0,95.623794,0.0,343.29141,0.0,420.6048,0.0,0.0,859.52,0.0,0.0
+2019-01-01 01:00:00,0.0,0.0,0.0,0.0,0.0,0.0,97.62416400000001,97.62416400000001,0.0,244.06041,244.06041,0.0,0.0,97.62416400000001,0.0,270.04504,0.0,463.5708,0.0,0.0,831.24,0.0,0.0
+2019-01-01 02:00:00,0.0,0.0,0.0,0.0,0.0,0.0,108.429216,108.429216,0.0,271.07304,271.07304,0.0,0.0,108.429216,0.0,215.03118,0.0,478.5396,0.0,0.0,802.0,0.0,0.0

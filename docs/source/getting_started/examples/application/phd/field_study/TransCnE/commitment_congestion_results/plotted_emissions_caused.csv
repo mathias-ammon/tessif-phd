@@ -1,0 +1,10 @@
+,,cllp,fine,omf,ppsa
+BHKW,District Heating,37859,16017,16017,16017
+BHKW,Low Voltage Grid,0,21842,21842,21842
+Deficit Source LV,Low Voltage Grid,181022,181022,181022,181022
+Deficit Source MV,Medium Voltage Grid,18876,18876,18876,18876
+HKW,District Heating,195022,114641,114641,114641
+HKW,High Voltage Grid,0,80382,80382,80382
+HKW2,High Voltage Grid,12573,12573,12573,12573
+High Voltage Grid,Excess Sink HV,3927,0,3927,0
+Low Voltage Grid,Excess Sink LV,12466,0,12466,0

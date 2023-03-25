@@ -1,0 +1,25 @@
+Capacity [MW or MWh],omf
+Battery,100
+Biogas CHP,"[200, 250]"
+Biogas Line,variable
+Biogas Supply,0
+Combined Cycle PP,600
+El Demand,859
+Gas Line,variable
+Gas Station,0
+Hard Coal CHP,"[300, 300]"
+Hard Coal PP,500
+Hard Coal Supply,271
+Hard Coal Supply Line,variable
+Heat Demand,108
+Heat Plant,450
+Heat Storage,50
+Heatline,variable
+Lignite Power Plant,500
+Lignite Supply,858
+Lignite Supply Line,variable
+Offshore Wind Turbine,150
+Onshore Wind Turbine,1100
+Power To Heat,100
+Powerline,variable
+Solar Panel,1100

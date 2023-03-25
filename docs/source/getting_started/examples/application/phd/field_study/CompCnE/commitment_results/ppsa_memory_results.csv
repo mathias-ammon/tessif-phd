@@ -1,0 +1,7 @@
+Memory [MB],ppsa
+reading,3.0
+parsing,1.0
+transformation,7.0
+optimization,452.0
+post_processing,13.0
+result,477.0

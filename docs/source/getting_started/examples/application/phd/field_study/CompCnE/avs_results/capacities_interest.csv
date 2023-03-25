@@ -1,0 +1,21 @@
+,cllp,fine,omf,ppsa
+Battery,low,low,low,high
+Biogas CHP Heatline,low,low,low,high
+Biogas CHP Powerline,low,low,low,high
+Biogas Supply,low,low,low,high
+Combined Cycle PP,low,low,low,low
+El Demand,low,low,low,low
+Gas Station,low,low,low,None
+Hard Coal CHP Heatline,low,low,low,high
+Hard Coal CHP Powerline,low,low,low,high
+Hard Coal PP,low,low,low,low
+Hard Coal Supply,None,None,None,high
+Heat Demand,low,low,low,low
+Heat Plant,low,low,low,low
+Heat Storage,low,low,low,high
+Lignite Power Plant,low,low,low,low
+Lignite Supply,None,None,None,None
+Offshore Wind Turbine,low,low,low,high
+Onshore Wind Turbine,low,low,low,high
+Power To Heat,low,low,low,high
+Solar Panel,low,low,low,high

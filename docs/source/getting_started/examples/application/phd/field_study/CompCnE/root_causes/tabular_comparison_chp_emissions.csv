@@ -1,0 +1,11 @@
+Parameter,Tessif,PyPSA
+Component,Transformer,Generator (Link)
+Identifier,Uid,name
+Connecting Input(s),inputs,- (bus0)
+Connecting Output(s),outputs,bus (bus1)
+Conversion Factors,conversions,(efficiency)
+Energy Flow Specific Flow Cost,flow_costs,marginal_cost
+Energy Flow Specific Emissions,flow emissions,
+Minimum Capacity,flow_rates.min,p_min_pu * p_nom
+Maximum Capacity,flow_rates.max,p_max_pu * p_nom
+Load Profile,timeseries,p_set

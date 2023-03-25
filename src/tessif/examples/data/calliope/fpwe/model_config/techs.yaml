@@ -1,0 +1,162 @@
+# This example is build to be like Tessif fpwe and describe the most common
+# used calliope components with most important parameters a little bit.
+#
+# For more information see also
+# https://calliope.readthedocs.io/en/stable/user/config_defaults.html#group-constraints
+# as well as
+# in installed packages in calliope - config - defaults.yaml
+
+techs:
+
+# Demand
+  electricity_Demand:  # this name cant be 'demand' cause demand is already a 'parent' name ! (same for other preset parents)
+
+    essentials:
+      name: Demand.Germany.Power.electricity.demand  # This way tessif uid is stored in calliope. name.region.sector.carrier.node_type
+      color: '#cc0033'  # colors can be set for native calliope visualization
+      parent: demand   # parent gives some presets like energy production is false and consumption is true. Custom parents can be defined as tech_group
+      carrier: electricity
+
+    constraints:
+      energy_con: true
+      resource_unit: energy
+      resource: file=electricity_Demand.csv:electricity_Demand  # Resource can either be like Tessif's accumulated amount or give an upper bound as timeseries. Timeseries give in " file=file_name.csv:column_name " style. Negative signs for demands are needed.
+      force_resource: true  # can force to use full resource rather than making it optional. Preset on demands is true while sources are false
+
+    costs:
+      monetary:
+        om_con: 0  # Costs to produce 1 unit of carrier output.
+      emissions:
+        om_con: 0  # Emissions are handled like costs. They can be (if wanted) included in solver objective to minimize. In tessif they are not included.
+
+
+# Supply
+  Gas Station:
+
+    essentials:
+      name: Gas Station.Germany.Power.Gas.source
+      color: '#FF7700'
+      parent: supply
+      carrier_out: fuel
+
+    constraints:
+      energy_prod: true
+      resource: .inf
+      resource_unit: energy
+      energy_cap_min: 100.0  # The tessif installed capacity will be called here since calliope does not have installed capacities. Except if installed is infinite
+      energy_cap_max: 100.0
+      energy_cap_min_use: 0.0
+      energy_eff: 1  # sources do have an efficiency in calliope.
+      energy_ramping: true  # Energy ramping as a fraction of capacity or true which is same as 1. Important cause default is false which equals 0
+
+    costs:
+      monetary:
+        om_prod: 10
+      emissions:
+        om_prod: 3
+
+  Solar Panel:
+
+    essentials:
+      name: Solar Panel.Germany.Power.electricity.Renewable
+      color: '#FF7700'
+      parent: supply
+      carrier_out: electricity
+
+    constraints:
+      energy_prod: true
+      resource: file=Solar Panel.csv:Solar Panel
+      resource_unit: energy_per_cap
+      energy_cap_min: 20.0
+      energy_cap_max: 20.0
+      energy_eff: 1
+      energy_ramping: true
+      force_resource: true
+
+    costs:
+      monetary:
+        om_prod: 0
+      emissions:
+        om_prod: 0
+
+# Conversion
+  Generator:
+
+    essentials:
+      name: Generator.Germany.Power.electricity.transformer
+      color: '#99ccff'
+      parent: conversion
+      carrier_in: fuel
+      carrier_out: electricity
+
+    constraints:
+      energy_con: true
+      energy_prod: true
+      energy_cap_min: 15.0
+      energy_cap_max: 15.0
+      energy_cap_min_use: 0.0
+      energy_eff: 0.42
+      energy_ramping: true
+
+    costs:
+      monetary:
+        om_con: 0
+        om_prod: 10
+      emissions:
+        om_con: 0
+        om_prod: 10
+
+# Storage
+  Battery:
+
+    essentials:
+      name: Battery.Germany.Power.electricity.storage
+      color: '#ffcc00'
+      parent: storage
+      carrier: electricity
+
+    constraints:
+      energy_con: true
+      energy_prod: true
+      storage_cap_max: 10
+      energy_cap_min: 10
+      energy_cap_max: 10  # Energy flow capacity maximum for charge as well as discharge.
+      energy_cap_min_use: 0.0
+      energy_eff: 1.0  # this efficiency is taken into account on charge as well as discharge
+      energy_ramping: true
+      storage_cap_min: 10
+      storage_initial: 0.9  # 9/10 units is in storage when starting the optimization.
+      storage_loss: 0.1  # each timestep 1/10 units of storage state of charge get lost. No standing loss from timestep -1 (initial) to 0 
+      energy_cap_per_storage_cap_min: 0
+      energy_cap_per_storage_cap_max: 1
+
+    costs:
+      monetary:
+        om_prod: 0
+      emissions:
+        om_prod: 0
+
+# transmissions to connect the technologies which will all be located in different locations
+  fuel transmission:
+
+    essentials:
+      name: fuel transmission
+      color: '#8465A9'
+      parent: transmission
+      carrier: fuel
+
+    constraints:
+      energy_eff: 1
+      one_way: true
+
+  electricity transmission:
+
+    essentials:
+      name: electricity transmission
+      color: '#8465A9'
+      parent: transmission
+      carrier: electricity
+
+    constraints:
+      energy_eff: 1
+      one_way: true

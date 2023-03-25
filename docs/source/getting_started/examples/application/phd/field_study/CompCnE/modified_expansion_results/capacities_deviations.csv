@@ -1,0 +1,21 @@
+,cllp,fine,omf,ppsa
+Battery,-0.0,0.0,0.0,0.79
+Biogas CHP Heatline,0.01,-0.0,0.0,-0.15
+Biogas CHP Powerline,0.01,-0.0,0.0,-0.15
+Biogas Supply,0.01,-0.0,0.0,-0.15
+Combined Cycle PP,0.0,0.0,0.0,0.0
+El Demand,0.0,0.0,0.0,0.0
+Gas Station,-0.01,-0.0,0.0,None
+Hard Coal CHP Heatline,0.0,0.0,0.0,0.0
+Hard Coal CHP Powerline,0.0,0.0,0.0,0.0
+Hard Coal PP,0.0,0.0,0.0,0.0
+Hard Coal Supply,None,None,None,None
+Heat Demand,-0.0,0.0,0.0,0.0
+Heat Plant,0.0,0.0,0.0,0.0
+Heat Storage,0.01,0.0,0.0,-0.02
+Lignite Power Plant,0.0,0.0,0.0,0.0
+Lignite Supply,None,None,None,None
+Offshore Wind Turbine,0.0,-0.0,0.0,-0.17
+Onshore Wind Turbine,-0.0,0.0,0.0,-0.2
+Power To Heat,-0.0,0.0,0.0,0.1
+Solar Panel,0.0,-0.0,0.0,-0.03

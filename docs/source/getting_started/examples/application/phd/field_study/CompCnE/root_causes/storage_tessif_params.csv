@@ -1,0 +1,26 @@
+Parameter,Parameter Values
+capacity,100
+costs_for_being_active,0.0
+expandable,"{'capacity': True, 'electricity': True}"
+expansion_costs,"{'capacity': 1630000, 'electricity': 0}"
+expansion_limits,"{'capacity': MinMax(min=100, max=inf), 'electricity': MinMax(min=33, max=inf)}"
+final_soc,
+fixed_expansion_ratios,{'electricity': True}
+flow_costs,{'electricity': 400}
+flow_efficiencies,"{'electricity': InOut(inflow=0.95, outflow=0.95)}"
+flow_emissions,{'electricity': 0.06}
+flow_gradients,"{'electricity': PositiveNegative(positive=inf, negative=inf)}"
+flow_rates,"{'electricity': MinMax(min=0, max=33)}"
+gradient_costs,"{'electricity': PositiveNegative(positive=0, negative=0)}"
+idle_changes,"PositiveNegative(positive=0, negative=0.5)"
+initial_soc,0
+initial_status,1
+input,electricity
+interfaces,frozenset({'electricity'})
+milp,{'electricity': False}
+number_of_status_changes,"OnOff(on=inf, off=inf)"
+output,electricity
+status_changing_costs,"OnOff(on=0.0, off=0.0)"
+status_inertia,"OnOff(on=0, off=0)"
+timeseries,
+uid,Battery

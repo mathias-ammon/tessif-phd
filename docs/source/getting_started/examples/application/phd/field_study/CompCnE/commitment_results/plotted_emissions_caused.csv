@@ -1,0 +1,9 @@
+,,cllp,fine,omf,ppsa
+Combined Cycle PP,Powerline,11182,11182,11182,11182
+Hard Coal CHP,Heatline,0,66427,66426,66426
+Hard Coal CHP,Powerline,952104,885692,885676,885676
+Hard Coal PP,Powerline,1616762,1656146,1655837,1680597
+Heat Plant,Heatline,2323,2323,2323,2323
+Lignite Power Plant,Powerline,4132600,4132574,4132600,4132600
+Onshore Wind Turbine,Powerline,41627,41627,41627,41627
+Solar Panel,Powerline,21779,19317,19337,17789

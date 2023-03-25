@@ -1,0 +1,28 @@
+Parameter,Tessif,Calliope,FINE,Oemof,PyPSA
+Component,Source,Supply,Source,Source,Generator
+Identifier,Uid,name,name,label,name
+Connecting Output(s),outputs,carrier,commodity,outputs,bus
+Energy Flow Specific Flow Cost,flow_costs,monetary.om prod,opexPerOperation,Flow.variable_costs,marginal_cost
+Energy Flow Specific Emissions,flow emissions,emissions.om prod,commodityConversionFactors,Flow.emissions,co2_emissions
+Minimum Capacity,flow_rates.min,energy_cap_min_use,capacityMin,Flow.min,p_min_pu * p_nom
+Maximum Capacity,flow_rates.max,energy_cap_min,capacityMax,Flow.max,p_max_pu * p_nom
+Load Profile,timeseries,resource,operationRateMax,Flow.fix,p_set
+Minimum Amount of Total Energy Output,accumulated_amounts.min,group constraints carrier prod,,Flow.summed_max,
+Maximum Amount of Total Energy Output,accumulated_amounts.max,group constraints carrier prod,yearlyLimit,Flow.summed_min,
+Maximum Positive Gradient,flow_gradients.positive,,,Flow.positive_gradient[„ub“],ramp_limit_up
+Maximum Negative Gradient,flow_gradients.negative,energy ramping,,Flow.negative_gradient[„ub“],ramp_limit_down
+Energy Flow Specific Positive Gradient Costs,gradient_costs.positive,,rampUpMax,Flow.positive_gradient[„costs“],
+Energy Flow Specific Negative Gradient Costs,gradient_costs.negative,,rampDownMax,Flownegative_gradient[„costs“],
+Installed Capacity is Expandable,expandable,,hasCapacityVariable,investment,p_nom_extendable
+Capacity Specific Expansion Cost,expansion_cost,monetary.energy cap,investPerCapacity,Investment.ep_costs,capital_cost
+Minimum installed Capacity (if expandable),expansion_limit.min,,capacityMin,Investment.minimum,p_nom_min
+Maximum installed Capacity (if expandable),expansion_limit.max,energy_cap_max,capacityMax,Investment.maximum,p_nom_max
+Use Milp Parameters,milp,,,NonConvex,committable
+Initial Comonent Status (On or Off),initial_status,,,NonConvex.initial_status,
+Minimum Number of Timesteps Between Status Changes,status_inertia.on,,,NonConvex.minimum_uptime,min_up_time
+,status_inertia.off,,,NonConvex.minimum_downtime,min_down_time
+,status_changing_costs.on,,,NonConvex.startup_costs,start_up_cost
+,status_changing_costs.off,,,NonConvex.shutdown_costs,shut_down_cost
+,number_of_status_changes.on,,,NonConvex.maximum_startups,
+,number_of_status_changes.off,,,NonConvex.maximum_shutdowns,
+,costs_for_beeing_active,,,NonConvex.activity_costs,

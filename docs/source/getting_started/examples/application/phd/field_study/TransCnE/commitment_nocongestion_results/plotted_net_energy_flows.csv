@@ -1,0 +1,32 @@
+,,cllp,fine,omf,ppsa
+BHKW,District Heating,46711,46711,46711,46711
+BHKW,Low Voltage Grid,29643,29643,29643,29643
+Biogas,BHKW,89828,89828,89828,89828
+Biogas plant,Biogas,89828,89828,89828,89828
+Coal Supply,Coal Supply Line,1541802,1541802,1541802,1541802
+Coal Supply Line,HKW,986044,986044,986044,986044
+Coal Supply Line,HKW2,555758,555758,555758,555758
+Deficit Source LV,Low Voltage Grid,23215,23215,23215,23215
+District Heating,District Heating Demand,865460,865460,865460,865460
+Gas Station,Gaspipeline,217127,217127,217127,0
+Gaspipeline,GuD,217127,217127,217127,0
+GuD,High Voltage Grid,128105,128105,128105,128105
+HKW,District Heating,591627,591627,591627,591627
+HKW,High Voltage Grid,236651,236651,236651,236651
+HKW2,High Voltage Grid,238976,238976,238976,238976
+High Medium Transfer,Medium Voltage Grid,849604,849604,849604,849604
+High Voltage Grid,High Medium Transfer,913553,913553,913553,913553
+Low Medium Transfer,Medium Voltage Grid,103346,103346,103346,103346
+Low Voltage Grid,Commercial Demand,582460,582460,582460,582460
+Low Voltage Grid,Household Demand,552565,552565,552565,552565
+Low Voltage Grid,Low Medium Transfer,111125,111125,111125,111125
+Medium Low Transfer,Low Voltage Grid,599945,599945,599945,599945
+Medium Voltage Grid,Car charging Station,37026,37026,37026,37026
+Medium Voltage Grid,Industrial Demand,1229008,1229008,1229008,1229008
+Medium Voltage Grid,Medium Low Transfer,645102,645102,645102,645102
+Medium Voltage Grid,Power to Heat,141681,141681,141681,141681
+Offshore Wind Power,High Voltage Grid,309822,309822,309822,309822
+Onshore Wind Power,Medium Voltage Grid,1099866,1099866,1099866,1099866
+Power to Heat,District Heating,141681,141681,141681,141681
+Solar Panel,Low Voltage Grid,593347,593347,593347,593347
+Solar Thermal,District Heating,85442,85442,85442,85442
