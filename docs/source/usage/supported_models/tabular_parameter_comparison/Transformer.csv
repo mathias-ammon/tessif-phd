@@ -1,11 +1,11 @@
 Parameter,Tessif,Calliope,FINE,Oemof,PyPSA
 Component,Transformer,Conversoin (Conversion_plus),Conversion (ConversionDynamic),Transformer,Generator (Link)
 Identifier,Uid,name,name,label,name
-Connecting Input(s),inputs,carrier_in,commodity,inputs,- (bus0)
+Connecting Input(s),inputs,carrier_in,commodity,inputs,"None,  (bus0)"
 Connecting Output(s),outputs,"carrier_out (carrier_out1, …)",commodity,outputs,bus (bus1)
 Conversion Factors,conversions,energy_eff (carrier_ratios),commodityConversionFactor,conversion_factors,(efficiency)
 Energy Flow Specific Flow Cost,flow_costs,"monetary.om prod, om_con",opexPerOperation,Flow.variable_costs,marginal_cost
-Energy Flow Specific Emissions,flow emissions,"emissions.om prod, om_con",commodityConversionFactors,Flow.emissions,
+Energy Flow Specific Emissions,flow_emissions,"emissions.om prod, om_con",commodityConversionFactors,Flow.emissions,
 Minimum Capacity,flow_rates.min,energy_cap_min_use,capacityMin,Flow.min,p_min_pu * p_nom
 Maximum Capacity,flow_rates.max,energy_cap_min,capacityMax,Flow.max,p_max_pu * p_nom
 Load Profile,timeseries,,operationRateMax,Flow.fix,p_set
