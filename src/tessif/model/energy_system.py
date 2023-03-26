@@ -415,11 +415,11 @@ class AbstractEnergySystem:
             1990-07-13 03:00:00     -0.0      -84.0       -0.0      0.0    10.0       74.0
 
             >>> print(resultier.node_load['Central Bus 0'])
-            central_bus_0        connector  Excess Source 0  Power Generator 0  Renewable Source 0  Storage 0  connector  Excess Sink 0  Sink 0  Storage 0
-            1990-07-13 00:00:00      -73.0             -0.0               -0.0                -8.0       -1.0        0.0            0.0    82.0        0.0
-            1990-07-13 01:00:00      -74.0             -0.0               -0.0                -8.0       -0.0        0.0            0.0    82.0        0.0
-            1990-07-13 02:00:00      -74.0             -0.0               -0.0                -8.0       -0.0        0.0            0.0    82.0        0.0
-            1990-07-13 03:00:00      -74.0             -0.0               -0.0                -8.0       -0.0        0.0            0.0    82.0        0.0
+            Central Bus 0        Excess Source 0  Power Generator 0  Renewable Source 0  Storage 0  connector  Excess Sink 0  Sink 0  Storage 0  connector
+            1990-07-13 00:00:00             -0.0               -0.0                -8.0       -1.0      -73.0            0.0    82.0        0.0        0.0
+            1990-07-13 01:00:00             -0.0               -0.0                -8.0       -0.0      -74.0            0.0    82.0        0.0        0.0
+            1990-07-13 02:00:00             -0.0               -0.0                -8.0       -0.0      -74.0            0.0    82.0        0.0        0.0
+            1990-07-13 03:00:00             -0.0               -0.0                -8.0       -0.0      -74.0            0.0    82.0        0.0        0.0
 
             6. Plot the energy system for better understanding the defaults:
 

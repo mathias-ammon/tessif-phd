@@ -13,7 +13,7 @@ with open(join(this_dir, 'README.rst'), encoding='utf-8') as file:
 
 setuptools.setup(
     name='tessif-phd',
-    version='0.0.1alpha',
+    version='0.0.1',
     description='Transforming Energy Supply System modell I ng Framework',
     long_description=long_description,
     classifiers=[
@@ -38,8 +38,20 @@ setuptools.setup(
     package_dir={'': 'src'},
     package_data={
         'docs': ['*.rst'],
-        '': ['xlsx/*', 'basic/*.cfg', 'objectives/*.cfg', 'nested/*.cfg',
-             'xml/*.xml', 'hdf5/*.hdf5', 'load_profiles/*.csv'],
+        '': [
+            'xlsx/*',
+            'basic/*.cfg',
+            'objectives/*.cfg',
+            'nested/*.cfg',
+            'xml/*.xml',
+            'hdf5/*.hdf5',
+            'load_profiles/*.csv',
+            "*.txt",
+            "*.yml",
+            "*.yaml",
+            "*.csv",
+            "*.hdf5",
+        ],
     },
     py_modules=[splitext(basename(path))[0] for path in glob("src/*.py")],
     install_requires=[

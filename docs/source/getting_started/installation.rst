@@ -4,7 +4,8 @@
 Installation
 ************
 
-Following Sections provide overview on how to install Tessif-phd.
+Following Sections provide overview on how to install the tessif-phd version of tessif.
+Python 3.8 is recommend.
 
 .. contents:: Contents
    :backlinks: top
@@ -28,7 +29,7 @@ Linux
 
    .. code:: shell
 
-      git clone https://collaborating.tuhh.de/ietma/tessif-phd/
+      git clone https://github.com/tZ3ma/tessif-phd.git
     
 5. Create a new virtual environment and activate it:
 
@@ -56,13 +57,17 @@ Linux
 
 .. code:: shell
 
-   tessif --test_install
+      python tests/nose_testing.py
        
     
 Windows
 =======
 
-Windows installation tutorial goes here
+See the development guide and replace step 9b with:
+
+   .. code:: powershell
+	     
+         pip install .
 
 
 Development
@@ -83,7 +88,7 @@ Linux
 
    .. code:: shell
 
-      git clone https://collaborating.tuhh.de/ietma/tessif-phd/
+      git clone https://github.com/tZ3ma/tessif-phd.git
     
 4. Create a new virtual environment and activate it:
 
@@ -117,7 +122,7 @@ Linux
 
    .. code:: shell
 
-      tessif --test_install
+      python tests/nose_testing.py
 
 9. (Optional) Build your own (html) documentation using Sphinx:
 
@@ -216,7 +221,7 @@ Windows
 
    .. code:: shell
 
-      git clone https://collaborating.tuhh.de/ietma/tessif-phd/
+      git clone https://github.com/tZ3ma/tessif-phd.git
     
 5. Create a new virtual environment and activate it:
 
