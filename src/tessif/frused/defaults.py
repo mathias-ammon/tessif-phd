@@ -23,24 +23,6 @@ nxgrph_node_shapes = {
 """
 :mod:`~tessif.visualize.nxgrph` node shape visualization defaults.
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    from tessif.frused.paths import doc_dir
-    import os
-    from tessif.frused.defaults import nxgrph_node_shapes
-    import dutils
-
-    df = dutils.to_dataframe(nxgrph_node_shapes, columns=2, fillvalue='')
-
-    path = os.path.join(
-        doc_dir, 'source', 'api', 'frused',
-        'defaults', 'node_shapes.csv')
-
-    df.to_csv(path, header=None, index=None, na_rep='None')
-
 .. csv-table::
     :file: source/api/frused/defaults/node_shapes.csv
 """
@@ -98,27 +80,6 @@ nxgrph_visualize_defaults = {
 Used as described in :func:`~tessif.visualize.nxgrph.draw_graph`'s
 :paramref:`~tessif.visualize.nxgrph.draw_graph.kwargs`.
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    from tessif.frused.paths import doc_dir
-    import os
-    from tessif.frused.defaults import nxgrph_visualize_defaults
-    import dutils
-
-    nxgrph_visualize_defaults['edge_cmap'] = '.'.join(
-        ['matplotlib.pyplot.cm', nxgrph_visualize_defaults['edge_cmap'].name])
-
-    df = dutils.to_dataframe(
-             nxgrph_visualize_defaults, columns=2, fillvalue='')
-
-    path = os.path.join(
-         doc_dir, 'source', 'api', 'frused',
-        'defaults', 'nxgrph_visualize_defaults.csv')
-    df.to_csv(path, header=None, index=None, na_rep='None')
-
 .. csv-table::
     :file: source/api/frused/defaults/nxgrph_visualize_defaults.csv
 """
@@ -171,28 +132,6 @@ as well as easy to maintain and expand code.
 
 Currently used tags:
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    from tessif.frused.paths import doc_dir
-    import os
-    from tessif.frused.defaults import nxgrph_visualize_tags as nvt
-    import pandas
-
-    path = os.path.join(
-        doc_dir, 'source', 'api', 'frused',
-        'defaults', 'nxgrph_visualize_tags.csv')
-
-    df = pandas.DataFrame(data=nvt._asdict().values(),
-                          index=nvt._asdict().keys())
-
-    for row, value in enumerate(df[0]):
-        df[0][row] = '{}{}{}'.format('``', value, '``')
-
-    df.to_csv(path, header=None)
-
 .. csv-table:: first column labels the namedtuples field
     :file: source/api/frused/defaults/nxgrph_visualize_tags.csv
     :stub-columns: 1
@@ -213,25 +152,6 @@ nxgrph_visualize_xcptns = nts.AttributeGroupings(
 as well as easy to maintain and expand code.
 
 Currently used exceptions:
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    from tessif.frused.paths import doc_dir
-    import os
-    from tessif.frused.defaults import nxgrph_visualize_xcptns as nvx
-    import pandas
-
-    path = os.path.join(
-         doc_dir, 'source', 'api', 'frused',
-        'defaults', 'nxgrph_visualize_xcptns.csv')
-
-    df = pandas.DataFrame(data=nvx._asdict().values(),
-                          index=nvx._asdict().keys())
-
-    df.to_csv(path, header=None)
 
 .. csv-table:: first column labels the namedtuples field
     :file: source/api/frused/defaults/nxgrph_visualize_xcptns.csv
@@ -266,24 +186,6 @@ here for easily maintained and expanded code.
 
 Currently used exceptions:
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    from tessif.frused.paths import doc_dir
-    import os
-    from tessif.frused.defaults import nx_label_kwargs
-    import pandas
-
-    path = os.path.join(
-         doc_dir, 'source', 'api', 'frused',
-        'defaults', 'nx_label_kwargs.csv')
-
-    df = pandas.DataFrame(data=nx_label_kwargs.values(),
-                          index=nx_label_kwargs.keys())
-
-    df.to_csv(path, header=None)
 
 .. csv-table:: first column labels the keys
     :file: source/api/frused/defaults/nx_label_kwargs.csv
@@ -318,25 +220,6 @@ filtering out incompatible key word arguments. Explicitly stated
 here for easily maintained and expanded code.
 
 Currently used exceptions:
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    from tessif.frused.paths import doc_dir
-    import os
-    from tessif.frused.defaults import nx_label_kwargs
-    import pandas
-
-    path = os.path.join(
-         doc_dir, 'source', 'api', 'frused',
-        'defaults', 'nx_label_kwargs.csv')
-
-    df = pandas.DataFrame(data=nx_label_kwargs.values(),
-                          index=nx_label_kwargs.keys())
-
-    df.to_csv(path, header=None)
 
 .. csv-table:: first column labels the keys
     :file: source/api/frused/defaults/nx_label_kwargs.csv
@@ -443,23 +326,6 @@ energy_system_nodes = {
 """
 Fallback defaults for creating energy system nodes.
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    from tessif.frused.paths import doc_dir
-    import os
-    from tessif.frused.defaults import energy_system_nodes
-    import dutils
-
-    df = dutils.to_dataframe(energy_system_nodes, columns=3, fillvalue='')
-
-    path = os.path.join(
-        doc_dir, 'source', 'api', 'frused',
-        'defaults', 'energy_system_nodes.csv')
-
-    df.to_csv(path, header=None, index=None, na_rep='None')
 
 .. csv-table::
     :file: source/api/frused/defaults/energy_system_nodes.csv
@@ -489,24 +355,6 @@ during :mod:`parsing <tessif.parse>`.
 Currently registered component types and their
 :ref:`identifiers <Spellings_EnergySystemComponentIdentifiers>`.
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    from tessif.frused.paths import doc_dir
-    import os
-    from tessif.frused.defaults import registered_component_types as rct
-    import pandas
-
-    path = os.path.join(
-        doc_dir, 'source', 'api', 'frused',
-        'defaults', 'registered_component_types.csv')
-
-    df = pandas.DataFrame(data=rct.values(),
-                          index=rct.keys())
-
-    df.to_csv(path, header=None)
 
 .. csv-table:: first column labels the registration key
     :file: source/api/frused/defaults/registered_component_types.csv
@@ -536,25 +384,6 @@ specialised parsers exists or will be added. Like for example in
 :meth:`tessif.transform.mapping2es.omf.generate_sito_flex_transformers`.
 
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    from tessif.frused.paths import doc_dir
-    import os
-    from tessif.frused.defaults import addon_component_types as act
-    import pandas
-
-    path = os.path.join(
-        doc_dir, 'source', 'api', 'frused',
-        'defaults', 'addon_component_types.csv')
-
-    df = pandas.DataFrame(data=act.values(),
-                          index=act.keys())
-
-    df.to_csv(path, header=None)
-
 .. csv-table:: first column labels the registration key
     :file: source/api/frused/defaults/addon_component_types.csv
     :stub-columns: 1
@@ -569,25 +398,6 @@ registered_models = {
 """
 Registered energy supply system simulation models and their recognized
 spelling variations.
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    from tessif.frused.paths import doc_dir
-    import os
-    from tessif.frused.defaults import registered_models as rm
-    import pandas
-
-    path = os.path.join(
-        doc_dir, 'source', 'api', 'frused',
-        'defaults', 'registered_models.csv')
-
-    df = pandas.DataFrame(data=rm.values(),
-                          index=rm.keys())
-
-    df.to_csv(path, header=None)
 
 .. csv-table:: first column labels the registration key
     :file: source/api/frused/defaults/registered_models.csv

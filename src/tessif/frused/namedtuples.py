@@ -156,67 +156,9 @@ style.
 
 Currently supported styles are (first column identifies the mapping key):
 
-    .. execute_code::
-        :hide_code:
-        :hide_headers:
-        :hide_output:
-
-        import tessif.frused.namedtuples as nts
-        from tessif.frused.paths import doc_dir
-        import pandas as pd
-        import os
-
-        df = pd.DataFrame(
-            index=nts.node_uid_styles.keys(),
-            data=nts.node_uid_styles.values())
-
-        path = os.path.join(
-            doc_dir, 'source', 'api', 'frused',
-            'namedtuples', 'node_uid_styles.csv')
-
-        df.to_csv(path, header=None)
-
     .. csv-table::
         :file: source/api/frused/namedtuples/node_uid_styles.csv
         :stub-columns: 1
-
-Combined with :attr:`~tessif.frused.configurations.node_uid_seperator`
-a node of::
-
-    lbl = tessif.frused.namedtuples.uid(
-        name='test',
-        latitude='lat',
-        longitude='long',
-        region='hamburg',
-        sector='power',
-        carrier='wind',
-        component='source',
-        node_type='renewable')
-
-results into following representaion, depending on the mapping used:
-
-    .. execute_code::
-        :hide_code:
-        :hide_headers:
-
-        import tessif.frused.namedtuples as nts
-        import tessif.frused.configurations as configs
-
-        lbl = nts.Uid(
-            name='test',
-            latitude='lat',
-            longitude='long',
-            region='hamburg',
-            sector='power',
-            carrier='wind',
-            component='source',
-            node_type='renewable')
-
-        nls = nts.node_uid_styles
-
-        for key in nls.keys():
-            configs.node_uid_style = key
-            print(configs.node_uid_style, '->', lbl)
 """
 
 Edge = collections.namedtuple('Edge', ['source', 'target'])

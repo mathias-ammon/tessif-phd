@@ -37,7 +37,7 @@ from tessif.write import log
 import networkx
 from collections import defaultdict
 import logging
-import dutils
+import dcttools
 
 
 logger = logging.getLogger(__name__)
@@ -120,7 +120,7 @@ def create_nodes(graph, nodes, defaults={}, **kwargs):
     node_attr = defaultdict(dict)
 
     # aggregate kwargs into a nested dict as in {node: {attr: parameter}}
-    node_attr = dutils.maggregate(
+    node_attr = dcttools.maggregate(
         tlkys=nodes, nstd_dcts=[node_attr, ], dcts=[defaults, ],
         **kwargs)
 
@@ -208,7 +208,7 @@ def create_edges(graph, edges, defaults={}, **kwargs):
     edge_attr = defaultdict(dict)
 
     # aggregate kwargs into a nested dict as in {edge: {attr: parameter}}
-    edge_attr = dutils.maggregate(
+    edge_attr = dcttools.maggregate(
         tlkys=Edges, nstd_dcts=[edge_attr, ], dcts=[defaults, ],
         **kwargs)
 
@@ -285,8 +285,8 @@ class Graph(networkx.DiGraph):
 
         fltr = conventions.nxgrph_visualize_tags.node
         xcptns = conventions.nxgrph_visualize_xcptns.node
-        node_attr, defaults = dutils.kfrep(
-            dcts=dutils.kfltr(
+        node_attr, defaults = dcttools.kfrep(
+            dcts=dcttools.kfltr(
                 dcts=[es_transformer.node_data(), es_transformer.defaults],
                 fltr=fltr),
             fnd=fltr, xcptns=xcptns)
@@ -300,8 +300,8 @@ class Graph(networkx.DiGraph):
 
         fltr = conventions.nxgrph_visualize_tags.edge
         xcptns = conventions.nxgrph_visualize_xcptns.edge
-        edge_attr, defaults = dutils.kfrep(
-            dcts=dutils.kfltr(
+        edge_attr, defaults = dcttools.kfrep(
+            dcts=dcttools.kfltr(
                 dcts=[es_transformer.edge_data(), es_transformer.defaults],
                 fltr=fltr),
             fnd=fltr, xcptns=xcptns)

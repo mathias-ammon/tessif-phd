@@ -95,12 +95,12 @@ from tessif.frused import namedtuples as nts
 import networkx as nx
 from matplotlib import pyplot as plt
 import logging
-import dutils
+import dcttools
 from tessif.write import log
 import tessif.frused.defaults as convs
 
 logger = logging.getLogger(__name__)
-dutils.logger = logger
+dcttools.logger = logger
 
 
 @log.timings
@@ -248,15 +248,15 @@ def draw_nodes(
 
     """
     # Use kfrep to replace fltr in keys and kfltr for prefiltering prefix
-    node_attr, node_dflts, node_kwargs = dutils.kfrep(
-        dcts=dutils.kfltr(dcts=[node_attr, dflts, kwargs], fltr=fltr),
+    node_attr, node_dflts, node_kwargs = dcttools.kfrep(
+        dcts=dcttools.kfltr(dcts=[node_attr, dflts, kwargs], fltr=fltr),
         fnd=fltr, xcptns=xcptns)
 
     # Swap keys to allow aggregation
-    node_attr = dutils.kswap(node_attr)
+    node_attr = dcttools.kswap(node_attr)
 
     # Aggregate all attributes into node_attr for drawing:
-    node_attr = dutils.maggregate(
+    node_attr = dcttools.maggregate(
         tlkys=grph.nodes, nstd_dcts=[node_attr, ], dcts=[node_dflts, ],
         **node_kwargs)
 
@@ -480,15 +480,15 @@ def drawing_node_labels(grph, pos, node_attr, dflts,
         :alt: drawing_node_labels_example_image.png
     """
     # Use kfrep to replace fltr in keys and kfltr for prefiltering prefix
-    node_attr, dflts, kwargs = dutils.kfrep(
-        dcts=dutils.kfltr(dcts=[node_attr, dflts, kwargs], fltr=fltr),
+    node_attr, dflts, kwargs = dcttools.kfrep(
+        dcts=dcttools.kfltr(dcts=[node_attr, dflts, kwargs], fltr=fltr),
         fnd=fltr, xcptns=xcptns)
 
     # Swap keys to allow aggregation
-    node_attr = dutils.kswap(node_attr)
+    node_attr = dcttools.kswap(node_attr)
 
     # Aggregate all attributes into node_attr for drawing
-    node_attr = dutils.maggregate(
+    node_attr = dcttools.maggregate(
         tlkys=grph.nodes, nstd_dcts=[node_attr, ], dcts=[dflts, ],
         **kwargs)
 
@@ -662,27 +662,27 @@ def draw_edges(grph, pos, edge_attr, node_attr,
         Edges.append(nts.Edge(*edge))
 
     # Use kfrep to replace fltr in keys and kfltr for prefiltering prefix
-    node_attr, node_dflts, node_kwargs = dutils.kfrep(
-        dcts=dutils.kfltr(dcts=[node_attr, dflts, kwargs], fltr=fltr[0]),
+    node_attr, node_dflts, node_kwargs = dcttools.kfrep(
+        dcts=dcttools.kfltr(dcts=[node_attr, dflts, kwargs], fltr=fltr[0]),
         fnd=fltr[0], xcptns=xcptns[0])
 
     # Swap keys to allow aggregation
-    node_attr = dutils.kswap(node_attr)
+    node_attr = dcttools.kswap(node_attr)
 
     # Aggregate everything into node_attr for drawing:
-    node_attr = dutils.maggregate(
+    node_attr = dcttools.maggregate(
         tlkys=grph.nodes, nstd_dcts=[node_attr, ], dcts=[node_dflts, ],
         **node_kwargs)
 
     # Replace fltr in keys using kfrep to prefilter all attributes:
-    edge_attr, edge_dflts, edge_kwargs = dutils.kfrep(
-        dcts=dutils.kfltr(dcts=[edge_attr, dflts, kwargs], fltr=fltr[1]),
+    edge_attr, edge_dflts, edge_kwargs = dcttools.kfrep(
+        dcts=dcttools.kfltr(dcts=[edge_attr, dflts, kwargs], fltr=fltr[1]),
         fnd=fltr[1], xcptns=xcptns[1])
 
-    edge_attr = dutils.kswap(edge_attr)
+    edge_attr = dcttools.kswap(edge_attr)
 
     # Aggregate everything into edge_attr for drawing:
-    edge_attr = dutils.maggregate(
+    edge_attr = dcttools.maggregate(
         tlkys=Edges, nstd_dcts=[edge_attr, ], dcts=[edge_dflts, ],
         **edge_kwargs)
 
@@ -871,15 +871,15 @@ def drawing_edge_labels(grph, pos, edge_attr, dflts,
         Edges.append(nts.Edge(*edge))
 
     # Use kfrep to replace fltr in keys and kfltr for prefiltering prefix
-    edge_attr, edge_dflts, edge_kwargs = dutils.kfrep(
-        dcts=dutils.kfltr(dcts=[edge_attr, dflts, kwargs], fltr=fltr),
+    edge_attr, edge_dflts, edge_kwargs = dcttools.kfrep(
+        dcts=dcttools.kfltr(dcts=[edge_attr, dflts, kwargs], fltr=fltr),
         fnd=fltr, xcptns=xcptns)
 
     # Swap keys to allow aggregation
-    edge_attr = dutils.kswap(edge_attr)
+    edge_attr = dcttools.kswap(edge_attr)
 
     # Aggregate everything into edge_attr for drawing:
-    edge_attr = dutils.maggregate(
+    edge_attr = dcttools.maggregate(
         tlkys=Edges, nstd_dcts=[edge_attr, ], dcts=[edge_dflts, ],
         **edge_kwargs)
 
@@ -1005,11 +1005,11 @@ def draw_legend(grph, ax, lgnds=[], dflts={}, fltr='', xcptns=[], **kwargs):
     for legend_kwargs in lgnds:
 
         # Use kfrep to replace fltr in keys and kfltr for prefiltering prefix
-        legend_dflts, legend_kwargs, provided_kwargs = dutils.kfrep(
-            dcts=dutils.kfltr(dcts=[dflts, legend_kwargs, kwargs], fltr=fltr),
+        legend_dflts, legend_kwargs, provided_kwargs = dcttools.kfrep(
+            dcts=dcttools.kfltr(dcts=[dflts, legend_kwargs, kwargs], fltr=fltr),
             fnd=fltr, xcptns=xcptns)
 
-        legend_attr = dutils.flaggregate(
+        legend_attr = dcttools.flaggregate(
             dcts=[legend_dflts, legend_kwargs, provided_kwargs])
 
         # Create the legend object

@@ -136,9 +136,9 @@ High Voltage Powerline       GuD         HKW  High Voltage Transformator  Offsho
 
 >>> print(fn_results.node_load['High Voltage Powerline'])
 High Voltage Powerline         GuD         HKW  High Voltage Transformator  Offshore Wind Power  Pumped Storage  High Voltage Transformator  Pumped Storage
-1990-07-13 00:00:00     -10.253182 -164.110453                        -0.0               -120.0            -0.0                   294.36364             0.0
-1990-07-13 01:00:00      -0.000000  -84.363636                        -0.0               -140.0            -0.0                   224.36364             0.0
-1990-07-13 02:00:00    -171.363636 -175.000000                        -0.0                -70.0            -0.0                   416.36364             0.0
+1990-07-13 00:00:00     -30.985997 -143.377640                        -0.0               -120.0            -0.0                   294.36364             0.0
+1990-07-13 01:00:00      -0.000000 -103.018867                        -0.0               -140.0            -0.0                   243.01887             0.0
+1990-07-13 02:00:00    -153.641166 -175.000000                        -0.0                -70.0            -0.0                   398.64117             0.0
 
 >>> print(cllp_results.node_load['High Voltage Powerline'])
 High Voltage Powerline       GuD        HKW  High Voltage Transformator  Offshore Wind Power  Pumped Storage  High Voltage Transformator  Pumped Storage
@@ -161,8 +161,9 @@ Medium Voltage Powerline  High Voltage Transformator  Low Voltage Transformator 
 >>> print(fn_results.node_inflows['Medium Voltage Powerline'])
 Medium Voltage Powerline  High Voltage Transformator  Low Voltage Transformator  Onshore Wind Power
 1990-07-13 00:00:00                        294.36364                        0.0                60.0
-1990-07-13 01:00:00                        224.36364                        0.0                80.0
-1990-07-13 02:00:00                        416.36364                        0.0                34.0
+1990-07-13 01:00:00                        243.01887                        0.0                80.0
+1990-07-13 02:00:00                        398.64117                        0.0                34.0
+
 
 >>> print(cllp_results.node_inflows['Medium Voltage Powerline'])
 Medium Voltage Powerline  High Voltage Transformator  Low Voltage Transformator  Onshore Wind Power
@@ -189,10 +190,11 @@ Following section demonstrate how to access the
 >>> comparatier.integrated_global_results.drop(
 ...     ['time (s)', 'memory (MB)'], axis='index')
                     cllp     fine      omf     ppsa
-emissions (sim)  16979.0  16599.0  17032.0  15937.0
-costs (sim)      23440.0  22347.0  23215.0  21071.0
-opex (ppcd)      23440.0  22347.0  23215.0  21071.0
+emissions (sim)  16979.0  16573.0  17032.0  15937.0
+costs (sim)      23440.0  22339.0  23215.0  21071.0
+opex (ppcd)      23440.0  22339.0  23215.0  21071.0
 capex (ppcd)         0.0      0.0      0.0      0.0
+
 
 
 Memory and timing results are dropped because they vary slightly between runs.

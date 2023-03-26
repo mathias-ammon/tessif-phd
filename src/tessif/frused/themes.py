@@ -80,38 +80,6 @@ Categorized by :attr:`~tessif.frused.namedtuples.NodeColorGroupings`
 
 For each category there is a mapping of identifiers to colors
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    from tessif.frused.paths import doc_dir
-    import os
-    import tessif.frused.themes as themes
-    import pandas
-    import dutils
-
-    for pos, dct in enumerate(themes.colors):
-        category = themes.colors._fields[pos]
-
-        path = os.path.join(
-            doc_dir, 'source', 'api', 'frused',
-            'themes', '{}_colors.png'.format(category))
-        fig = themes._plot_colortable(
-            dct, str(category),
-            sort_colors=False, emptycols=0)
-        fig.savefig(path)
-
-
-        csv_path = os.path.join(
-            doc_dir, 'source', 'api', 'frused',
-            'themes', '{}.csv'.format(category))
-
-        df = dutils.to_dataframe(
-            dct, columns=2, fillvalue='')
-
-        df.to_csv(csv_path, header=None, index=None, na_rep='None')
-
 |
 
 **Component Grouped Colors:**
@@ -277,34 +245,6 @@ Categorized by :attr:`~tessif.frused.namedtuples.NodeColorGroupings`
 
 For each category there is a mapping of identifiers to colors
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    from tessif.frused.paths import doc_dir
-    import os
-    import tessif.frused.themes as themes
-    import pandas
-
-    for pos, dct in enumerate(themes.cmaps):
-        category = themes.cmaps._fields[pos]
-
-        path = os.path.join(
-            doc_dir, 'source', 'api', 'frused',
-            'themes', '{}_colormaps.png'.format(category))
-        fig = themes._plot_color_gradients(category, dct)
-        fig.savefig(path)
-
-        csv_path = os.path.join(
-            doc_dir, 'source', 'api', 'frused',
-            'themes', '{}_colormaps.csv'.format(category))
-
-        df = pandas.DataFrame(data=dct.values(),
-                              index=dct.keys())
-
-        df.to_csv(csv_path, header=None)
-
 |
 
 **Component Grouped Colormaps:**
@@ -422,38 +362,6 @@ hatches = NodeColorGroupings(
 
 For each category there is a mapping of identifiers to hatches
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    from tessif.frused.paths import doc_dir
-    import os
-    import tessif.frused.themes as themes
-    import pandas
-    import dutils
-
-    for pos, dct in enumerate(themes.hatches):
-        category = themes.hatches._fields[pos]
-
-        path = os.path.join(
-            doc_dir, 'source', 'api', 'frused',
-            'themes', '{}_hatches.png'.format(category))
-        fig = themes._plot_hatches(category, dct)
-        fig.savefig(path)
-
-        csv_path = os.path.join(
-            doc_dir, 'source', 'api', 'frused',
-            'themes', '{}_hatches.csv'.format(category))
-
-        for key, value in dct.copy().items():
-            dct[key] = '{lit_quote}{value}{lit_quote}'.format(
-                lit_quote='``', value=value)
-
-        df = dutils.to_dataframe(dct, columns=2, fillvalue='')
-
-        df.to_csv(csv_path, header=None)
-
 |
 
 **Component Grouped Hatches:**
@@ -514,35 +422,6 @@ hmaps = {
 """
 Mapping of :mod:`~tessif` hatchmaps. Usefull when plotting sector grouped
 results to distinguish the individual components without coloring.
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    from tessif.frused.paths import doc_dir
-    import os
-    import tessif.frused.themes as themes
-    import pandas
-    import dutils
-
-    for category, dct in themes.hmaps.items():
-
-        csv_path = os.path.join(
-            doc_dir, 'source', 'api', 'frused',
-            'themes', '{}_hatchmaps.csv'.format(category))
-
-        for key, value in dct.copy().items():
-            new_list = []
-            for i in value:
-                new_list.append(
-                    '{lit_quote}{i}{lit_quote}'.format(lit_quote='``', i=i))
-            dct[key] = new_list
-
-        df = pandas.DataFrame(data=dct.values(),
-                              index=dct.keys())
-
-        df.to_csv(csv_path, header=None)
 
 |
 

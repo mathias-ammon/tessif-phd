@@ -14,7 +14,7 @@ from tessif.frused import resolutions, spellings, configurations
 from tessif.frused.defaults import energy_system_nodes as esn
 from tessif.write import log
 import logging
-import dutils
+import dcttools
 
 logger = logging.getLogger(__name__)
 
@@ -1440,8 +1440,8 @@ def generate_generic_storages(energy_system_dict, bus_dict):
 
                 # Find out if storage capacity itself is subject to investment
                 # by filtering for 'storage_' included tags
-                investment_parameters = dict(*dutils.kfrep(
-                    dcts=dutils.kfltr(
+                investment_parameters = dict(*dcttools.kfrep(
+                    dcts=dcttools.kfltr(
                         dcts=[storage], fltr='storage_'),
                     fnd='storage_', rplc=''))
 
@@ -1494,8 +1494,8 @@ def generate_generic_storages(energy_system_dict, bus_dict):
                             dflt=esn['input'])]:
                         solph.Flow(
                             **parse_flow_parameters(
-                                *dutils.kfrep(
-                                    dcts=dutils.kfltr(
+                                *dcttools.kfrep(
+                                    dcts=dcttools.kfltr(
                                         dcts=[storage], fltr='inflow_'),
                                     fnd='inflow_', rplc='')))},
                     outputs={
@@ -1504,8 +1504,8 @@ def generate_generic_storages(energy_system_dict, bus_dict):
                             dflt=esn['output'])]:
                         solph.Flow(
                             **parse_flow_parameters(
-                                *dutils.kfrep(
-                                    dcts=dutils.kfltr(
+                                *dcttools.kfrep(
+                                    dcts=dcttools.kfltr(
                                         dcts=[storage], fltr='outflow_'),
                                     fnd='outflow_', rplc='')))},
                     inflow_conversion_factor=spellings.get_from(

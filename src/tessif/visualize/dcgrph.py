@@ -96,7 +96,7 @@ import dash_cytoscape as cyto
 import dash
 from dash.dependencies import Input, Output
 
-import dutils
+import dcttools
 import logging
 from pandas import DataFrame
 import seaborn as sns
@@ -363,15 +363,15 @@ def parse_dc_nodes(grph, node_attr, dflts, fltr='node_', nrep='uid', **kwargs):
         :alt: dcgrph node example
     """
     # Use kfrep to replace fltr in keys and kfltr for prefiltering prefix
-    node_attr, node_dflts, node_kwargs = dutils.kfrep(
-        dcts=dutils.kfltr(dcts=[node_attr, dflts, kwargs], fltr=fltr),
+    node_attr, node_dflts, node_kwargs = dcttools.kfrep(
+        dcts=dcttools.kfltr(dcts=[node_attr, dflts, kwargs], fltr=fltr),
         fnd=fltr, rplc=fltr)
 
     # Swap keys to allow aggregation
-    node_attr = dutils.kswap(node_attr)
+    node_attr = dcttools.kswap(node_attr)
 
     # Aggregate all attributes into node_attr for drawing:
-    node_attr = dutils.maggregate(
+    node_attr = dcttools.maggregate(
         tlkys=grph.nodes, nstd_dcts=[node_attr, ], dcts=[node_dflts, ],
         **node_kwargs)
 
@@ -681,27 +681,27 @@ def parse_dc_edges(grph, edge_attr, node_attr,
         Edges.append(nts.Edge(*edge))
 
     # Use kfrep to replace fltr in keys and kfltr for prefiltering prefix
-    node_attr, node_dflts, node_kwargs = dutils.kfrep(
-        dcts=dutils.kfltr(dcts=[node_attr, dflts, kwargs], fltr=fltr[0]),
+    node_attr, node_dflts, node_kwargs = dcttools.kfrep(
+        dcts=dcttools.kfltr(dcts=[node_attr, dflts, kwargs], fltr=fltr[0]),
         fnd=fltr[0], rplc=fltr[0])
 
     # Swap keys to allow aggregation
-    node_attr = dutils.kswap(node_attr)
+    node_attr = dcttools.kswap(node_attr)
 
     # Aggregate everything into node_attr for drawing:
-    node_attr = dutils.maggregate(
+    node_attr = dcttools.maggregate(
         tlkys=grph.nodes, nstd_dcts=[node_attr, ], dcts=[node_dflts, ],
         **node_kwargs)
 
     # Replace fltr in keys using kfrep to prefilter all attributes:
-    edge_attr, edge_dflts, edge_kwargs = dutils.kfrep(
-        dcts=dutils.kfltr(dcts=[edge_attr, dflts, kwargs], fltr=fltr[1]),
+    edge_attr, edge_dflts, edge_kwargs = dcttools.kfrep(
+        dcts=dcttools.kfltr(dcts=[edge_attr, dflts, kwargs], fltr=fltr[1]),
         fnd=fltr[1], rplc=fltr[1])
 
-    edge_attr = dutils.kswap(edge_attr)
+    edge_attr = dcttools.kswap(edge_attr)
 
     # Aggregate everything into edge_attr for drawing:
-    edge_attr = dutils.maggregate(
+    edge_attr = dcttools.maggregate(
         tlkys=Edges, nstd_dcts=[edge_attr, ], dcts=[edge_dflts, ],
         **edge_kwargs)
 
@@ -1233,9 +1233,9 @@ def draw_graph_from_data(data, layout='cose', stylesheet=tweak_em_all, ilstyle=N
     """
     # parse layout
     # Use kfrep to find and replace layout_kwarg with kwarg
-    kfrepped_kwarg_dicts = dutils.kfrep(
+    kfrepped_kwarg_dicts = dcttools.kfrep(
         # filte out layout kwargs
-        dcts=dutils.kfltr(dcts=[kwargs], fltr='layout_'),
+        dcts=dcttools.kfltr(dcts=[kwargs], fltr='layout_'),
         # replace 'layout_' by nothing, so kwarg gets returned
         fnd='layout_',
         rplc='',

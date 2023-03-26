@@ -27,13 +27,13 @@ setuptools.setup(
     author='Mathias Ammon',
     author_email='tz3ma.coding@use.startmail.com',
     license='MIT',
-    use_scm_version={
-        'write_to': 'src/tessif/version.py',
-        'write_to_template': '__version__ = "{version}"\n',
-        'tag_regex': r'^(?P<prefix>v)?(?P<version>[^\+]+)(?P<suffix>.*)?$',
-        'local_scheme': 'node-and-timestamp',
-    },
-    setup_requires=['setuptools_scm'],
+    # use_scm_version={
+    #     'write_to': 'src/tessif/version.py',
+    #     'write_to_template': '__version__ = "{version}"\n',
+    #     'tag_regex': r'^(?P<prefix>v)?(?P<version>[^\+]+)(?P<suffix>.*)?$',
+    #     'local_scheme': 'node-and-timestamp',
+    # },
+    # setup_requires=['setuptools_scm'],
     packages=setuptools.find_packages('src'),
     package_dir={'': 'src'},
     package_data={
@@ -50,6 +50,7 @@ setuptools.setup(
         # 'pandas<0.26,>=0.18.0',
 
         # used primarily for signals (engineering kinds of signals)
+        "numpy==1.23.1",
         'scipy',
 
         # used for graphs graph plotting
@@ -70,25 +71,18 @@ setuptools.setup(
         'h5py',
 
         # energy system model toolboxes
-        'oemof.solph>=0.4.4',  # pin for dissertation
+        'oemof.solph==0.4.4',  # pin for dissertation
         'pypsa==0.19.3',  # pin for dissertation
         'FINE==2.2.1',  # pin for dissertation
-        'calliope>=0.6.6.post1',  # pin for dissertation
+        'calliope==0.6.6.post1',  # pin for dissertation
 
         # used for time series aggregation in FINE to reduce optimization time
         'tsam',
 
         # auxilliary tools
-        # "dcttools",
-        # "strutils",
-        # "ittools",
-        # tessif utility tools on private repo
-        '{p} @ git+ssh://git@collaborating.tuhh.de/ietma/{p}.git'.format(
-            p='dutils'),
-        '{p} @ git+ssh://git@collaborating.tuhh.de/ietma/{p}.git'.format(
-            p='strutils'),
-        '{p} @ git+ssh://git@collaborating.tuhh.de/ietma/{p}.git'.format(
-            p='ittools'),
+        "dcttools",
+        "strutils",
+        "ittools",
     ],
     extras_require={
         'dev': [
@@ -99,8 +93,6 @@ setuptools.setup(
             'openpyxl',
             'sphinx-paramlinks',
             'sphinx_rtd_theme',
-            '{p} @ git+ssh://git@collaborating.tuhh.de/ietma/{p}.git'.format(
-                p='sphinx_execute_code'),
         ],
     },
     zip_safe=False,

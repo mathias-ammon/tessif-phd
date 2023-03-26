@@ -48,7 +48,7 @@ extensions = [
 
     # 3rd party extensions
     'sphinx_paramlinks',  # enable :param: cross referencing
-    'sphinx_execute_code',  # execute code
+    # 'sphinx_exec_code',  # execute code
     # 'sphinxcontrib.excel_table',  # show xlsx exceltables
     # 'sphinxcontrib.exceltable',  # show xls exceltables
 ]

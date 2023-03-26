@@ -15,15 +15,6 @@ temporal_resolution = 'hourly'
 """
 Currently used temporal resolution. Must be one of the keys found in
 :attr:`~tessif.frused.resolutions.temporals`.
-
-Currently set to:
-
-    .. execute_code::
-        :hide_code:
-        :hide_headers:
-
-        import tessif.frused.configurations as config
-        print(config.temporal_resolution)
 """
 
 node_uid_style = 'name'
@@ -50,15 +41,6 @@ energy system.
 
 For a list of available styles and their key (the string set to
 :attr:`node_uid_style`) see :attr:`tessif.frused.namedtuples.node_uid_styles`.
-
-Currently set to:
-
-    .. execute_code::
-        :hide_code:
-        :hide_headers:
-
-        import tessif.frused.configurations as config
-        print(config.node_uid_style)
 """
 
 node_uid_seperator = '_'
@@ -68,24 +50,6 @@ Seperate different tags of the same
 
 Seperate symbol for (uniquely) identifying a node's uid using various tags of
 the :attr:`namedtuples implementation <tessif.frused.namedtuples.uid>`.
-
-Currently set to:
-
-    .. execute_code::
-        :hide_code:
-        :hide_headers:
-
-        import tessif.frused.configurations as config
-        print(config.node_uid_seperator)
-
-So ``TAG1{NODE_UID_SEPERATOR}TAG2`` results in:
-
-    .. execute_code::
-        :hide_code:
-        :hide_headers:
-
-        import tessif.frused.configurations as config
-        print('TAG1{}TAG2'.format(config.node_uid_seperator))
 """
 
 timeseries_seperator = '.'
@@ -98,25 +62,6 @@ values when reading in data.
 Standard syntax::
 
     {ES_OBJECT}{SEPERATOR}{TIMESERIES_PARAMETER}.
-
-Currently set to:
-
-    .. execute_code::
-        :hide_code:
-        :hide_headers:
-
-        import tessif.frused.configurations as config
-        print(config.timeseries_seperator)
-
-So ``PV{SEPERATOR}max`` and ``Onshore{SEPERATOR}fix`` results in:
-
-    .. execute_code::
-        :hide_code:
-        :hide_headers:
-
-        import tessif.frused.configurations as config
-        print('PV{}max'.format(config.timeseries_seperator))
-        print('Onshore{}fix'.format(config.timeseries_seperator))
 """
 
 mimos = 10
@@ -125,41 +70,16 @@ Number of seperate inputs/outputs supported for multiple input output energy
 system transformers.
 
 Currently set to:
-
-    .. execute_code::
-        :hide_code:
-        :hide_headers:
-
-        import tessif.frused.configurations as config
-        print(config.mimos)
 """
 
 power_reference_unit = 'MW'
 """
 Unit to display power results with.
-
-Currently set to:
-
-    .. execute_code::
-        :hide_code:
-        :hide_headers:
-
-        import tessif.frused.configurations as config
-        print(config.power_reference_unit)
 """
 
 cost_unit = '€'
 """
 Unit representing the costs.
-
-Currently set to:
-
-    .. execute_code::
-        :hide_code:
-        :hide_headers:
-
-        import tessif.frused.configurations as config
-        print(config.cost_unit)
 """
 
 #: Dictionairy configuring tessif's logging locations and file names
@@ -170,17 +90,6 @@ logging_file_paths = {
 }
 """
 Tessif's logging locations and filenames.
-
-Currently set to:
-
-    .. execute_code::
-        :hide_code:
-        :hide_headers:
-
-        from tessif.frused.configurations import logging_file_paths as lgn
-        print(lgn['debug'])
-        print(lgn['content'])
-        print(lgn['timings'])
 
 Warning
 -------
@@ -195,13 +104,4 @@ spellings_logging_level = 'warning'
 used by :meth:`spellings.get_from <tessif.frused.spellings.get_from>`.
 
 Must be one of the keys found in :attr:`~tessif.write.log.logging_levels`.
-
-Currently set to:
-
-    .. execute_code::
-        :hide_code:
-        :hide_headers:
-
-        import tessif.frused.configurations as config
-        print(config.spellings_logging_level)
 """

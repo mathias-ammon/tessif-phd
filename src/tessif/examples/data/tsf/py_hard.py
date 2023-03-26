@@ -2919,7 +2919,7 @@ def _create_grid_es_unit(n, timeframe, transformer_efficiency=0.93,
         (at 0 the parts of the grid are not connected)
 
     expansion: bool, default=False
-        If ``True`` :ref:`gridcapacity` is subject to expansion.
+        If ``True`` :paramref:`gridcapacity` is subject to expansion.
 
     Return
     ------
@@ -3000,7 +3000,7 @@ def _create_grid_es_unit(n, timeframe, transformer_efficiency=0.93,
         carrier='low-voltage-electricity',
         node_type='Renewable',
         flow_rates={'low-voltage-electricity': nts.MinMax(min=0,
-                                                          max=max_pv+0.001)}, # TODO: Remove "+0.001" when zero division bug in es2es.cllp is fixed.
+                                                          max=max_pv+0.001)},  # TODO: Remove "+0.001" when zero division bug in es2es.cllp is fixed.
         flow_costs={'low-voltage-electricity': 60.85},
         flow_emissions={'low-voltage-electricity': 0},
         timeseries={'low-voltage-electricity': nts.MinMax(min=pv, max=pv)},
@@ -3184,7 +3184,8 @@ def _create_grid_es_unit(n, timeframe, transformer_efficiency=0.93,
         sector='Heat',
         carrier='Hot Water',
         node_type='Renewable',
-        flow_rates={'heat': nts.MinMax(min=0, max=max_s_t+0.001)}, # TODO: Remove "+0.001" when zero division bug in es2es.cllp is fixed.
+        # TODO: Remove "+0.001" when zero division bug in es2es.cllp is fixed.
+        flow_rates={'heat': nts.MinMax(min=0, max=max_s_t+0.001)},
         flow_costs={'heat': 73},
         flow_emissions={'heat': 0},
         timeseries={'heat': nts.MinMax(min=s_t, max=s_t)},
@@ -4348,7 +4349,8 @@ def _create_hhes_unit(n, timeframe):
         sector='power',
         carrier='solar',
 
-        flow_rates={'electricity': nts.MinMax(min=0, max=max_pv+0.001)}, # TODO: Remove "+0.001" when zero division bug in es2es.cllp is fixed.
+        # TODO: Remove "+0.001" when zero division bug in es2es.cllp is fixed.
+        flow_rates={'electricity': nts.MinMax(min=0, max=max_pv+0.001)},
         flow_costs={'electricity': 74},
         flow_emissions={'electricity': 0},
         timeseries={'electricity': nts.MinMax(min=pv_HH, max=pv_HH)},
@@ -4357,7 +4359,7 @@ def _create_hhes_unit(n, timeframe):
         expansion_costs={'electricity': economics.annuity(capex=1000000, n=20,
                                                           wacc=0.05)},
         expansion_limits={'electricity': nts.MinMax(
-            min=max_pv+0.001, max=float('+inf'))}, # TODO: Remove "+0.001" when zero division bug in es2es.cllp is fixed.
+            min=max_pv+0.001, max=float('+inf'))},  # TODO: Remove "+0.001" when zero division bug in es2es.cllp is fixed.
     )
 
     won1 = components.Source(
@@ -11763,7 +11765,7 @@ def create_transcne_es(
         (at 0 the parts of the grid are not connected)
 
     expansion: bool, default=False
-        If ``True`` :ref:`gridcapacity` is subject to expansion.
+        If ``True`` :paramref:`gridcapacity` is subject to expansion.
 
     Note
     ----
@@ -11777,10 +11779,10 @@ def create_transcne_es(
            Voltage Grid"``
         4. Rename ``"[Voltage to Voltage] Transformator"`` to
            ``"[Voltage to Voltage] Transfer"``
-        5. Change :ref:`gridcapacity` to reference the maximum outflow.
-        6. :ref:`expansion` capabilities are added to allow :ref:`gridcapacity`
+        5. Change :paramref:`gridcapacity` to reference the maximum outflow.
+        6. :paramref:`expansion` capabilities are added to allow :paramref:`gridcapacity`
            to be expanded
-        7. Default :ref:`transformer_efficiency` is decreased to ``0.93`` to
+        7. Default :paramref:`transformer_efficiency` is decreased to ``0.93`` to
            discourage energy circulation between to grid busses to dissipate
            surplus amounts.
         8. Outflow costs of 10 cost units per power unit are added to all

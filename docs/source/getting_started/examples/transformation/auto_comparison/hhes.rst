@@ -426,9 +426,9 @@ Check the integrated global results again:
 ...     ['time (s)', 'memory (MB)'], axis='index')
                         cllp         fine          omf         ppsa
 emissions (sim)        600.0        600.0        600.0        600.0
-costs (sim)      150727489.0  150001712.0  150687813.0  142313929.0
-opex (ppcd)        2796765.0    2756873.0    2733169.0    4020738.0
-capex (ppcd)     147930731.0  147244807.0  147954645.0  138293192.0
+costs (sim)      150727489.0  141832283.0  150687813.0  142313929.0
+opex (ppcd)        2796765.0    3826398.0    2733169.0    4020738.0
+capex (ppcd)     147930731.0  138005856.0  147954645.0  138293192.0
 
 
 Memory and timing results are dropped because they vary slightly between runs.

@@ -23,13 +23,6 @@ logger = logging.getLogger(__name__)
 
 seperators = ['_', ' ', ]
 """Seperators used for combined string expressions.
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-
-    import tessif.frused.spellings as sps
-    print(sps.seperators)
 """
 
 variation_base = {
@@ -452,17 +445,6 @@ mapping.
 
 There is an
 identically named attribute for each mapping in :mod:`tessif.frused.spellings`.
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.variation_base.keys(), 'variation_base', 3)
-
-.. csv-table::
-   :file: source/api/frused/spellings/variation_base.csv
 """
 
 # Data Input Dictionary Keys
@@ -473,14 +455,6 @@ for string in variation_base['timeindex']:
             timeindex.add(variation)
 timeindex = sorted(timeindex)
 """Supported ``timeindex`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.timeindex, 'timeindex')
 
 .. csv-table::
    :file: source/api/frused/spellings/timeindex.csv
@@ -494,14 +468,6 @@ for string in variation_base['timeseries']:
 timeseries = sorted(timeseries)
 """Supported ``timeseries`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.timeseries, 'timeseries')
-
 .. csv-table::
    :file: source/api/frused/spellings/timeseries.csv
 """
@@ -514,14 +480,6 @@ for string in variation_base['timeframe']:
 timeframe = sorted(timeframe)
 """Supported ``timeframe`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.timeframe, 'timeframe')
-
 .. csv-table::
    :file: source/api/frused/spellings/timeframe.csv
 """
@@ -533,14 +491,6 @@ for string in variation_base['global_constraints']:
             global_constraints.add(variation)
 global_constraints = sorted(global_constraints)
 """Supported ``global_constraints`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.global_constraints, 'global_constraints')
 
 .. csv-table::
    :file: source/api/frused/spellings/global_constraints.csv
@@ -557,14 +507,6 @@ for string in variation_base['accumulated_amounts']:
 accumulated_amounts = sorted(accumulated_amounts)
 """Supported ``accumulated_amounts`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.accumulated_amounts, 'accumulated_amounts')
-
 .. csv-table::
    :file: source/api/frused/spellings/accumulated_amounts.csv
 """
@@ -576,14 +518,6 @@ for string in variation_base['costs_for_being_active']:
             costs_for_being_active.add(variation)
 costs_for_being_active = sorted(costs_for_being_active)
 """Supported ``costs_for_being_active`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.costs_for_being_active, 'costs_for_being_active')
 
 .. csv-table::
    :file: source/api/frused/spellings/costs_for_being_active.csv
@@ -597,14 +531,6 @@ for string in variation_base['expandable']:
 expandable = sorted(expandable)
 """Supported ``expandable`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.expandable, 'expandable')
-
 .. csv-table::
    :file: source/api/frused/spellings/expandable.csv
 """
@@ -616,14 +542,6 @@ for string in variation_base['expansion_costs']:
             expansion_costs.add(variation)
 expansion_costs = sorted(expansion_costs)
 """Supported ``expansion_costs`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.expansion_costs, 'expansion_costs')
 
 .. csv-table::
    :file: source/api/frused/spellings/expansion_costs.csv
@@ -637,14 +555,6 @@ for string in variation_base['expansion_limits']:
 expansion_limits = sorted(expansion_limits)
 """Supported ``expansion_limits`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.expansion_limits, 'expansion_limits')
-
 .. csv-table::
    :file: source/api/frused/spellings/expansion_limits.csv
 """
@@ -656,14 +566,6 @@ for string in variation_base['fixed_expansion_ratios']:
             fixed_expansion_ratios.add(variation)
 fixed_expansion_ratios = sorted(fixed_expansion_ratios)
 """Supported ``fixed_expansion_ratios`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.fixed_expansion_ratios, 'fixed_expansion_ratios')
 
 .. csv-table::
    :file: source/api/frused/spellings/fixed_expansion_ratios.csv
@@ -677,14 +579,6 @@ for string in variation_base['flow_costs']:
 flow_costs = sorted(flow_costs)
 """Supported ``flow_costs`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.flow_costs, 'flow_costs')
-
 .. csv-table::
    :file: source/api/frused/spellings/flow_costs.csv
 """
@@ -696,14 +590,6 @@ for string in variation_base['flow_efficiencies']:
             flow_efficiencies.add(variation)
 flow_efficiencies = sorted(flow_efficiencies)
 """Supported ``flow_efficiencies`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.flow_efficiencies, 'flow_efficiencies')
 
 .. csv-table::
    :file: source/api/frused/spellings/flow_efficiencies.csv
@@ -717,13 +603,6 @@ for string in variation_base['flow_emissions']:
 flow_emissions = sorted(flow_emissions)
 """Supported ``flow_emissions`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.flow_emissions, 'flow_emissions')
 
 .. csv-table::
    :file: source/api/frused/spellings/flow_emissions.csv
@@ -737,14 +616,6 @@ for string in variation_base['flow_gradients']:
 flow_gradients = sorted(flow_gradients)
 """Supported ``flow_gradients`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.flow_gradients, 'flow_gradients')
-
 .. csv-table::
    :file: source/api/frused/spellings/flow_gradients.csv
 """
@@ -756,14 +627,6 @@ for string in variation_base['flow_rates']:
             flow_rates.add(variation)
 flow_rates = sorted(flow_rates)
 """Supported ``flow_rates`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.flow_rates, 'flow_rates')
 
 .. csv-table::
    :file: source/api/frused/spellings/flow_rates.csv
@@ -777,14 +640,6 @@ for string in variation_base['gradient_costs']:
 gradient_costs = sorted(gradient_costs)
 """Supported ``gradient_costs`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.gradient_costs, 'gradient_costs')
-
 .. csv-table::
    :file: source/api/frused/spellings/gradient_costs.csv
 """
@@ -796,14 +651,6 @@ for string in variation_base['idle_changes']:
             idle_changes.add(variation)
 idle_changes = sorted(idle_changes)
 """Supported ``idle_changes`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.idle_changes, 'idle_changes')
 
 .. csv-table::
    :file: source/api/frused/spellings/idle_changes.csv
@@ -817,14 +664,6 @@ for string in variation_base['initial_soc']:
 initial_soc = sorted(initial_soc)
 """Supported ``initial_soc`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.initial_soc, 'initial_soc')
-
 .. csv-table::
    :file: source/api/frused/spellings/initial_soc.csv
 """
@@ -836,14 +675,6 @@ for string in variation_base['initial_status']:
             initial_status.add(variation)
 initial_status = sorted(initial_status)
 """Supported ``initial_status`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.initial_status, 'initial_status')
 
 .. csv-table::
    :file: source/api/frused/spellings/initial_status.csv
@@ -857,14 +688,6 @@ for string in variation_base['inputs']:
 inputs = sorted(inputs)
 """Supported ``inputs`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.inputs, 'inputs')
-
 .. csv-table::
    :file: source/api/frused/spellings/inputs.csv
 """
@@ -876,14 +699,6 @@ for string in variation_base['interfaces']:
             interfaces.add(variation)
 interfaces = sorted(interfaces)
 """Supported ``interfaces`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.interfaces, 'interfaces')
 
 .. csv-table::
    :file: source/api/frused/spellings/interfaces.csv
@@ -897,14 +712,6 @@ for string in variation_base['number_of_status_changes']:
 number_of_status_changes = sorted(number_of_status_changes)
 """Supported ``number_of_status_changes`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.number_of_status_changes, 'number_of_status_changes')
-
 .. csv-table::
    :file: source/api/frused/spellings/number_of_status_changes.csv
 """
@@ -916,14 +723,6 @@ for string in variation_base['status_inertia']:
             status_inertia.add(variation)
 status_inertia = sorted(status_inertia)
 """Supported ``status_inertia`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.status_inertia, 'status_inertia')
 
 .. csv-table::
    :file: source/api/frused/spellings/status_inertia.csv
@@ -937,14 +736,6 @@ for string in variation_base['status_changing_costs']:
 status_changing_costs = sorted(status_changing_costs)
 """Supported ``status_changing_costs`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.status_changing_costs, 'status_changing_costs')
-
 .. csv-table::
    :file: source/api/frused/spellings/status_changing_costs.csv
 """
@@ -956,14 +747,6 @@ for string in variation_base['outputs']:
             outputs.add(variation)
 outputs = sorted(outputs)
 """Supported ``outputs`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.outputs, 'outputs')
 
 .. csv-table::
    :file: source/api/frused/spellings/outputs.csv
@@ -980,14 +763,6 @@ for string in variation_base['active']:
 active = sorted(active)
 """Supported ``active`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.active, 'active')
-
 .. csv-table::
    :file: source/api/frused/spellings/active.csv
 """
@@ -999,14 +774,6 @@ for string in variation_base['expansion_problem']:
             expansion_problem.add(variation)
 expansion_problem = sorted(expansion_problem)
 """Supported ``expansion_problem`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.expansion_problem, 'expansion_problem')
 
 .. csv-table::
    :file: source/api/frused/spellings/expansion_problem.csv
@@ -1020,14 +787,6 @@ for string in variation_base['minimum_expansion']:
 minimum_expansion = sorted(minimum_expansion)
 """Supported ``minimum_expansion`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.minimum_expansion, 'minimum_expansion')
-
 .. csv-table::
    :file: source/api/frused/spellings/minimum_expansion.csv
 """
@@ -1039,14 +798,6 @@ for string in variation_base['maximum_expansion']:
             maximum_expansion.add(variation)
 maximum_expansion = sorted(maximum_expansion)
 """Supported ``maximum_expansion`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.maximum_expansion, 'maximum_expansion')
 
 .. csv-table::
    :file: source/api/frused/spellings/maximum_expansion.csv
@@ -1060,14 +811,6 @@ for string in variation_base['expansion_costs']:
 expansion_costs = sorted(expansion_costs)
 """Supported ``expansion_costs`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.expansion_costs, 'expansion_costs')
-
 .. csv-table::
    :file: source/api/frused/spellings/expansion_costs.csv
 """
@@ -1079,14 +822,6 @@ for string in variation_base['oemof']:
             oemof.add(variation)
 oemof = sorted(oemof)
 """Supported ``oemof`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.oemof, 'oemof')
 
 .. csv-table::
    :file: source/api/frused/spellings/oemof.csv
@@ -1100,14 +835,6 @@ for string in variation_base['pypsa']:
 pypsa = sorted(pypsa)
 """Supported ``pypsa`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.pypsa, 'pypsa')
-
 .. csv-table::
    :file: source/api/frused/spellings/pypsa.csv
 """
@@ -1119,14 +846,6 @@ for string in variation_base['fine']:
             fine.add(variation)
 fine = sorted(fine)
 """Supported ``fine`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.fine, 'fine')
 
 .. csv-table::
    :file: source/api/frused/spellings/fine.csv
@@ -1140,14 +859,6 @@ for string in variation_base['calliope']:
 calliope = sorted(calliope)
 """Supported ``calliope`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.calliope, 'calliope')
-
 .. csv-table::
    :file: source/api/frused/spellings/calliope.csv
 """
@@ -1159,14 +870,6 @@ for string in variation_base['name']:
             name.add(variation)
 name = sorted(name)
 """Supported ``name`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.name, 'name')
 
 .. csv-table::
    :file: source/api/frused/spellings/name.csv
@@ -1180,14 +883,6 @@ for string in variation_base['latitude']:
 latitude = sorted(latitude)
 """Supported ``latitude`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.latitude, 'latitude')
-
 .. csv-table::
    :file: source/api/frused/spellings/latitude.csv
 """
@@ -1199,14 +894,6 @@ for string in variation_base['longitude']:
             longitude.add(variation)
 longitude = sorted(longitude)
 """Supported ``longitude`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.longitude, 'longitude')
 
 .. csv-table::
    :file: source/api/frused/spellings/longitude.csv
@@ -1220,14 +907,6 @@ for string in variation_base['region']:
 region = sorted(region)
 """Supported ``region`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.region, 'region')
-
 .. csv-table::
    :file: source/api/frused/spellings/region.csv
 """
@@ -1239,14 +918,6 @@ for string in variation_base['sector']:
             sector.add(variation)
 sector = sorted(sector)
 """Supported ``sector`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.sector, 'sector')
 
 .. csv-table::
    :file: source/api/frused/spellings/sector.csv
@@ -1260,14 +931,6 @@ for string in variation_base['carrier']:
 carrier = sorted(carrier)
 """Supported ``carrier`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.carrier, 'carrier')
-
 .. csv-table::
    :file: source/api/frused/spellings/carrier.csv
 """
@@ -1279,14 +942,6 @@ for string in variation_base['component']:
             component.add(variation)
 component = sorted(component)
 """Supported ``component`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.component, 'component')
 
 .. csv-table::
    :file: source/api/frused/spellings/component.csv
@@ -1300,14 +955,6 @@ for string in variation_base['node_type']:
 node_type = sorted(node_type)
 """Supported ``node_type`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.node_type, 'node_type')
-
 .. csv-table::
    :file: source/api/frused/spellings/node_type.csv
 """
@@ -1319,14 +966,6 @@ for string in variation_base['number_of_connections']:
             number_of_connections.add(variation)
 number_of_connections = sorted(number_of_connections)
 """Supported ``number_of_connections`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.number_of_connections, 'number_of_connections')
 
 .. csv-table::
    :file: source/api/frused/spellings/number_of_connections.csv
@@ -1341,14 +980,6 @@ conversion_factor_full_condensation = sorted(
     conversion_factor_full_condensation)
 """Supported ``conversion_factor_full_condensation`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.conversion_factor_full_condensation, 'conversion_factor_full_condensation')
-
 .. csv-table::
    :file: source/api/frused/spellings/conversion_factor_full_condensation.csv
 """
@@ -1360,14 +991,6 @@ for string in variation_base['el_efficiency_wo_dist_heat']:
             el_efficiency_wo_dist_heat.add(variation)
 el_efficiency_wo_dist_heat = sorted(el_efficiency_wo_dist_heat)
 """Supported ``el_efficiency_wo_dist_heat`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.el_efficiency_wo_dist_heat, 'el_efficiency_wo_dist_heat')
 
 .. csv-table::
    :file: source/api/frused/spellings/el_efficiency_wo_dist_heat.csv
@@ -1381,14 +1004,6 @@ for string in variation_base['enthalpy_loss']:
 enthalpy_loss = sorted(enthalpy_loss)
 """Supported ``enthalpy_loss`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.enthalpy_loss, 'enthalpy_loss')
-
 .. csv-table::
    :file: source/api/frused/spellings/enthalpy_loss.csv
 """
@@ -1400,14 +1015,6 @@ for string in variation_base['min_condenser_load']:
             min_condenser_load.add(variation)
 min_condenser_load = sorted(min_condenser_load)
 """Supported ``min_condenser_load`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.min_condenser_load, 'min_condenser_load')
 
 .. csv-table::
    :file: source/api/frused/spellings/min_condenser_load.csv
@@ -1421,14 +1028,6 @@ for string in variation_base['power_wo_dist_heat']:
 power_wo_dist_heat = sorted(power_wo_dist_heat)
 """Supported ``power_wo_dist_heat`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.power_wo_dist_heat, 'power_wo_dist_heat')
-
 .. csv-table::
    :file: source/api/frused/spellings/power_wo_dist_heat.csv
 """
@@ -1440,14 +1039,6 @@ for string in variation_base['fraction']:
             fraction.add(variation)
 fraction = sorted(fraction)
 """Supported ``fraction`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.fraction, 'fraction')
 
 .. csv-table::
    :file: source/api/frused/spellings/fraction.csv
@@ -1462,14 +1053,6 @@ for string in variation_base['fraction']:
 fractionN = sorted(fractionN)
 """Supported ``fractionN`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.fractionN, 'fractionN', columns=6)
-
 .. csv-table::
    :file: source/api/frused/spellings/fractionN.csv
 """
@@ -1481,14 +1064,6 @@ for string in variation_base['input']:
             input.add(variation)
 input = sorted(input)
 """Supported ``input`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.input, 'input')
 
 .. csv-table::
    :file: source/api/frused/spellings/input.csv
@@ -1503,14 +1078,6 @@ for string in variation_base['input']:
 inputN = sorted(inputN)
 """Supported ``inputN`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.inputN, 'inputN', columns=6)
-
 .. csv-table::
    :file: source/api/frused/spellings/inputN.csv
 """
@@ -1522,14 +1089,6 @@ for string in variation_base['input_maximum']:
             input_maximum.add(variation)
 input_maximum = sorted(input_maximum)
 """Supported ``input_maximum`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.input_maximum, 'input_maximum')
 
 .. csv-table::
    :file: source/api/frused/spellings/input_maximum.csv
@@ -1543,14 +1102,6 @@ for string in variation_base['input_minimum']:
 input_minimum = sorted(input_minimum)
 """Supported ``input_minimum`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.input_minimum, 'input_minimum')
-
 .. csv-table::
    :file: source/api/frused/spellings/input_minimum.csv
 """
@@ -1563,14 +1114,6 @@ for string in variation_base['fuel_in']:
 fuel_in = sorted(fuel_in)
 """Supported ``fuel_in`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.fuel_in, 'fuel_in')
-
 .. csv-table::
    :file: source/api/frused/spellings/fuel_in.csv
 """
@@ -1582,14 +1125,6 @@ for string in variation_base['output']:
             output.add(variation)
 output = sorted(output)
 """Supported ``output`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.output, 'output')
 
 .. csv-table::
    :file: source/api/frused/spellings/output.csv
@@ -1604,14 +1139,6 @@ for string in variation_base['output']:
 outputN = sorted(outputN)
 """Supported ``outputN`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.outputN, 'outputN', columns=5)
-
 .. csv-table::
    :file: source/api/frused/spellings/outputN.csv
 """
@@ -1623,14 +1150,6 @@ for string in variation_base['output_maximum']:
             output_maximum.add(variation)
 output_maximum = sorted(output_maximum)
 """Supported ``output_maximum`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.output_maximum, 'output_maximum')
 
 .. csv-table::
    :file: source/api/frused/spellings/output_maximum.csv
@@ -1644,14 +1163,6 @@ for string in variation_base['output_minimum']:
 output_minimum = sorted(output_minimum)
 """Supported ``output_minimum`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.output_minimum, 'output_minimum')
-
 .. csv-table::
    :file: source/api/frused/spellings/output_minimum.csv
 """
@@ -1663,14 +1174,6 @@ for string in variation_base['efficiency']:
             efficiency.add(variation)
 efficiency = sorted(efficiency)
 """Supported ``efficiency`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.efficiency, 'efficiency')
 
 .. csv-table::
    :file: source/api/frused/spellings/efficiency.csv
@@ -1685,14 +1188,6 @@ for string in variation_base['efficiency']:
 efficiencyN = sorted(efficiencyN)
 """Supported ``efficiencyN`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.efficiencyN, 'efficiencyN', columns=6)
-
 .. csv-table::
    :file: source/api/frused/spellings/efficiencyN.csv
 """
@@ -1704,14 +1199,6 @@ for string in variation_base['maximum_efficiency']:
             maximum_efficiency.add(variation)
 maximum_efficiency = sorted(maximum_efficiency)
 """Supported ``maximum_efficiency`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.maximum_efficiency, 'maximum_efficiency')
 
 .. csv-table::
    :file: source/api/frused/spellings/maximum_efficiency.csv
@@ -1725,14 +1212,6 @@ for string in variation_base['minimum_efficiency']:
 minimum_efficiency = sorted(minimum_efficiency)
 """Supported ``minimum_efficiency`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.minimum_efficiency, 'minimum_efficiency')
-
 .. csv-table::
    :file: source/api/frused/spellings/minimum_efficiency.csv
 """
@@ -1744,14 +1223,6 @@ for string in variation_base['inflow_efficiency']:
             inflow_efficiency.add(variation)
 inflow_efficiency = sorted(inflow_efficiency)
 """Supported ``inflow_efficiency`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.inflow_efficiency, 'inflow_efficiency')
 
 .. csv-table::
    :file: source/api/frused/spellings/inflow_efficiency.csv
@@ -1765,14 +1236,6 @@ for string in variation_base['outflow_efficiency']:
 outflow_efficiency = sorted(outflow_efficiency)
 """Supported ``outflow_efficiency`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.outflow_efficiency, 'outflow_efficiency')
-
 .. csv-table::
    :file: source/api/frused/spellings/outflow_efficiency.csv
 """
@@ -1784,14 +1247,6 @@ for string in variation_base['loss_rate']:
             loss_rate.add(variation)
 loss_rate = sorted(loss_rate)
 """Supported ``loss_rate`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.loss_rate, 'loss_rate')
 
 .. csv-table::
    :file: source/api/frused/spellings/loss_rate.csv
@@ -1805,14 +1260,6 @@ for string in variation_base['power_out']:
 power_out = sorted(power_out)
 """Supported ``power_out`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.power_out, 'power_out')
-
 .. csv-table::
    :file: source/api/frused/spellings/power_out.csv
 """
@@ -1824,14 +1271,6 @@ for string in variation_base['maximum_power']:
             maximum_power.add(variation)
 maximum_power = sorted(maximum_power)
 """Supported ``maximum_power`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.maximum_power, 'maximum_power')
 
 .. csv-table::
    :file: source/api/frused/spellings/maximum_power.csv
@@ -1845,14 +1284,6 @@ for string in variation_base['minimum_power']:
 minimum_power = sorted(minimum_power)
 """Supported ``minimum_power`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.minimum_power, 'minimum_power')
-
 .. csv-table::
    :file: source/api/frused/spellings/minimum_power.csv
 """
@@ -1864,14 +1295,6 @@ for string in variation_base['power_efficiency']:
             power_efficiency.add(variation)
 power_efficiency = sorted(power_efficiency)
 """Supported ``power_efficiency`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.power_efficiency, 'power_efficiency')
 
 .. csv-table::
    :file: source/api/frused/spellings/power_efficiency.csv
@@ -1885,14 +1308,6 @@ for string in variation_base['power_costs']:
 power_costs = sorted(power_costs)
 """Supported ``power_costs`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.power_costs, 'power_costs')
-
 .. csv-table::
    :file: source/api/frused/spellings/power_costs.csv
 """
@@ -1904,14 +1319,6 @@ for string in variation_base['power_emissions']:
             power_emissions.add(variation)
 power_emissions = sorted(power_emissions)
 """Supported ``power_emissions`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.power_emissions, 'power_emissions')
 
 .. csv-table::
    :file: source/api/frused/spellings/power_emissions.csv
@@ -1925,14 +1332,6 @@ for string in variation_base['heat_out']:
 heat_out = sorted(heat_out)
 """Supported ``heat_out`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.heat_out, 'heat_out')
-
 .. csv-table::
    :file: source/api/frused/spellings/heat_out.csv
 """
@@ -1944,14 +1343,6 @@ for string in variation_base['heat_in']:
             heat_in.add(variation)
 heat_in = sorted(heat_in)
 """Supported ``heat_in`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.heat_in, 'heat_in')
 
 .. csv-table::
    :file: source/api/frused/spellings/heat_in.csv
@@ -1965,14 +1356,6 @@ for string in variation_base['maximum_heat']:
 maximum_heat = sorted(maximum_heat)
 """Supported ``maximum_heat`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.maximum_heat, 'maximum_heat')
-
 .. csv-table::
    :file: source/api/frused/spellings/maximum_heat.csv
 """
@@ -1984,14 +1367,6 @@ for string in variation_base['minimum_heat']:
             minimum_heat.add(variation)
 minimum_heat = sorted(minimum_heat)
 """Supported ``minimum_heat`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.minimum_heat, 'minimum_heat')
 
 .. csv-table::
    :file: source/api/frused/spellings/minimum_heat.csv
@@ -2005,14 +1380,6 @@ for string in variation_base['heat_efficiency']:
 heat_efficiency = sorted(heat_efficiency)
 """Supported ``heat_efficiency`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.heat_efficiency, 'heat_efficiency')
-
 .. csv-table::
    :file: source/api/frused/spellings/heat_efficiency.csv
 """
@@ -2024,14 +1391,6 @@ for string in variation_base['heat_costs']:
             heat_costs.add(variation)
 heat_costs = sorted(heat_costs)
 """Supported ``heat_costs`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.heat_costs, 'heat_costs')
 
 .. csv-table::
    :file: source/api/frused/spellings/heat_costs.csv
@@ -2045,14 +1404,6 @@ for string in variation_base['heat_emissions']:
 heat_emissions = sorted(heat_emissions)
 """Supported ``heat_emissions`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.heat_emissions, 'heat_emissions')
-
 .. csv-table::
    :file: source/api/frused/spellings/heat_emissions.csv
 """
@@ -2064,14 +1415,6 @@ for string in variation_base['maximum_extraction']:
             maximum_extraction.add(variation)
 maximum_extraction = sorted(maximum_extraction)
 """Supported ``maximum_extraction`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.maximum_extraction, 'maximum_extraction')
 
 .. csv-table::
    :file: source/api/frused/spellings/maximum_extraction.csv
@@ -2085,14 +1428,6 @@ for string in variation_base['minimum_extraction']:
 minimum_extraction = sorted(minimum_extraction)
 """Supported ``minimum_extraction`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.minimum_extraction, 'minimum_extraction')
-
 .. csv-table::
    :file: source/api/frused/spellings/minimum_extraction.csv
 """
@@ -2104,14 +1439,6 @@ for string in variation_base['fuelgas_losses']:
             fuelgas_losses.add(variation)
 fuelgas_losses = sorted(fuelgas_losses)
 """Supported ``fuelgas_losses`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.fuelgas_losses, 'fuelgas_losses')
 
 .. csv-table::
    :file: source/api/frused/spellings/fuelgas_losses.csv
@@ -2125,14 +1452,6 @@ for string in variation_base['maximum_fuelgas_losses']:
 maximum_fuelgas_losses = sorted(maximum_fuelgas_losses)
 """Supported ``maximum_fuelgas_losses`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.maximum_fuelgas_losses, 'maximum_fuelgas_losses')
-
 .. csv-table::
    :file: source/api/frused/spellings/maximum_fuelgas_losses.csv
 """
@@ -2144,14 +1463,6 @@ for string in variation_base['minimum_fuelgas_losses']:
             minimum_fuelgas_losses.add(variation)
 minimum_fuelgas_losses = sorted(minimum_fuelgas_losses)
 """Supported ``minimum_fuelgas_losses`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.minimum_fuelgas_losses, 'minimum_fuelgas_losses')
 
 .. csv-table::
    :file: source/api/frused/spellings/minimum_fuelgas_losses.csv
@@ -2165,14 +1476,6 @@ for string in variation_base['upper_heating_value']:
 upper_heating_value = sorted(upper_heating_value)
 """Supported ``upper_heating_value`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.upper_heating_value, 'upper_heating_value')
-
 .. csv-table::
    :file: source/api/frused/spellings/upper_heating_value.csv
 """
@@ -2184,14 +1487,6 @@ for string in variation_base['lower_heating_value']:
             lower_heating_value.add(variation)
 lower_heating_value = sorted(lower_heating_value)
 """Supported ``lower_heating_value`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.lower_heating_value, 'lower_heating_value')
 
 .. csv-table::
    :file: source/api/frused/spellings/lower_heating_value.csv
@@ -2205,14 +1500,6 @@ for string in variation_base['power_loss_index']:
 power_loss_index = sorted(power_loss_index)
 """Supported ``power_loss_index`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.power_loss_index, 'power_loss_index')
-
 .. csv-table::
    :file: source/api/frused/spellings/power_loss_index.csv
 """
@@ -2225,14 +1512,6 @@ for string in variation_base['back_pressure']:
 back_pressure = sorted(back_pressure)
 """Supported ``back_pressure`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.back_pressure, 'back_pressure')
-
 .. csv-table::
    :file: source/api/frused/spellings/back_pressure.csv
 """
@@ -2244,14 +1523,6 @@ for string in variation_base['gain_rate']:
             gain_rate.add(variation)
 gain_rate = sorted(gain_rate)
 """Supported ``gain_rate`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.gain_rate, 'gain_rate')
 
 .. csv-table::
    :file: source/api/frused/spellings/gain_rate.csv
@@ -2266,14 +1537,6 @@ for string in variation_base['flow_costs']:
 flow_costsN = sorted(flow_costsN)
 """Supported ``flow_costsN`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.flow_costsN, 'flow_costsN', columns=6)
-
 .. csv-table::
    :file: source/api/frused/spellings/flow_costsN.csv
 """
@@ -2285,14 +1548,6 @@ for string in variation_base['inflow_costs']:
             inflow_costs.add(variation)
 inflow_costs = sorted(inflow_costs)
 """Supported ``inflow_costs`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.inflow_costs, 'inflow_costs')
 
 .. csv-table::
    :file: source/api/frused/spellings/inflow_costs.csv
@@ -2307,14 +1562,6 @@ for string in variation_base['inflow_costs']:
 inflow_costsN = sorted(inflow_costsN)
 """Supported ``inflow_costsN`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.inflow_costsN, 'inflow_costsN', columns=6)
-
 .. csv-table::
    :file: source/api/frused/spellings/inflow_costsN.csv
 """
@@ -2326,14 +1573,6 @@ for string in variation_base['outflow_costs']:
             outflow_costs.add(variation)
 outflow_costs = sorted(outflow_costs)
 """Supported ``outflow_costs`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.outflow_costs, 'outflow_costs')
 
 .. csv-table::
    :file: source/api/frused/spellings/outflow_costs.csv
@@ -2348,14 +1587,6 @@ for string in variation_base['outflow_costs']:
 outflow_costsN = sorted(outflow_costsN)
 """Supported ``outflow_costsN`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.outflow_costsN, 'outflow_costsN', columns=6)
-
 .. csv-table::
    :file: source/api/frused/spellings/outflow_costsN.csv
 """
@@ -2367,14 +1598,6 @@ for string in variation_base['emissions']:
             emissions.add(variation)
 emissions = sorted(emissions)
 """Supported ``emissions`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.emissions, 'emissions')
 
 .. csv-table::
    :file: source/api/frused/spellings/emissions.csv
@@ -2389,14 +1612,6 @@ for string in variation_base['emissions']:
 emissionsN = sorted(emissionsN)
 """Supported ``emissionsN`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.emissionsN, 'emissionsN', columns=6)
-
 .. csv-table::
    :file: source/api/frused/spellings/emissionsN.csv
 """
@@ -2408,14 +1623,6 @@ for string in variation_base['inflow_emissions']:
             inflow_emissions.add(variation)
 inflow_emissions = sorted(inflow_emissions)
 """Supported ``inflow_emissions`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.inflow_emissions, 'inflow_emissions', columns=12)
 
 .. csv-table::
    :file: source/api/frused/spellings/inflow_emissions.csv
@@ -2430,14 +1637,6 @@ for string in variation_base['inflow_emissions']:
 inflow_emissionsN = sorted(inflow_emissionsN)
 """Supported ``inflow_emissionsN`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.inflow_emissionsN, 'inflow_emissionsN', columns=6)
-
 .. csv-table::
    :file: source/api/frused/spellings/inflow_emissionsN.csv
 """
@@ -2449,14 +1648,6 @@ for string in variation_base['outflow_emissions']:
             outflow_emissions.add(variation)
 outflow_emissions = sorted(outflow_emissions)
 """Supported ``outflow_emissions`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.outflow_emissions, 'outflow_emissions', columns=12)
 
 .. csv-table::
    :file: source/api/frused/spellings/outflow_emissions.csv
@@ -2471,14 +1662,6 @@ for string in variation_base['outflow_emissions']:
 outflow_emissionsN = sorted(outflow_emissionsN)
 """Supported ``outflow_emissionsN`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.outflow_emissionsN, 'outflow_emissionsN', columns=6)
-
 .. csv-table::
    :file: source/api/frused/spellings/outflow_emissionsN.csv
 """
@@ -2490,14 +1673,6 @@ for string in variation_base['ideal']:
             ideal.add(variation)
 ideal = sorted(ideal)
 """Supported ``ideal`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.ideal, 'ideal')
 
 .. csv-table::
    :file: source/api/frused/spellings/ideal.csv
@@ -2511,14 +1686,6 @@ for string in variation_base['storage_capacity']:
 storage_capacity = sorted(storage_capacity)
 """Supported ``storage_capacity`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.storage_capacity, 'storage_capacity')
-
 .. csv-table::
    :file: source/api/frused/spellings/storage_capacity.csv
 """
@@ -2530,14 +1697,6 @@ for string in variation_base['installed_capacity']:
             installed_capacity.add(variation)
 installed_capacity = sorted(installed_capacity)
 """Supported ``installed_capacity`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.installed_capacity, 'installed_capacity')
 
 .. csv-table::
    :file: source/api/frused/spellings/installed_capacity.csv
@@ -2551,14 +1710,6 @@ for string in variation_base['nominal_value']:
 nominal_value = sorted(nominal_value)
 """Supported ``nominal_value`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.nominal_value, 'nominal_value')
-
 .. csv-table::
    :file: source/api/frused/spellings/nominal_value.csv
 """
@@ -2570,14 +1721,6 @@ for string in variation_base['accumulated_minimum']:
             accumulated_minimum.add(variation)
 accumulated_minimum = sorted(accumulated_minimum)
 """Supported ``accumulated_minimum`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.accumulated_minimum, 'accumulated_minimum')
 
 .. csv-table::
    :file: source/api/frused/spellings/accumulated_minimum.csv
@@ -2591,14 +1734,6 @@ for string in variation_base['accumulated_maximum']:
 accumulated_maximum = sorted(accumulated_maximum)
 """Supported ``accumulated_maximum`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.accumulated_maximum, 'accumulated_maximum')
-
 .. csv-table::
    :file: source/api/frused/spellings/accumulated_maximum.csv
 """
@@ -2610,14 +1745,6 @@ for string in variation_base['minimum']:
             minimum.add(variation)
 minimum = sorted(minimum)
 """Supported ``minimum`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.minimum, 'minimum')
 
 .. csv-table::
    :file: source/api/frused/spellings/minimum.csv
@@ -2631,14 +1758,6 @@ for string in variation_base['maximum']:
 maximum = sorted(maximum)
 """Supported ``maximum`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.maximum, 'maximum')
-
 .. csv-table::
    :file: source/api/frused/spellings/maximum.csv
 """
@@ -2650,14 +1769,6 @@ for string in variation_base['positive_gradient']:
             positive_gradient.add(variation)
 positive_gradient = sorted(positive_gradient)
 """Supported ``positive_gradient`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.positive_gradient, 'positive_gradient')
 
 .. csv-table::
    :file: source/api/frused/spellings/positive_gradient.csv
@@ -2671,15 +1782,6 @@ for string in variation_base['input_positive_gradient']:
 input_positive_gradient = sorted(input_positive_gradient)
 """Supported ``input_positive_gradient`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.input_positive_gradient,
-               'input_positive_gradient', columns=10)
-
 .. csv-table::
    :file: source/api/frused/spellings/input_positive_gradient.csv
 """
@@ -2691,15 +1793,6 @@ for string in variation_base['output_positive_gradient']:
             output_positive_gradient.add(variation)
 output_positive_gradient = sorted(output_positive_gradient)
 """Supported ``output_positive_gradient`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.output_positive_gradient,
-               'output_positive_gradient', columns=10)
 
 .. csv-table::
    :file: source/api/frused/spellings/output_positive_gradient.csv
@@ -2713,14 +1806,6 @@ for string in variation_base['positive_gradient_costs']:
 positive_gradient_costs = sorted(positive_gradient_costs)
 """Supported ``positive_gradient_costs`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.positive_gradient_costs, 'positive_gradient_costs')
-
 .. csv-table::
    :file: source/api/frused/spellings/positive_gradient_costs.csv
 """
@@ -2732,14 +1817,6 @@ for string in variation_base['negative_gradient']:
             negative_gradient.add(variation)
 negative_gradient = sorted(negative_gradient)
 """Supported ``negative_gradient`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.negative_gradient, 'negative_gradient')
 
 .. csv-table::
    :file: source/api/frused/spellings/negative_gradient.csv
@@ -2753,14 +1830,6 @@ for string in variation_base['input_negative_gradient']:
 input_negative_gradient = sorted(input_negative_gradient)
 """Supported ``input_negative_gradient`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.input_negative_gradient, 'input_negative_gradient')
-
 .. csv-table::
    :file: source/api/frused/spellings/input_negative_gradient.csv
 """
@@ -2773,14 +1842,6 @@ for string in variation_base['output_negative_gradient']:
 output_negative_gradient = sorted(output_negative_gradient)
 """Supported ``output_negative_gradient`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.output_negative_gradient, 'output_negative_gradient')
-
 .. csv-table::
    :file: source/api/frused/spellings/output_negative_gradient.csv
 """
@@ -2792,14 +1853,6 @@ for string in variation_base['negative_gradient_costs']:
             negative_gradient_costs.add(variation)
 negative_gradient_costs = sorted(negative_gradient_costs)
 """Supported ``negative_gradient_costs`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.negative_gradient_costs, 'negative_gradient_costs')
 
 .. csv-table::
    :file: source/api/frused/spellings/negative_gradient_costs.csv
@@ -2815,14 +1868,6 @@ for string in variation_base['bus']:
 bus = sorted(bus)
 """Supported ``bus`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.bus, 'bus')
-
 .. csv-table::
    :file: source/api/frused/spellings/bus.csv
 """
@@ -2834,14 +1879,6 @@ for string in variation_base['sink']:
             sink.add(variation)
 sink = sorted(sink)
 """Supported ``sink`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.sink, 'sink')
 
 .. csv-table::
    :file: source/api/frused/spellings/sink.csv
@@ -2855,14 +1892,6 @@ for string in variation_base['source']:
 source = sorted(source)
 """Supported ``source`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.source, 'source')
-
 .. csv-table::
    :file: source/api/frused/spellings/source.csv
 """
@@ -2874,14 +1903,6 @@ for string in variation_base['storage']:
             storage.add(variation)
 storage = sorted(storage)
 """Supported ``storage`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.storage, 'storage')
 
 .. csv-table::
    :file: source/api/frused/spellings/storage.csv
@@ -2895,14 +1916,6 @@ for string in variation_base['transformer']:
 transformer = sorted(transformer)
 """Supported ``transformer`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.transformer, 'transformer')
-
 .. csv-table::
    :file: source/api/frused/spellings/transformer.csv
 """
@@ -2914,14 +1927,6 @@ for string in variation_base['connector']:
             connector.add(variation)
 connector = sorted(connector)
 """Supported ``connector`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.connector, 'connector')
 
 .. csv-table::
    :file: source/api/frused/spellings/connector.csv
@@ -2936,14 +1941,6 @@ for string in variation_base['commodity']:
 commodity = sorted(commodity)
 """Supported ``commodity`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.commodity, 'commodity')
-
 .. csv-table::
    :file: source/api/frused/spellings/commodity.csv
 """
@@ -2955,14 +1952,6 @@ for string in variation_base['hardcoal']:
             hardcoal.add(variation)
 hardcoal = sorted(hardcoal)
 """Supported ``hardcoal`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.hardcoal, 'hardcoal')
 
 .. csv-table::
    :file: source/api/frused/spellings/hardcoal.csv
@@ -2976,14 +1965,6 @@ for string in variation_base['lignite']:
 lignite = sorted(lignite)
 """Supported ``lignite`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.lignite, 'lignite')
-
 .. csv-table::
    :file: source/api/frused/spellings/lignite.csv
 """
@@ -2995,14 +1976,6 @@ for string in variation_base['gas']:
             gas.add(variation)
 gas = sorted(gas)
 """Supported ``gas`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.gas, 'gas')
 
 .. csv-table::
    :file: source/api/frused/spellings/gas.csv
@@ -3016,14 +1989,6 @@ for string in ['nuclear', 'atomic', 'uranium', ]:
 nuclear = sorted(nuclear)
 """Supported ``nuclear`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.nuclear, 'nuclear')
-
 .. csv-table::
    :file: source/api/frused/spellings/nuclear.csv
 """
@@ -3035,14 +2000,6 @@ for string in variation_base['oil']:
             oil.add(variation)
 oil = sorted(oil)
 """Supported ``oil`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.oil, 'oil')
 
 .. csv-table::
    :file: source/api/frused/spellings/oil.csv
@@ -3056,14 +2013,6 @@ for string in variation_base['solar']:
 solar = sorted(solar)
 """Supported ``solar`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.solar, 'solar')
-
 .. csv-table::
    :file: source/api/frused/spellings/solar.csv
 """
@@ -3075,14 +2024,6 @@ for string in variation_base['wind']:
             wind.add(variation)
 wind = sorted(wind)
 """Supported ``wind`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.wind, 'wind')
 
 .. csv-table::
    :file: source/api/frused/spellings/wind.csv
@@ -3096,14 +2037,6 @@ for string in variation_base['water']:
 water = sorted(water)
 """Supported ``water`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.water, 'water')
-
 .. csv-table::
    :file: source/api/frused/spellings/water.csv
 """
@@ -3115,14 +2048,6 @@ for string in variation_base['hot_water']:
             hot_water.add(variation)
 hot_water = sorted(hot_water)
 """Supported ``hot_water`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.hot_water, 'hot_water')
 
 .. csv-table::
    :file: source/api/frused/spellings/hot_water.csv
@@ -3136,14 +2061,6 @@ for string in variation_base['steam']:
 steam = sorted(steam)
 """Supported ``steam`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.steam, 'steam')
-
 .. csv-table::
    :file: source/api/frused/spellings/steam.csv
 """
@@ -3156,14 +2073,6 @@ for string in variation_base['biomass']:
 biomass = sorted(biomass)
 """Supported ``biomass`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.biomass, 'biomass')
-
 .. csv-table::
    :file: source/api/frused/spellings/biomass.csv
 """
@@ -3175,14 +2084,6 @@ for string in variation_base['electricity']:
             electricity.add(variation)
 electricity = sorted(electricity)
 """Supported ``electricity`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.electricity, 'electricity')
 
 .. csv-table::
    :file: source/api/frused/spellings/electricity.csv
@@ -3197,14 +2098,6 @@ for string in variation_base['power']:
 power = sorted(power)
 """Supported ``power`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.power, 'power')
-
 .. csv-table::
    :file: source/api/frused/spellings/power.csv
 """
@@ -3216,14 +2109,6 @@ for string in variation_base['heat']:
             heat.add(variation)
 heat = sorted(heat)
 """Supported ``heat`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.heat, 'heat')
 
 .. csv-table::
    :file: source/api/frused/spellings/heat.csv
@@ -3237,14 +2122,6 @@ for string in variation_base['mobility']:
 mobility = sorted(mobility)
 """Supported ``mobility`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.mobility, 'mobility')
-
 .. csv-table::
    :file: source/api/frused/spellings/mobility.csv
 """
@@ -3256,14 +2133,6 @@ for string in variation_base['coupled']:
             coupled.add(variation)
 coupled = sorted(coupled)
 """Supported ``coupled`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.coupled, 'coupled')
 
 .. csv-table::
    :file: source/api/frused/spellings/coupled.csv
@@ -3278,14 +2147,6 @@ for string in variation_base['renewables']:
 renewables = sorted(renewables)
 """Supported ``renewables`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.renewables, 'renewables')
-
 .. csv-table::
    :file: source/api/frused/spellings/renewables.csv
 """
@@ -3297,14 +2158,6 @@ for string in variation_base['photovoltaic']:
             photovoltaic.add(variation)
 photovoltaic = sorted(photovoltaic)
 """Supported ``photovoltaic`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.photovoltaic, 'photovoltaic')
 
 .. csv-table::
    :file: source/api/frused/spellings/photovoltaic.csv
@@ -3318,14 +2171,6 @@ for string in variation_base['solarthermal']:
 solarthermal = sorted(solarthermal)
 """Supported ``solarthermal`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.solarthermal, 'solarthermal')
-
 .. csv-table::
    :file: source/api/frused/spellings/solarthermal.csv
 """
@@ -3337,14 +2182,6 @@ for string in variation_base['onshore']:
             onshore.add(variation)
 onshore = sorted(onshore)
 """Supported ``onshore`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.onshore, 'onshore')
 
 .. csv-table::
    :file: source/api/frused/spellings/onshore.csv
@@ -3358,14 +2195,6 @@ for string in variation_base['offshore']:
 offshore = sorted(offshore)
 """Supported ``offshore`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.offshore, 'offshore')
-
 .. csv-table::
    :file: source/api/frused/spellings/offshore.csv
 """
@@ -3377,14 +2206,6 @@ for string in variation_base['hydro_electric']:
             hydro_electric.add(variation)
 hydro_electric = sorted(hydro_electric)
 """Supported ``hydro_electric`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.hydro_electric, 'hydro_electric')
 
 .. csv-table::
    :file: source/api/frused/spellings/hydro_electric.csv
@@ -3398,14 +2219,6 @@ for string in variation_base['mimo_transformer']:
 mimo_transformer = sorted(mimo_transformer)
 """Supported ``mimo_transformer`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.mimo_transformer, 'mimo_transformer')
-
 .. csv-table::
    :file: source/api/frused/spellings/mimo_transformer.csv
 """
@@ -3417,14 +2230,6 @@ for string in variation_base['sito_flex_transformer']:
             sito_flex_transformer.add(variation)
 sito_flex_transformer = sorted(sito_flex_transformer)
 """Supported ``sito_flex_transformer`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.sito_flex_transformer, 'sito_flex_transformer')
 
 .. csv-table::
    :file: source/api/frused/spellings/sito_flex_transformer.csv
@@ -3438,14 +2243,6 @@ for string in variation_base['generic_chp']:
 generic_chp = sorted(generic_chp)
 """Supported ``generic_chp`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.generic_chp, 'generic_chp')
-
 .. csv-table::
    :file: source/api/frused/spellings/generic_chp.csv
 """
@@ -3457,14 +2254,6 @@ for string in variation_base['siso_nonlinear_transformer']:
             siso_nonlinear_transformer.add(variation)
 siso_nonlinear_transformer = sorted(siso_nonlinear_transformer)
 """Supported ``siso_nonlinear_transformer`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.siso_nonlinear_transformer, 'siso_nonlinear_transformer')
 
 .. csv-table::
    :file: source/api/frused/spellings/siso_nonlinear_transformer.csv
@@ -3478,14 +2267,6 @@ for string in variation_base['combined_heat_power']:
 combined_heat_power = sorted(combined_heat_power)
 """Supported ``combined_heat_power`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.combined_heat_power, 'combined_heat_power')
-
 .. csv-table::
    :file: source/api/frused/spellings/combined_heat_power.csv
 """
@@ -3497,14 +2278,6 @@ for string in variation_base['power_plant']:
             power_plant.add(variation)
 power_plant = sorted(power_plant)
 """Supported ``power_plant`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.power_plant, 'power_plant')
 
 .. csv-table::
    :file: source/api/frused/spellings/power_plant.csv
@@ -3518,14 +2291,6 @@ for string in variation_base['heat_plant']:
 heat_plant = sorted(heat_plant)
 """Supported ``heat_plant`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.heat_plant, 'heat_plant')
-
 .. csv-table::
    :file: source/api/frused/spellings/heat_plant.csv
 """
@@ -3537,14 +2302,6 @@ for string in variation_base['electrical_line']:
             electrical_line.add(variation)
 electrical_line = sorted(electrical_line)
 """Supported ``electrical_line`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.electrical_line, 'electrical_line')
 
 .. csv-table::
    :file: source/api/frused/spellings/electrical_line.csv
@@ -3558,14 +2315,6 @@ for string in variation_base['gas_station']:
 gas_station = sorted(gas_station)
 """Supported ``gas_station`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.gas_station, 'gas_station')
-
 .. csv-table::
    :file: source/api/frused/spellings/gas_station.csv
 """
@@ -3577,14 +2326,6 @@ for string in variation_base['gas_pipeline']:
             gas_pipeline.add(variation)
 gas_pipeline = sorted(gas_pipeline)
 """Supported ``gas_pipeline`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.gas_pipeline, 'gas_pipeline')
 
 .. csv-table::
    :file: source/api/frused/spellings/gas_pipeline.csv
@@ -3598,14 +2339,6 @@ for string in variation_base['gas_delivery']:
 gas_delivery = sorted(gas_delivery)
 """Supported ``gas_delivery`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.gas_delivery, 'gas_delivery')
-
 .. csv-table::
    :file: source/api/frused/spellings/gas_delivery.csv
 """
@@ -3617,14 +2350,6 @@ for string in variation_base['oil_pipeline']:
             oil_pipeline.add(variation)
 oil_pipeline = sorted(oil_pipeline)
 """Supported ``oil_pipeline`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.oil_pipeline, 'oil_pipeline')
 
 .. csv-table::
    :file: source/api/frused/spellings/oil_pipeline.csv
@@ -3638,14 +2363,6 @@ for string in variation_base['oil_delivery']:
 oil_delivery = sorted(oil_delivery)
 """Supported ``oil_delivery`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.oil_delivery, 'oil_delivery')
-
 .. csv-table::
    :file: source/api/frused/spellings/oil_delivery.csv
 """
@@ -3657,14 +2374,6 @@ for string in variation_base['generic_storage']:
             generic_storage.add(variation)
 generic_storage = sorted(generic_storage)
 """Supported ``generic_storage`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.generic_storage, 'generic_storage')
 
 .. csv-table::
    :file: source/api/frused/spellings/generic_storage.csv
@@ -3678,14 +2387,6 @@ for string in variation_base['hydro_electrical_storage']:
 hydro_electrical_storage = sorted(hydro_electrical_storage)
 """Supported ``hydro_electrical_storage`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.hydro_electrical_storage, 'hydro_electrical_storage')
-
 .. csv-table::
    :file: source/api/frused/spellings/hydro_electrical_storage.csv
 """
@@ -3697,14 +2398,6 @@ for string in variation_base['electro_chemical_storage']:
             electro_chemical_storage.add(variation)
 electro_chemical_storage = sorted(electro_chemical_storage)
 """Supported ``electro_chemical_storage`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.electro_chemical_storage, 'electro_chemical_storage')
 
 .. csv-table::
    :file: source/api/frused/spellings/electro_chemical_storage.csv
@@ -3718,14 +2411,6 @@ for string in variation_base['electro_mechanical_storage']:
 electro_mechanical_storage = sorted(electro_mechanical_storage)
 """Supported ``electro_mechanical_storage`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.electro_mechanical_storage, 'electro_mechanical_storage')
-
 .. csv-table::
    :file: source/api/frused/spellings/electro_mechanical_storage.csv
 """
@@ -3737,14 +2422,6 @@ for string in variation_base['thermal_energy_storage']:
             thermal_energy_storage.add(variation)
 thermal_energy_storage = sorted(thermal_energy_storage)
 """Supported ``thermal_energy_storage`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.thermal_energy_storage, 'thermal_energy_storage')
 
 .. csv-table::
    :file: source/api/frused/spellings/thermal_energy_storage.csv
@@ -3758,14 +2435,6 @@ for string in variation_base['power2x']:
 power2x = sorted(power2x)
 """Supported ``power2x`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.power2x, 'power2x')
-
 .. csv-table::
    :file: source/api/frused/spellings/power2x.csv
 """
@@ -3777,14 +2446,6 @@ for string in variation_base['power2heat']:
             power2heat.add(variation)
 power2heat = sorted(power2heat)
 """Supported ``power2heat`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.power2heat, 'power2heat')
 
 .. csv-table::
    :file: source/api/frused/spellings/power2heat.csv
@@ -3798,14 +2459,6 @@ for string in variation_base['imported']:
 imported = sorted(imported)
 """Supported ``imported`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.imported, 'imported')
-
 .. csv-table::
    :file: source/api/frused/spellings/imported.csv
 """
@@ -3817,14 +2470,6 @@ for string in variation_base['backup']:
             backup.add(variation)
 backup = sorted(backup)
 """Supported ``backup`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.backup, 'backup')
 
 .. csv-table::
    :file: source/api/frused/spellings/backup.csv
@@ -3838,14 +2483,6 @@ for string in variation_base['demand']:
 demand = sorted(demand)
 """Supported ``demand`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.demand, 'demand')
-
 .. csv-table::
    :file: source/api/frused/spellings/demand.csv
 """
@@ -3858,14 +2495,6 @@ for string in variation_base['export']:
 export = sorted(export)
 """Supported ``export`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.export, 'export')
-
 .. csv-table::
    :file: source/api/frused/spellings/export.csv
 """
@@ -3877,14 +2506,6 @@ for string in variation_base['excess']:
             excess.add(variation)
 excess = sorted(excess)
 """Supported ``excess`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.excess, 'excess')
 
 .. csv-table::
    :file: source/api/frused/spellings/excess.csv
@@ -3899,14 +2520,6 @@ for string in variation_base['already_installed']:
 already_installed = sorted(already_installed)
 """Supported ``already_installed`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.already_installed, 'already_installed')
-
 .. csv-table::
    :file: source/api/frused/spellings/already_installed.csv
 """
@@ -3918,14 +2531,6 @@ for string in variation_base['milp']:
             milp.add(variation)
 milp = sorted(milp)
 """Supported ``milp`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.milp, 'milp')
 
 .. csv-table::
    :file: source/api/frused/spellings/milp.csv
@@ -3939,14 +2544,6 @@ for string in variation_base['startup_costs']:
 startup_costs = sorted(startup_costs)
 """Supported ``startup_costs`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.startup_costs, 'startup_costs')
-
 .. csv-table::
    :file: source/api/frused/spellings/startup_costs.csv
 """
@@ -3958,14 +2555,6 @@ for string in variation_base['shutdown_costs']:
             shutdown_costs.add(variation)
 shutdown_costs = sorted(shutdown_costs)
 """Supported ``shutdown_costs`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.shutdown_costs, 'shutdown_costs')
 
 .. csv-table::
    :file: source/api/frused/spellings/shutdown_costs.csv
@@ -3979,15 +2568,7 @@ for string in variation_base['minimum_uptime']:
 minimum_uptime = sorted(minimum_uptime)
 """Supported ``minimum_uptime`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.minimum_uptime, 'minimum_uptime')
-
-.. csv-table::
+. csv-table::
    :file: source/api/frused/spellings/minimum_uptime.csv
 """
 
@@ -3998,14 +2579,6 @@ for string in variation_base['minimum_downtime']:
             minimum_downtime.add(variation)
 minimum_downtime = sorted(minimum_downtime)
 """Supported ``minimum_downtime`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.minimum_downtime, 'minimum_downtime')
 
 .. csv-table::
    :file: source/api/frused/spellings/minimum_downtime.csv
@@ -4019,14 +2592,6 @@ for string in variation_base['initial_status']:
 initial_status = sorted(initial_status)
 """Supported ``initial_status`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.initial_status, 'initial_status')
-
 .. csv-table::
    :file: source/api/frused/spellings/initial_status.csv
 """
@@ -4038,14 +2603,6 @@ for string in variation_base['initial_soc']:
             initial_soc.add(variation)
 initial_soc = sorted(initial_soc)
 """Supported ``initial_soc`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.initial_soc, 'initial_soc', columns=10)
 
 .. csv-table::
    :file: source/api/frused/spellings/initial_soc.csv
@@ -4059,14 +2616,6 @@ for string in variation_base['exogenously_set']:
 exogenously_set = sorted(exogenously_set)
 """Supported ``exogenously_set`` spellings
 
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.exogenously_set, 'exogenously_set')
-
 .. csv-table::
    :file: source/api/frused/spellings/exogenously_set.csv
 """
@@ -4078,14 +2627,6 @@ for string in variation_base['exogenously_set_value']:
             exogenously_set_value.add(variation)
 exogenously_set_value = sorted(exogenously_set_value)
 """Supported ``exogenously_set_value`` spellings
-
-.. execute_code::
-    :hide_code:
-    :hide_headers:
-    :hide_output:
-
-    import tessif.frused.spellings as sps
-    sps.to_csv(sps.exogenously_set_value, 'exogenously_set_value')
 
 .. csv-table::
    :file: source/api/frused/spellings/exogenously_set_value.csv
