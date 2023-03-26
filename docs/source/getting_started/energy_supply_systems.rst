@@ -1,8 +1,8 @@
 .. _Energy_Supply_Systems:
 
-********************************
-Energy Supply Systems Simulation
-********************************
+*******************************
+Modelling Energy Supply Systems
+*******************************
 
 .. note::
    This section was copied from the :ref:`Introduction`, to make it easy to address the question
@@ -17,7 +17,7 @@ In the context of tessif, an energy supply system is seen as a `graph <https://e
            
    A 6-Node, 7-Edge Graph; Taken from `Wikipedia <https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)>`__   
 
-This general approach implies, that tessif is suited best for modelling medium to large scale energy systems on a flow based description. Which is also what tessif's currently underlying :ref:`simulation models <SupportedModels>` are suited best for. Possible applications would range from optimizing a singular house hold's energy system up to something like the integrated European network.
+This general approach implies, that tessif is suited best for modelling medium to large scale energy systems on a flow based description. Which is also what tessif's currently underlying :ref:`Energy Supply System Modelling and Optimisation Software Tools (ESSMOS tools) <SupportedModels>` are suited best for. Possible applications would range from optimizing a singular house hold's energy system up to something like the integrated European network.
 
 .. figure:: ../usage/images/hhes_graph.png
    :align: center
@@ -26,7 +26,7 @@ This general approach implies, that tessif is suited best for modelling medium t
            
    The visualized energy system, taken from the :ref:`Hamburg Energy System Example <AutoCompare_HH>`
    
-On the most (sensible) level of detail, singular participants are represented by an individual node, like a power plant, a solar panel, a battery electric vehicle, etc. On the other end of scale it is also possible aggregating multiple individual participants into a single component, like for example the aggrgation of all german hard coal fired power plants into a single component (node). Which is a common technique in energy supply system simulations.
+On the most (sensible) level of detail, singular participants are represented by an individual node, like a power plant, a solar panel, a battery electric vehicle, etc. On the other end of scale it is also possible aggregating multiple individual participants into a single component, like for example the aggrgation of all german hard coal fired power plants into a single component (node). Which is a common technique in energy supply system modelling.
 
 Although possible, it does not really make sense, to model complex electromechanical systems, like i.e. a micro-chp. Because the currently :ref:`SupportedModels` (which are actually conducting the optimization) are not made for this.
 
@@ -36,6 +36,6 @@ Optimization in this context usually means trying to anwer one or both of the fo
 
   2. Which of the available or new components have to be expanded to reach certain secondary objectives like an emission goal, whil minimizing the costs to do so, as well as respecting given component and transportation constraints, while still meeting all the energy demands? These kind of problems can described as `expansion planning <https://en.wikipedia.org/wiki/Generation_expansion_planning>`_ or ``expansion problem``.
 
-For additional information on typical use cases of energy supply system simulations see the guide on :ref:`Visualization`. The use cases are discussed there, showing the python code (using tessif) with which they were created as well as how their results can be visualized (again using tessif). A brief exaplanation on how and why those topics are of interest preceeds each of the use cases.
+For additional information on typical use cases of energy supply system optimisations see the guide on :ref:`Visualization`. The use cases are discussed there, showing the python code (using tessif) with which they were created as well as how their results can be visualized (again using tessif). A brief exaplanation on how and why those topics are of interest preceeds each of the use cases.
 
-As mentioned in :ref:`the section describing tessif's purpose <Introduction_Purpose>`, tessif itself actually focuses on creating a framework (much like a common ground), rather than on energy supply system simulations themselves. It's main focus lies on data in- and output unifications as well as data transformation, to provide a unifrom, powerfull and engineer's friendly interface to conduct energy supply system simulation and :ref:`compare <Comparison>` popular free open source models addressing this task. For more details, on data handling, please refer to the user guide (see navigation bar to the left).
+As mentioned in :ref:`the section describing tessif's purpose <Introduction_Purpose>`, tessif itself actually focuses on creating a framework (much like a common ground), rather than on energy supply system optimisation model. It's main focus lies on data in- and output unifications as well as data transformation, to provide a unifrom, powerfull and engineer's friendly interface to conduct energy supply system simulation and :ref:`compare <Comparison>` popular free open source models addressing this task. For more details, on data handling, please refer to the user guide (see navigation bar to the left).

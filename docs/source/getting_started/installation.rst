@@ -4,7 +4,7 @@
 Installation
 ************
 
-Following Sections provide overview on how to install Tessif.
+Following Sections provide overview on how to install Tessif-phd.
 
 .. contents:: Contents
    :backlinks: top
@@ -24,17 +24,11 @@ Linux
       mkdir /path/to/dir
       cd /path/to/dir
 
-3. Go to the `tuhh's gitlab <https://collaborating.tuhh.de/users/sign_in>`_, sign in and generate
-   a `ssh key <https://collaborating.tuhh.de/help/ssh/README>`_ for your account.
-
-   .. note::
-      This step will be unneccesary as soon as tessif becomes a public repository
-
-4. Clone the git repository for **tessif** 
+3. Clone the git repository for **tessif-phd** 
 
    .. code:: shell
 
-      git clone https://collaborating.tuhh.de/ietma/tessif/
+      git clone https://collaborating.tuhh.de/ietma/tessif-phd/
     
 5. Create a new virtual environment and activate it:
 
@@ -50,15 +44,12 @@ Linux
       pip install -U pip setuptools wheel
 
 
-7. Install **tessif** and it's requirements:
+7. Install **tessif-phd** and it's requirements:
 
    .. code:: shell
 
-      pip install tessif/
+      pip install tessif-phd/
 
-   .. note::
-      During the process you will be asked to enter your private ssh-key password  up to 3 times
-      if you've chosen to use one.
 
 8. After installation is done you can check if everything went according to plan by executing
    tessif's tests. Do so by entering:
@@ -73,10 +64,6 @@ Windows
 
 Windows installation tutorial goes here
 
-MacOS
-=====
-
-Mac installation tutorial goes here
 
 Development
 ***********
@@ -92,45 +79,34 @@ Linux
       mkdir /path/to/dir
       cd /path/to/dir
 
-3. Go to the `tuhh's gitlab <https://collaborating.tuhh.de/users/sign_in>`_, sign in and generate
-   a `ssh key <https://collaborating.tuhh.de/help/ssh/README>`_ for your account.
-
-   .. note::
-      This step will be unneccesary as soon as tessif becomes a public repository
-
-4. Clone the git repository for **tessif** 
+3. Clone the git repository for **tessif-phd** 
 
    .. code:: shell
 
-      git clone https://collaborating.tuhh.de/ietma/tessif/
+      git clone https://collaborating.tuhh.de/ietma/tessif-phd/
     
-5. Create a new virtual environment and activate it:
+4. Create a new virtual environment and activate it:
 
    .. code:: shell
     
       python3 -m venv your_env_name
       source your_env_name/bin/activate
     
-6. Make sure **pip**, **setuptools** and **wheel** are up to date:
+5. Make sure **pip**, **setuptools** and **wheel** are up to date:
 
    .. code:: shell
 
       pip install -U pip setuptools wheel
 
 
-7. Install **tessif** and it's requirements:
+6. Install **tessif-phd** and it's requirements:
 
    .. code:: shell
           
-      pip install -e tessif/[dev]
+      pip install -e tessif-phd/[dev]
 
-   .. note::
-      During the process you will be asked to enter your private ssh-key password  up to 4 times
-      if you've chosen to use one.
-
-7b. Currently there is a minor version conflict, which will get solved in the
-future. After installation, update dash and ignore the warning, since tessif is
-not plotting via calliope:
+7. Currently there is a minor version conflict. After installation, update dash
+   and ignore the error, since tessif-phd is not plotting via calliope:
 
    .. code:: shell
 
@@ -147,7 +123,7 @@ not plotting via calliope:
 
    .. code:: shell
 
-      cd tessif/docs/
+      cd tessif-phd/docs/
       make html
 
    If the build was succesfull you can browse the documentation using your favorite browser
@@ -155,7 +131,7 @@ not plotting via calliope:
 
    .. code:: shell
 
-      tessif/docs/build/html/index.html
+      tessif-phd/docs/build/html/index.html
 
 
    .. note::
@@ -236,30 +212,11 @@ Windows
       mkdir \path\to\dir
       cd \path\to\dir
 
-3. Enable SSH access to gitlab:
-
-      .. note::
-      
-         This step will be unneccesary as soon as tessif becomes a public repository
-
-   a) Visit the `tuhh's gitlab <https://collaborating.tuhh.de/users/sign_in>`_
-   b) Sign in and generate a
-      `ssh key <https://collaborating.tuhh.de/help/ssh/README>`_ for your account.
-      (See a more `step-by-step
-      <https://danielhuesken.de/git-fur-windows-installieren-und-ssh-keys-nutzen/>`_
-      explanation in german)
-   c) Add gitlab to the known hosts:
-
-      .. code:: powershell
-
-         ssh -T git@collaborating.tuhh.de
-   
-
-4. Clone the git repository for **tessif** 
+3. Clone the git repository for **tessif-phd** 
 
    .. code:: shell
 
-      git clone https://collaborating.tuhh.de/ietma/tessif/
+      git clone https://collaborating.tuhh.de/ietma/tessif-phd/
     
 5. Create a new virtual environment and activate it:
 
@@ -272,7 +229,7 @@ Windows
          
    b) If you have multiple versions of python installed
       
-      (where 3.x would mean 3.8 at this point in time (2020-11-06)):
+      (where 3.x would mean 3.8 at this point in time (2023-03-)):
       
       .. code:: powershell
     
@@ -308,44 +265,40 @@ Windows
          pip install path\to\whl such as 'Downloads\pygraphviz‑1.6‑cp38‑cp38‑win_amd64.whl'
 
 
-9. Install **tessif** and it's requirements:
+9. Install **tessif-phd** and it's requirements:
 
-   a) Change into the tessif top folder (somhow on windows this is necessary)
+   a) Change into the tessif-phd top folder (somhow on windows this is necessary)
 
       .. code:: powershell
           
-         cd tessif
+         cd tessif-phd
 
-   b) Install tessif in development mode:
+   b) Install tessif-phd in development mode:
      
       .. code:: powershell
           
          pip install -e ./[dev]
 
-      .. note::
-         During the process you will be asked to enter your private ssh-key password  up to 4 times
-         if you've chosen to use one.
 
-   c) Currently there is a minor version conflict, which will get solved in the
-      future. After installation, update dash and ignore the warning, since
-      tessif is not plotting via calliope:
+   c) Currently there is a minor version conflict.  After installation, update
+      dash and ignore the warning, since tessif is not plotting via Calliope:
 
       .. code:: shell
 
 	 pip install -U dash
 
 10. After installation is done you can check if everything went according to plan by executing
-    tessif's tests. Do so by entering (assuming you're still outside of where you cloned tessif to):
+    tessif's tests. Do so by entering (assuming you're still inside of where you cloned tessif-phd to):
 
    .. code:: powershell
 
-      python tessif/tests/nose_testing.py
+      python tests/nose_testing.py
 
 11. (Optional) Build your own (html) documentation using Sphinx:
 
    .. code:: powershell
 
-      cd tessif/docs/
+      cd tessif-phd/docs/
       .\make html
 
    If the build was succesfull you can browse the documentation using your favorite browser
@@ -353,15 +306,9 @@ Windows
 
    .. code:: powershell
 
-      tessif/docs/build/html/index.html
+      tessif-phd/docs/build/html/index.html
 
 
    .. note::
       Sphinx supports a variety of different `builders
-      <https://www.sphinx-doc.org/en/master/man/sphinx-build.html>`_ such as Latex or ePub.      
-
-MacOS
-=====
-
-Mac installation tutorial goes here
-
+      <https://www.sphinx-doc.org/en/master/man/sphinx-build.html>`_ such as Latex or ePub.

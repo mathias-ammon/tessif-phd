@@ -4,7 +4,7 @@
 Introduction
 ************
 
-Tessif can be comprehended much like a toolbox designed for handling :ref:`energy system simulation <Introduction_FirstSteps_EnergySupplySystemsSimulation>` tasks. Each tool (corresponding to tessif's :ref:`toplevel submodules and subpackages <api>`) serves a specific task. While these tasks may vary a lot between tools (e.g. like they do for a saw and a pencil) it still makes sense to understand both: how each tool works on its own and to how they synergize with each other. Reusing the toolbox example this transtales to understanding how different saws and pencils work on their own, but also how to draw lines on workpieces you want to cut to length.
+Tessif can be comprehended much like a toolbox designed for handling :ref:`energy system modelling <Introduction_FirstSteps_EnergySupplySystemsSimulation>` tasks. Each tool (corresponding to tessif's :ref:`toplevel submodules and subpackages <api>`) serves a specific task. While these tasks may vary a lot between tools (e.g. like they do for a saw and a pencil) it still makes sense to understand both: how each tool works on its own and to how they synergize with each other. Reusing the toolbox example this transtales to understanding how different saws and pencils work on their own, but also how to draw lines on workpieces you want to cut to length.
 
 
 Following sections give a detailed guide line on how to approach tessif as a project.
@@ -16,7 +16,7 @@ Following sections give a detailed guide line on how to approach tessif as a pro
 
 Goals
 *****
-Tessif aims to be an easy to use energy system simulations handling tool. It tries to present a consice and uniform interface to numerous free open source energy system simulation tools. This serves two main purposes:
+Tessif aims to be an easy to use energy supply system modelling tool. It tries to present a consice and uniform interface to various free and  open-source energy supply system modelling tools. This serves two main purposes:
 
   1. Lowering the threshold for engineers to use free and open source energy system simulation tools, by using multiple tools through one interface.
 
@@ -27,19 +27,19 @@ Tessif aims to be an easy to use energy system simulations handling tool. It tri
 
 Purpose
 *******
-There are numerous free open source energy supply system simulation frameworks available today that are written in python:
+There are numerous free and open-source energy supply system modelling frameworks available today that are written in python:
 
    - pypsa (`homepage <https://pypsa.org/>`_ , `code_repository <https://github.com/PyPSA/PyPSA>`_, `paper <http://openresearchsoftware.metajnl.com/articles/10.5334/jors.188/galley/289/download/>`_)
    - oemof (`homepage <https://oemof.org/>`__, `code_repositories <https://github.com/oemof>`_, `paper <https://www.preprints.org/manuscript/201706.0093/v2/download>`__)
    - | urbs (`reference page <https://wiki.openmod-initiative.org/wiki/URBS>`_, `code_repository <https://github.com/tum-ens/urbs>`__, `paper <http://dx.doi.org/10.1016/j.esr.2020.100486>`__)     
      | rivus (`code_repository <https://github.com/tum-ens/rivus>`__, `presentation <http://mediatum.ub.tum.de/doc/1296524/6085207224.pdf>`_)
 
-These modeling frameworks allow the virtual simulation and modeling of energy supply systems. Each framework is or was under development by different organisations or groups of people. During the major concept phase of these tools there was little to no coordination between developers. Leading to various potentially redundant functionalities as well as data parsing overhead when trying to solve the same problem using different tools. To counteract this the `open_MODEX <https://reiner-lemoine-institut.de/open_modex/>`_ project was initiated with the goal to find and utilize potential `synergies <https://www.isea.rwth-aachen.de/cms/ISEA/Die-Organisationseinheit/Neuigkeiten/~xexj/open-MODEX-Open-Source-Forschungsprojek/>`_.
+These modeling frameworks allow virtually modelling energy supply systems. Each framework is or was under development by different organisations or groups of people. During the major concept phase of these tools there was little to no coordination between developers. Leading to various potentially redundant functionalities as well as data parsing overhead when trying to solve the same problem using different tools. To counteract this the `open_MODEX <https://reiner-lemoine-institut.de/open_modex/>`_ project was initiated with the goal to find and utilize potential `synergies <https://www.isea.rwth-aachen.de/cms/ISEA/Die-Organisationseinheit/Neuigkeiten/~xexj/open-MODEX-Open-Source-Forschungsprojek/>`_.
 While this will help researchers to find out which tool or even which set of tools might be best for which task it somewhat fails to address the core issues when trying to use more than just one of these tools:
 
    1. No common data input:
 
-      Each framework uses its own model(s) expecting specifically tailored datasets. This of course stems from the fact that each model specialises in different aspects of energy supply system simulation.
+      Each framework uses its own energy system model(s) expecting specifically tailored datasets. This of course stems from the fact that each software tool specialises in different aspects of energy supply system modelling.
 
    2. No common data output:
 
@@ -51,7 +51,14 @@ While this will help researchers to find out which tool or even which set of too
 
 Making the comparision between models so difficult an entire research project (`open_MODEX <https://reiner-lemoine-institut.de/open_modex/>`_) had to be deployed.
 
-Tessif tries to help the free open source energy supply system simulation community by addressing the beforenamed issues in order to advance open research and thus accumulating easy accessible knowledge for ultimately managing the "Energiewende" succesfully.
+Tessif tries to help the free open source energy supply system modelling community by addressing the beforenamed issues in order to advance open research and thus accumulating easy accessible knowledge for ultimately managing the "Energiewende" succesfully.
+
+.. note::
+
+   Currently Tessif only supports energy supply system modelling and
+   **optimisation** software tols (ESSMOS tools), written in python.
+   Conceptually, however, Tessif can be used for any energy supply
+   system modeling tool.
 
 .. _Introduction_Questions:
 
@@ -59,9 +66,9 @@ Question Tessif Helps to Answer
 *******************************
 As laid out in :ref:`Introduction_Goals` and :ref:`Models_Tessif_Purpose`
 :mod:`tessif` aims to provide a simple yet powerful interface for analysing
-energy supply systems using different models.
+energy supply system models using different software tools.
 
-Hence one of Tessif's primary use cases is to compare energy system simulation models
+Hence one of Tessif's primary use cases is to compare energy supply system modelling software
 on a given energy system to answer two major questions:
 
 1. Given an expansion and/or commitment problem, what could be a range of possible solutions using different approaches and underlying models?
@@ -118,8 +125,8 @@ As well as following support structures:
     - 5. :mod:`Examples <tessif.examples>` - An example hub to quickly tryout,
       debug and reuse simulation cases.
 
-    - 6. :mod:`Model <tessif.model>` - It's own data structure and solver
-      interface for quickly transforming data between energy system simulation tools
+    - 6. :mod:`Model <tessif.model>` - It's own data structure 
+      for quickly transforming data between energy system modelling tools
       as well as providing an interface engineered for engineers.
 
     - 7. :mod:`Frused <tesssif.frused>` - All of tessif's presets as well as
@@ -132,10 +139,9 @@ Following sections provide a recommended approach to familiarize oneself with te
 
 .. _Introduction_FirstSteps_EnergySupplySystemsSimulation:
 
-Energy Supply Systems Simulations
----------------------------------
-
-Understanding the topic of simulating energy supply systems is the most logical first step.
+Energy Supply Systems Optimizations
+-----------------------------------
+Understanding the topic of optimizing energy supply systems is the most logical first step.
 There are a lot of kinds of energy systems. Hence there are also many different energy system simulation tools. Those mostly vary in detail, scope and focus of application. To understand the concept of tessif it helps to understand tessif's approach on energy supply systems.
 
 .. _Introduction_FirstSteps_EnergySupplySystemsSimulation_TessifsInterpretation:
