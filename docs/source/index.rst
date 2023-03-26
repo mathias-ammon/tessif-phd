@@ -3,15 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Tessif - Transforming Energy Supply System (Modelling) Frameworks
-=================================================================
+Tessif - Transforming Energy Supply System (Modelling) Framework
+================================================================
 
 Tessif has been developed for unifying various free and open source simulation
 tools designed for modelling and analysing energy supply systems considering
 power heat and mobility.
-
-Quick Reference
----------------
 
 .. toctree::
    :maxdepth: 1

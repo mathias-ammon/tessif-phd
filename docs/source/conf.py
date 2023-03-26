@@ -26,7 +26,7 @@ sys.path.insert(0, os.path.abspath(src_path))
 
 # -- Project information -----------------------------------------------------
 
-project = 'Tessif-PHD - Transforming Energy Supply System Modell I ng Frameworks'
+project = 'Tessif-PHD - Transforming Energy Supply System Modell I ng Framework'
 copyright = '2023, Mathias Ammon'
 author = 'Mathias Ammon'
 
